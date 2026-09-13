@@ -486,6 +486,11 @@
 <script>
 // ========== КОНФИГ ==========
 const CARDS_URL = 'cards.json';
+// Направление теста и подбора.
+//   'back-to-front' — показываем back (русский перевод), пишем front (латынь)
+//   'front-to-back' — наоборот
+// Если ваша колода устроена иначе — просто поменяйте это значение.
+const TEST_DIRECTION = 'back-to-front';
 const ADD_URL   = 'add_card.php';
 const STORAGE_KEY = 'flashcards_state_v1';
 
@@ -606,7 +611,7 @@ function clearSavedState() {
 
 // ========== СЕССИЯ ==========
 function startFresh() {
-  queue = [...allCards];
+  queue = shuffle([...allCards]);   // ← всегда в разнобой
   learned = [];
   flipped = false;
   testState = null;
@@ -730,10 +735,16 @@ function renderFlashcard(c) {
 }
 
 function renderTest(c) {
-  testFront.textContent = c.front || '(пусто)';
+  const showBack = TEST_DIRECTION === 'back-to-front';
+  const questionText = showBack ? c.back : c.front;
+
+  testFront.textContent = questionText || '(пусто)';
   testInput.value = '';
   testInput.disabled = false;
   testInput.className = 'answer-input';
+  testInput.placeholder = showBack
+    ? 'Введите ответ на латыни...'
+    : 'Введите перевод...';
   testFeedback.className = 'feedback';
   testFeedback.textContent = '';
   testCheckBtn.style.display = '';
@@ -777,8 +788,10 @@ function checkTest() {
   if (!c || !testState) return;
   if (testState.checked) return;
 
+  const showBack = TEST_DIRECTION === 'back-to-front';
+  const expected = normalize(showBack ? c.front : c.back);   // что вводит юзер
+  const shown    = showBack ? c.back : c.front;              // что показали
   const user = normalize(testInput.value);
-  const expected = normalize(c.back || '');
   const correct = user !== '' && user === expected;
 
   testState.checked = true;
@@ -795,7 +808,7 @@ function checkTest() {
     testFeedback.className = 'feedback wrong show';
     testFeedback.innerHTML =
       '<strong>✗ Неверно.</strong><br>' +
-      'Правильный ответ: <strong>' + escapeHtml(c.back || '(пусто)') + '</strong>';
+      'Правильный ответ: <strong>' + escapeHtml(expected || '(пусто)') + '</strong>';
     testRepeatBtn.style.display = '';
     testKnowBtn.style.display = '';
   }
