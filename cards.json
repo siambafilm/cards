@@ -1,0 +1,197 @@
+[
+  {
+    "id": "15fdc0fe2d141aec",
+    "front": "Nomina Anatomica",
+    "back": "Анатомическая номенклотура"
+  },
+  {
+    "id": "8ede9e38c34d3708",
+    "front": "OS femoris",
+    "back": "Бедренная кость"
+  },
+  {
+    "id": "41d1d7de2ab8d126",
+    "front": "Ater",
+    "back": "Черный"
+  },
+  {
+    "id": "9d52d973f07978bc",
+    "front": "Ego",
+    "back": "Я"
+  },
+  {
+    "id": "fdecf0706e67913c",
+    "front": "Infirmus",
+    "back": "Слабый"
+  },
+  {
+    "id": "bdf1bafe07b44be3",
+    "front": "Iectio",
+    "back": "Впрыскивание, инъекция"
+  },
+  {
+    "id": "d3b80c0cd6a49f88",
+    "front": "Aqua",
+    "back": "Вода"
+  },
+  {
+    "id": "542dc01bdcc4d5d7",
+    "front": "Lingua",
+    "back": "Язык"
+  },
+  {
+    "id": "71b0162db6fdfdb2",
+    "front": "Aether",
+    "back": "Эфир"
+  },
+  {
+    "id": "9a681f876238f837",
+    "front": "Foeditus",
+    "back": "Зловонный"
+  },
+  {
+    "id": "23e717ccdbbf7779",
+    "front": "Auris",
+    "back": "Ухо"
+  },
+  {
+    "id": "d85545e675e33cbb",
+    "front": "Neuralgia",
+    "back": "Невралгия"
+  },
+  {
+    "id": "5278e5c00fab5030",
+    "front": "Cera",
+    "back": "Воск"
+  },
+  {
+    "id": "48030e9f1354f819",
+    "front": "Cor",
+    "back": "Сердце"
+  },
+  {
+    "id": "b1ab369a23384bde",
+    "front": "Cyclus",
+    "back": "Цикл"
+  },
+  {
+    "id": "c417d5d81f3e6c96",
+    "front": "Caput",
+    "back": "Голова"
+  },
+  {
+    "id": "8263e6e1873fbc49",
+    "front": "Gingiva",
+    "back": "Десна"
+  },
+  {
+    "id": "3d1f2a369e316438",
+    "front": "Gaster",
+    "back": "Желудок"
+  },
+  {
+    "id": "0f20cb70c2346295",
+    "front": "Hora",
+    "back": "Час"
+  },
+  {
+    "id": "092cea01b650ef7f",
+    "front": "Sanus",
+    "back": "Здоровый"
+  },
+  {
+    "id": "4a5f5e299cd094ed",
+    "front": "Rex",
+    "back": "Царь"
+  },
+  {
+    "id": "0173eff24f55391d",
+    "front": "Ligamentum",
+    "back": "Связка"
+  },
+  {
+    "id": "8f32697352ff4f61",
+    "front": "Chirurgus",
+    "back": "Хирург"
+  },
+  {
+    "id": "81b8811b8d381bbf",
+    "front": "Animal",
+    "back": "Животное"
+  },
+  {
+    "id": "533d97028e838c32",
+    "front": "Substantia",
+    "back": "Вещество"
+  },
+  {
+    "id": "dae26d44606098c3",
+    "front": "Mixtio",
+    "back": "Смешивание"
+  },
+  {
+    "id": "17bc10091293fdc5",
+    "front": "OS",
+    "back": "Кость"
+  },
+  {
+    "id": "b7417eda96909b93",
+    "front": "femoris",
+    "back": "Бедренная"
+  },
+  {
+    "id": "74bef384acefc78d",
+    "front": "Zygoma",
+    "back": "Скула"
+  },
+  {
+    "id": "a3b332d4506b767c",
+    "front": "rena",
+    "back": "Почка"
+  },
+  {
+    "id": "d572166907e81ec4",
+    "front": "femur",
+    "back": "Бедро"
+  },
+  {
+    "id": "f716b5979bf05250",
+    "front": "facies",
+    "back": "Поверхность"
+  },
+  {
+    "id": "86838e9cb0a3944a",
+    "front": "encephalon",
+    "back": "Головной мозг"
+  },
+  {
+    "id": "20cb635ad3d2bf0a",
+    "front": "rhaphe",
+    "back": "Шов"
+  },
+  {
+    "id": "6f25ff0605e0e690",
+    "front": "thorax",
+    "back": "Грудная клетка"
+  },
+  {
+    "id": "a183e005f060b1d9",
+    "front": "keratosis",
+    "back": "Ороговение"
+  },
+  {
+    "id": "a28e224ddd75069e",
+    "front": "ungula",
+    "back": "Копыто"
+  },
+  {
+    "id": "c8240387fe24e333",
+    "front": "suavis",
+    "back": "Приятный"
+  },
+  {
+    "id": "d2056901a814a224",
+    "front": "Suillus",
+    "back": "Свиной"
+  }
+]

@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мои карточки</title>
+<style>
+  :root {
+    --bg: #f6f7fb;
+    --card-bg: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --accent: #4255ff;
+    --accent-hover: #3140cc;
+    --green: #10b981;
+    --red: #ef4444;
+    --shadow: 0 10px 30px rgba(0,0,0,.08);
+    --radius: 18px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 48px;
+  }
+
+  header {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; }
+
+  .header-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+  .tabs {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    gap: 6px;
+    background: #e5e7eb;
+    padding: 4px;
+    border-radius: 12px;
+    margin-bottom: 18px;
+  }
+
+  .tab {
+    flex: 1;
+    padding: 10px 14px;
+    border: none;
+    background: transparent;
+    border-radius: 9px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: .95rem;
+    transition: background .15s, color .15s;
+    font-family: inherit;
+  }
+  .tab:hover:not(.active) { color: var(--text); }
+  .tab.active {
+    background: #fff;
+    color: var(--text);
+    box-shadow: 0 1px 3px rgba(0,0,0,.08);
+  }
+
+  .progress-bar {
+    width: 100%;
+    max-width: 760px;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 24px;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 99px;
+    transition: width .35s ease;
+  }
+
+  .view { display: none; width: 100%; max-width: 760px; }
+  .view.active { display: block; }
+
+  /* ---- Карточка (flashcard) ---- */
+  .card-scene {
+    width: 100%;
+    height: 380px;
+    perspective: 1200px;
+    cursor: pointer;
+    margin-bottom: 24px;
+  }
+  .card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform .55s cubic-bezier(.4,.2,.2,1);
+    border-radius: var(--radius);
+  }
+  .card.flipped { transform: rotateY(180deg); }
+
+  .card-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: var(--radius);
+    background: var(--card-bg);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 32px;
+    text-align: center;
+    overflow-y: auto;
+  }
+  .card-face.back { transform: rotateY(180deg); }
+
+  .label {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .content {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    font-weight: 500;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+
+  .hint {
+    margin-top: 24px;
+    font-size: .85rem;
+    color: var(--muted);
+  }
+
+  .tags {
+    margin-top: 18px;
+    font-size: .75rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ---- Общий панель вопроса (для теста и подбора) ---- */
+  .question-panel {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 40px 32px;
+    text-align: center;
+    margin-bottom: 20px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---- Тест ---- */
+  .answer-input {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 1.1rem;
+    border: 2px solid #d1d5db;
+    border-radius: 12px;
+    font-family: inherit;
+    transition: border-color .2s, background .2s;
+    margin-bottom: 14px;
+    color: var(--text);
+    background: #fff;
+  }
+  .answer-input:focus { outline: none; border-color: var(--accent); }
+  .answer-input.correct { border-color: var(--green); background: #ecfdf5; }
+  .answer-input.wrong   { border-color: var(--red);   background: #fef2f2; }
+  .answer-input:disabled { opacity: .95; }
+
+  .feedback {
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: .95rem;
+    margin-bottom: 14px;
+    display: none;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .feedback.show { display: block; }
+  .feedback.correct { background: #ecfdf5; color: #065f46; }
+  .feedback.wrong   { background: #fef2f2; color: #991b1b; }
+  .feedback strong { font-weight: 700; }
+
+  /* ---- Подбор ---- */
+  .options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 600px) {
+    .options { grid-template-columns: 1fr; }
+  }
+  .option {
+    padding: 18px 20px;
+    background: var(--card-bg);
+    border: 2px solid #e5e7eb;
+    border-radius: 14px;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .15s, background .15s, transform .1s;
+    font-family: inherit;
+    color: var(--text);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .option:hover:not(:disabled) { border-color: var(--accent); background: #f9fafb; }
+  .option:active:not(:disabled) { transform: scale(.99); }
+  .option.correct { border-color: var(--green); background: #ecfdf5; color: #065f46; }
+  .option.wrong   { border-color: var(--red);   background: #fef2f2; color: #991b1b; }
+  .option:disabled { cursor: default; }
+
+  /* ---- Кнопки ---- */
+  .controls {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  button {
+    border: none;
+    border-radius: 12px;
+    padding: 13px 26px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s, transform .1s;
+    font-family: inherit;
+  }
+  button:active:not(:disabled) { transform: scale(.97); }
+  button:disabled { opacity: .4; cursor: not-allowed; }
+
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
+
+  .btn-know { background: var(--green); color: #fff; }
+  .btn-know:hover:not(:disabled) { background: #0d9668; }
+
+  .btn-repeat { background: #fee2e2; color: var(--red); }
+  .btn-repeat:hover:not(:disabled) { background: #fecaca; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1.5px solid #d1d5db;
+    padding: 11px 22px;
+  }
+  .btn-ghost:hover:not(:disabled) { background: #f3f4f6; }
+
+  .stats {
+    font-size: .9rem;
+    color: var(--muted);
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stats strong { color: var(--text); }
+
+  .status-banner {
+    width: 100%;
+    max-width: 760px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: .9rem;
+    margin-bottom: 16px;
+    text-align: center;
+    line-height: 1.5;
+  }
+  .status-banner.warn  { background: #fef3c7; color: #92400e; }
+  .status-banner.info  { background: #dbeafe; color: #1e40af; }
+  .status-banner.ok    { background: #d1fae5; color: #065f46; }
+
+  /* ---- Модальное окно ---- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .25s;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: auto; }
+
+  .modal {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 32px;
+    width: 100%;
+    max-width: 520px;
+    box-shadow: var(--shadow);
+  }
+  .modal h2 { font-size: 1.2rem; margin-bottom: 20px; }
+
+  .modal label {
+    display: block;
+    font-size: .85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--muted);
+  }
+
+  .modal input, .modal textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    margin-bottom: 14px;
+    resize: vertical;
+    transition: border-color .2s;
+    color: var(--text);
+  }
+  .modal input:focus, .modal textarea:focus { outline: none; border-color: var(--accent); }
+
+  .modal-error {
+    background: #fef2f2;
+    color: #991b1b;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: .85rem;
+    margin-bottom: 12px;
+    display: none;
+  }
+  .modal-error.show { display: block; }
+
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 8px;
+  }
+
+  @media (max-width: 600px) {
+    .card-scene { height: 320px; }
+    .content { font-size: 1.25rem; }
+    .card-face { padding: 28px 20px; }
+    .question-panel { padding: 28px 20px; }
+    header h1 { font-size: 1.2rem; }
+    .tab { font-size: .85rem; padding: 9px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📇 Мои карточки</h1>
+  <div class="header-actions">
+    <button class="btn-ghost" id="restartBtn" title="Сбросить прогресс и начать заново">↻ Заново</button>
+    <button class="btn-ghost" id="addBtn">+ Добавить</button>
+  </div>
+</header>
+
+<div class="tabs" id="tabs">
+  <button class="tab active" data-mode="flashcard">Карточки</button>
+  <button class="tab" data-mode="test">Тест</button>
+  <button class="tab" data-mode="match">Подбор</button>
+</div>
+
+<div id="statusBanner" class="status-banner warn" style="display:none;"></div>
+
+<div class="progress-bar">
+  <div class="progress-fill" id="progressFill"></div>
+</div>
+
+<!-- ======================= РЕЖИМ 1: КАРТОЧКИ ======================= -->
+<div class="view" data-mode="flashcard">
+  <div class="card-scene" id="cardScene">
+    <div class="card" id="card">
+      <div class="card-face front">
+        <div class="label">Вопрос</div>
+        <div class="content" id="fcFront">Загрузка...</div>
+        <div class="hint">Нажмите, чтобы увидеть ответ</div>
+        <div class="tags" id="fcFrontTags"></div>
+      </div>
+      <div class="card-face back">
+        <div class="label">Ответ</div>
+        <div class="content" id="fcBack"></div>
+        <div class="tags" id="fcBackTags"></div>
+      </div>
+    </div>
+  </div>
+  <div class="controls">
+    <button class="btn-repeat" id="fcRepeat">↺ Повторить</button>
+    <button class="btn-know" id="fcKnow">✓ Знаю</button>
+  </div>
+</div>
+
+<!-- ======================= РЕЖИМ 2: ТЕСТ ======================= -->
+<div class="view" data-mode="test">
+  <div class="question-panel">
+    <div class="label">Вопрос</div>
+    <div class="content" id="testFront"></div>
+  </div>
+  <input type="text" class="answer-input" id="testInput" placeholder="Введите ответ..." autocomplete="off" autocapitalize="off" spellcheck="false">
+  <div class="feedback" id="testFeedback"></div>
+  <div class="controls">
+    <button class="btn-repeat" id="testRepeat" style="display:none">↺ Повторить</button>
+    <button class="btn-primary" id="testCheck">Проверить</button>
+    <button class="btn-know" id="testKnowAnyway" style="display:none">✓ Всё равно знаю</button>
+    <button class="btn-know" id="testNext" style="display:none">Дальше →</button>
+  </div>
+</div>
+
+<!-- ======================= РЕЖИМ 3: ПОДБОР ======================= -->
+<div class="view" data-mode="match">
+  <div class="question-panel">
+    <div class="label">Выберите правильный ответ</div>
+    <div class="content" id="matchFront"></div>
+  </div>
+  <div class="options" id="matchOptions"></div>
+  <div class="controls">
+    <button class="btn-repeat" id="matchRepeat" style="display:none">↺ Повторить</button>
+    <button class="btn-know" id="matchKnowAnyway" style="display:none">✓ Всё равно знаю</button>
+    <button class="btn-know" id="matchNext" style="display:none">Дальше →</button>
+  </div>
+</div>
+
+<!-- ======================= ФИНАЛ ======================= -->
+<div class="view" id="doneView" style="display:none">
+  <div class="question-panel">
+    <div class="content">🎉 Все карточки пройдены!</div>
+    <div style="margin-top: 20px; color: var(--muted)">Нажмите «↻ Заново», чтобы начать с начала</div>
+  </div>
+</div>
+
+<div class="stats">
+  <span>Осталось: <strong id="remaining">0</strong></span>
+  <span>Выучено: <strong id="learned">0</strong></span>
+  <span>Всего: <strong id="total">0</strong></span>
+</div>
+
+<!-- ======================= МОДАЛЬНОЕ ОКНО ======================= -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h2>Новая карточка</h2>
+    <div class="modal-error" id="modalError"></div>
+    <label for="newFront">Вопрос (Front)</label>
+    <textarea id="newFront" rows="3" placeholder="Введите вопрос..."></textarea>
+    <label for="newBack">Ответ (Back)</label>
+    <textarea id="newBack" rows="3" placeholder="Введите ответ..."></textarea>
+    <div class="modal-actions">
+      <button class="btn-ghost" id="cancelModal">Отмена</button>
+      <button class="btn-primary" id="saveModal">Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ========== КОНФИГ ==========
+const CARDS_URL = 'cards.json';
+const ADD_URL   = 'add_card.php';
+const STORAGE_KEY = 'flashcards_state_v1';
+
+const FALLBACK_CARDS = [
+  { id: 'demo1', front: 'Что такое HTML?', back: 'Язык разметки гипертекста.' },
+  { id: 'demo2', front: 'Что такое CSS?', back: 'Каскадные таблицы стилей.' },
+  { id: 'demo3', front: 'Что такое JavaScript?', back: 'Язык программирования для веб-страниц.' },
+  { id: 'demo4', front: 'Что такое DOM?', back: 'Объектная модель документа.' },
+];
+
+// ========== СОСТОЯНИЕ ==========
+let allCards = [];
+let queue    = [];
+let learned  = [];
+let mode     = 'flashcard';
+
+let flipped = false;
+let testState = null;   // { checked, correct }
+let matchState = null;  // { options: [...], correct, picked }
+
+// ========== DOM ==========
+const $ = (id) => document.getElementById(id);
+const cardEl       = $('card');
+const fcFront      = $('fcFront');
+const fcBack       = $('fcBack');
+const fcFrontTags  = $('fcFrontTags');
+const fcBackTags   = $('fcBackTags');
+
+const testFront       = $('testFront');
+const testInput       = $('testInput');
+const testFeedback    = $('testFeedback');
+const testCheckBtn    = $('testCheck');
+const testRepeatBtn   = $('testRepeat');
+const testNextBtn     = $('testNext');
+const testKnowBtn     = $('testKnowAnyway');
+
+const matchFront      = $('matchFront');
+const matchOptions    = $('matchOptions');
+const matchRepeatBtn  = $('matchRepeat');
+const matchNextBtn    = $('matchNext');
+const matchKnowBtn    = $('matchKnowAnyway');
+
+const fcRepeatBtn     = $('fcRepeat');
+const fcKnowBtn       = $('fcKnow');
+
+const progressFill = $('progressFill');
+const remainingEl  = $('remaining');
+const learnedEl    = $('learned');
+const totalEl      = $('total');
+const statusBanner = $('statusBanner');
+const modalOverlay = $('modalOverlay');
+const modalError   = $('modalError');
+const newFront     = $('newFront');
+const newBack      = $('newBack');
+
+// ========== УТИЛИТЫ ==========
+function cardKey(c) {
+  return c.id ? 'id:' + c.id : 'k:' + (c.front || '') + '\x00' + (c.back || '');
+}
+
+function normalize(s) {
+  return String(s || '')
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function formatTags(tags) {
+  return tags && tags.length ? '#' + tags.join(' #') : '';
+}
+
+function showBanner(text, kind = 'warn', ms = 0) {
+  statusBanner.textContent = text;
+  statusBanner.className = 'status-banner ' + kind;
+  statusBanner.style.display = 'block';
+  if (ms > 0) {
+    clearTimeout(showBanner._t);
+    showBanner._t = setTimeout(() => { statusBanner.style.display = 'none'; }, ms);
+  }
+}
+
+function hideBanner() {
+  statusBanner.style.display = 'none';
+}
+
+// ========== СОХРАНЕНИЕ ПРОГРЕССА ==========
+function saveState() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      v: 1,
+      mode,
+      learned: learned.map(cardKey),
+      queue:   queue.map(cardKey),
+    }));
+  } catch (e) {
+    console.warn('Не удалось сохранить прогресс:', e);
+  }
+}
+
+function loadSavedState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch { return null; }
+}
+
+function clearSavedState() {
+  try { localStorage.removeItem(STORAGE_KEY); } catch {}
+}
+
+// ========== СЕССИЯ ==========
+function startFresh() {
+  queue = [...allCards];
+  learned = [];
+  flipped = false;
+  testState = null;
+  matchState = null;
+  render();
+}
+
+function restoreSession(saved) {
+  const byKey = new Map();
+  for (const c of allCards) byKey.set(cardKey(c), c);
+
+  const learnedCards = [];
+  const queueCards = [];
+  const usedKeys = new Set();
+
+  if (saved) {
+    for (const k of saved.learned || []) {
+      const c = byKey.get(k);
+      if (c && !usedKeys.has(k)) {
+        learnedCards.push(c);
+        usedKeys.add(k);
+      }
+    }
+    for (const k of saved.queue || []) {
+      const c = byKey.get(k);
+      if (c && !usedKeys.has(k)) {
+        queueCards.push(c);
+        usedKeys.add(k);
+      }
+    }
+  }
+
+  // Всё, что не восстановили (новые карточки) — в конец очереди
+  for (const c of allCards) {
+    const k = cardKey(c);
+    if (!usedKeys.has(k)) {
+      queueCards.push(c);
+      usedKeys.add(k);
+    }
+  }
+
+  queue = queueCards;
+  learned = learnedCards;
+  mode = (saved && saved.mode) || 'flashcard';
+  if (!['flashcard', 'test', 'match'].includes(mode)) mode = 'flashcard';
+  flipped = false;
+  testState = null;
+  matchState = null;
+  render();
+}
+
+function currentCard() {
+  return queue.length > 0 ? queue[0] : null;
+}
+
+function markKnown() {
+  if (!currentCard()) return;
+  learned.push(queue.shift());
+  flipped = false;
+  testState = null;
+  matchState = null;
+  render();
+}
+
+function markRepeat() {
+  if (!currentCard()) return;
+  queue.push(queue.shift());
+  flipped = false;
+  testState = null;
+  matchState = null;
+  render();
+}
+
+// ========== РЕНДЕР ==========
+function render() {
+  updateProgress();
+  updateTabs();
+  renderActiveView();
+  saveState();
+}
+
+function updateProgress() {
+  const total = allCards.length;
+  const done = learned.length;
+  progressFill.style.width = (total ? done / total * 100 : 0) + '%';
+  remainingEl.textContent = queue.length;
+  learnedEl.textContent = done;
+  totalEl.textContent = total;
+}
+
+function updateTabs() {
+  document.querySelectorAll('.tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.mode === mode);
+  });
+}
+
+function renderActiveView() {
+  const c = currentCard();
+  const done = !c;
+
+  $('doneView').style.display = done ? 'block' : 'none';
+
+  document.querySelectorAll('.view[data-mode]').forEach(v => {
+    v.classList.toggle('active', !done && v.dataset.mode === mode);
+  });
+
+  if (done) return;
+
+  if (mode === 'flashcard') renderFlashcard(c);
+  else if (mode === 'test') renderTest(c);
+  else if (mode === 'match') renderMatch(c);
+}
+
+function renderFlashcard(c) {
+  fcFront.textContent = c.front || '(пусто)';
+  fcBack.textContent  = c.back  || '(пусто)';
+  fcFrontTags.textContent = formatTags(c.tags);
+  fcBackTags.textContent  = formatTags(c.tags);
+  cardEl.classList.remove('flipped');
+  flipped = false;
+}
+
+function renderTest(c) {
+  testFront.textContent = c.front || '(пусто)';
+  testInput.value = '';
+  testInput.disabled = false;
+  testInput.className = 'answer-input';
+  testFeedback.className = 'feedback';
+  testFeedback.textContent = '';
+  testCheckBtn.style.display = '';
+  testNextBtn.style.display = 'none';
+  testRepeatBtn.style.display = 'none';
+  testKnowBtn.style.display = 'none';
+  testState = { checked: false, correct: false };
+  if (window.innerWidth > 700) testInput.focus();
+}
+
+function renderMatch(c) {
+  matchFront.textContent = c.front || '(пусто)';
+  matchRepeatBtn.style.display = 'none';
+  matchNextBtn.style.display = 'none';
+  matchKnowBtn.style.display = 'none';
+
+  const correct = c.back || '(пусто)';
+  const pool = Array.from(new Set(
+    allCards.map(x => x.back).filter(b => b && b !== correct)
+  ));
+  shuffle(pool);
+  const nOptions = Math.min(4, pool.length + 1);
+  const opts = [correct, ...pool.slice(0, nOptions - 1)];
+  shuffle(opts);
+
+  matchState = { options: opts, correct, picked: -1 };
+
+  matchOptions.innerHTML = '';
+  opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = opt;
+    btn.addEventListener('click', () => pickMatchOption(i));
+    matchOptions.appendChild(btn);
+  });
+}
+
+// ========== ТЕСТ: ПРОВЕРКА ==========
+function checkTest() {
+  const c = currentCard();
+  if (!c || !testState) return;
+  if (testState.checked) return;
+
+  const user = normalize(testInput.value);
+  const expected = normalize(c.back || '');
+  const correct = user !== '' && user === expected;
+
+  testState.checked = true;
+  testState.correct = correct;
+  testInput.disabled = true;
+  testInput.classList.add(correct ? 'correct' : 'wrong');
+  testCheckBtn.style.display = 'none';
+
+  if (correct) {
+    testFeedback.className = 'feedback correct show';
+    testFeedback.innerHTML = '<strong>✓ Верно!</strong>';
+    testNextBtn.style.display = '';
+  } else {
+    testFeedback.className = 'feedback wrong show';
+    testFeedback.innerHTML =
+      '<strong>✗ Неверно.</strong><br>' +
+      'Правильный ответ: <strong>' + escapeHtml(c.back || '(пусто)') + '</strong>';
+    testRepeatBtn.style.display = '';
+    testKnowBtn.style.display = '';
+  }
+}
+
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+// ========== ПОДБОР: ВЫБОР ==========
+function pickMatchOption(idx) {
+  if (!matchState || matchState.picked !== -1) return;
+  const c = currentCard();
+  if (!c) return;
+
+  matchState.picked = idx;
+  const picked = matchState.options[idx];
+  const correct = matchState.correct;
+  const isCorrect = picked === correct;
+
+  const btns = matchOptions.querySelectorAll('.option');
+  btns.forEach((b, i) => {
+    b.disabled = true;
+    if (matchState.options[i] === correct) b.classList.add('correct');
+    if (i === idx && !isCorrect) b.classList.add('wrong');
+  });
+
+  if (isCorrect) {
+    matchNextBtn.style.display = '';
+  } else {
+    matchRepeatBtn.style.display = '';
+    matchKnowBtn.style.display = '';
+  }
+}
+
+// ========== МОДАЛЬНОЕ ОКНО ==========
+function openModal() {
+  newFront.value = '';
+  newBack.value = '';
+  modalError.classList.remove('show');
+  modalError.textContent = '';
+  modalOverlay.classList.add('open');
+  newFront.focus();
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('open');
+}
+
+async function saveNewCard() {
+  const front = newFront.value.trim();
+  const back  = newBack.value.trim();
+
+  if (!front || !back) {
+    modalError.textContent = 'Заполните оба поля.';
+    modalError.classList.add('show');
+    return;
+  }
+
+  const btn = $('saveModal');
+  btn.disabled = true;
+  btn.textContent = 'Сохранение...';
+  modalError.classList.remove('show');
+
+  try {
+    const res = await fetch(ADD_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ front, back }),
+    });
+
+    const data = await res.json().catch(() => ({}));
+
+    if (!res.ok || !data.ok) {
+      throw new Error(data.error || ('Ошибка сервера: HTTP ' + res.status));
+    }
+
+    // Добавляем карточку в текущую сессию
+    const newCard = { id: data.id || ('local-' + Date.now()), front, back };
+    allCards.push(newCard);
+    queue.push(newCard);
+
+    closeModal();
+    showBanner('✓ Карточка добавлена на сервер', 'ok', 2500);
+    render();
+  } catch (e) {
+    modalError.textContent = e.message || 'Не удалось сохранить карточку.';
+    modalError.classList.add('show');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Сохранить';
+  }
+}
+
+// ========== СОБЫТИЯ ==========
+// Переключение режимов
+document.querySelectorAll('.tab').forEach(t => {
+  t.addEventListener('click', () => {
+    mode = t.dataset.mode;
+    flipped = false;
+    testState = null;
+    matchState = null;
+    render();
+  });
+});
+
+// Карточки
+$('cardScene').addEventListener('click', () => {
+  if (!currentCard()) return;
+  flipped = !flipped;
+  cardEl.classList.toggle('flipped', flipped);
+});
+fcKnowBtn.addEventListener('click', (e) => { e.stopPropagation(); markKnown(); });
+fcRepeatBtn.addEventListener('click', (e) => { e.stopPropagation(); markRepeat(); });
+
+// Тест
+testCheckBtn.addEventListener('click', checkTest);
+testNextBtn.addEventListener('click', markKnown);
+testRepeatBtn.addEventListener('click', markRepeat);
+testKnowBtn.addEventListener('click', markKnown);
+testInput.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    if (!testState || !testState.checked) checkTest();
+    else if (testState.correct) markKnown();
+  }
+});
+
+// Подбор
+matchNextBtn.addEventListener('click', markKnown);
+matchRepeatBtn.addEventListener('click', markRepeat);
+matchKnowBtn.addEventListener('click', markKnown);
+
+// Заново
+$('restartBtn').addEventListener('click', () => {
+  if (queue.length === 0 && learned.length === 0) return;
+  if (!confirm('Сбросить прогресс и начать колоду заново?')) return;
+  clearSavedState();
+  startFresh();
+});
+
+// Добавить
+$('addBtn').addEventListener('click', openModal);
+$('cancelModal').addEventListener('click', closeModal);
+$('saveModal').addEventListener('click', saveNewCard);
+modalOverlay.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) closeModal();
+});
+
+// Горячие клавиши
+document.addEventListener('keydown', (e) => {
+  if (modalOverlay.classList.contains('open')) {
+    if (e.key === 'Escape') closeModal();
+    return;
+  }
+  if (e.target === testInput) return; // не мешаем вводу
+
+  if (e.code === 'Space') {
+    if (mode === 'flashcard') { e.preventDefault(); $('cardScene').click(); }
+  } else if (e.key === '1') {
+    document.querySelector('.tab[data-mode="flashcard"]').click();
+  } else if (e.key === '2') {
+    document.querySelector('.tab[data-mode="test"]').click();
+  } else if (e.key === '3') {
+    document.querySelector('.tab[data-mode="match"]').click();
+  } else if (e.key.toLowerCase() === 'r') {
+    $('restartBtn').click();
+  }
+});
+
+// ========== ЗАГРУЗКА ==========
+async function loadCards() {
+  try {
+    const res = await fetch(CARDS_URL, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) {
+      throw new Error('Пустой или неверный формат JSON');
+    }
+    return { cards: data, source: 'json' };
+  } catch (e) {
+    console.warn('Не удалось загрузить', CARDS_URL, ':', e);
+    return { cards: FALLBACK_CARDS, source: 'fallback', error: e };
+  }
+}
+
+(async () => {
+  const { cards, source } = await loadCards();
+  allCards = cards;
+
+  if (source === 'fallback') {
+    showBanner(
+      '⚠️ Не удалось загрузить cards.json — показаны демо-карточки. ' +
+      'Проверьте, что файл лежит рядом с index.html и открыт через http(s).',
+      'warn'
+    );
+  }
+
+  const saved = loadSavedState();
+  if (saved) {
+    restoreSession(saved);
+  } else {
+    startFresh();
+  }
+
+  // На случай, если пользователь закроет вкладку — сохраним ещё раз
+  window.addEventListener('beforeunload', saveState);
+})();
+</script>
+</body>
+</html>

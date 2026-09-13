@@ -1,0 +1,108 @@
+# Конвертировано из: latin.apkg
+# Всего карточек: 26
+# Формат: Front: ... / Back: ...
+
+--- Карточка 1 (id: 15fdc0fe2d141aec) ---
+Front: Nomina Anatomica
+Back: Анатомическая номенклотура
+
+--- Карточка 2 (id: 8ede9e38c34d3708) ---
+Front: OS femoris
+Back: Бедренная кость
+
+--- Карточка 3 (id: 41d1d7de2ab8d126) ---
+Front: Ater
+Back: Черный
+
+--- Карточка 4 (id: 9d52d973f07978bc) ---
+Front: Ego
+Back: Я
+
+--- Карточка 5 (id: fdecf0706e67913c) ---
+Front: Infirmus
+Back: Слабый
+
+--- Карточка 6 (id: bdf1bafe07b44be3) ---
+Front: Iectio
+Back: Впрыскивание, инъекция
+
+--- Карточка 7 (id: d3b80c0cd6a49f88) ---
+Front: Aqua
+Back: Вода
+
+--- Карточка 8 (id: 542dc01bdcc4d5d7) ---
+Front: Lingua
+Back: Язык
+
+--- Карточка 9 (id: 71b0162db6fdfdb2) ---
+Front: Aether
+Back: Эфир
+
+--- Карточка 10 (id: 9a681f876238f837) ---
+Front: Foeditus
+Back: Зловонный
+
+--- Карточка 11 (id: 23e717ccdbbf7779) ---
+Front: Auris
+Back: Ухо
+
+--- Карточка 12 (id: d85545e675e33cbb) ---
+Front: Neuralgia
+Back: Невралгия
+
+--- Карточка 13 (id: 5278e5c00fab5030) ---
+Front: Cera
+Back: Воск
+
+--- Карточка 14 (id: 48030e9f1354f819) ---
+Front: Cor
+Back: Сердце
+
+--- Карточка 15 (id: b1ab369a23384bde) ---
+Front: Cyclus
+Back: Цикл
+
+--- Карточка 16 (id: c417d5d81f3e6c96) ---
+Front: Caput
+Back: Голова
+
+--- Карточка 17 (id: 8263e6e1873fbc49) ---
+Front: Gingiva
+Back: Десна
+
+--- Карточка 18 (id: 3d1f2a369e316438) ---
+Front: Gaster
+Back: Желудок
+
+--- Карточка 19 (id: 0f20cb70c2346295) ---
+Front: Hora
+Back: Час
+
+--- Карточка 20 (id: 092cea01b650ef7f) ---
+Front: Sanus
+Back: Здоровый
+
+--- Карточка 21 (id: 4a5f5e299cd094ed) ---
+Front: Rex
+Back: Царь
+
+--- Карточка 22 (id: 0173eff24f55391d) ---
+Front: Ligamentum
+Back: Связка
+
+--- Карточка 23 (id: 8f32697352ff4f61) ---
+Front: Chirurgus
+Back: Хирург
+
+--- Карточка 24 (id: 81b8811b8d381bbf) ---
+Front: Animal
+Back: Животное
+
+--- Карточка 25 (id: 533d97028e838c32) ---
+Front: Substantia
+Back: Вещество
+
+--- Карточка 26 (id: dae26d44606098c3) ---
+Front: Mixtio
+Back: Смешивание
+
