@@ -73,6 +73,24 @@ $contents = stream_get_contents($fp);
 $cards = json_decode($contents, true);
 if (!is_array($cards)) $cards = [];
 
+// Нормализация для сравнения: регистр не важен, лишние пробелы схлопываются.
+$normalize = function (string $s): string {
+    return mb_strtolower(preg_replace('/\s+/u', ' ', trim($s)));
+};
+
+$frontNorm = $normalize($front);
+foreach ($cards as $existing) {
+    $existingFront = isset($existing['front']) ? (string)$existing['front'] : '';
+    if ($normalize($existingFront) === $frontNorm) {
+        flock($fp, LOCK_UN);
+        fclose($fp);
+        http_response_code(409);
+        echo json_encode(['error' => 'Такое слово уже есть в списке: ' . $existingFront],
+                         JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+}
+
 try {
     $id = bin2hex(random_bytes(8));
 } catch (Exception $e) {
