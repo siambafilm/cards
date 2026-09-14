@@ -193,5 +193,785 @@
     "id": "d2056901a814a224",
     "front": "Suillus",
     "back": "Свиной"
+  },
+  {
+    "id": "fdbb261a1e2cbd2e",
+    "front": "Regio occipitalis",
+    "back": "Затылочная область"
+  },
+  {
+    "id": "203af8f4d700fc4f",
+    "front": "Regio parietalis",
+    "back": "Теменная область"
+  },
+  {
+    "id": "e2dc98ae5dcf2800",
+    "front": "Regio frontalis",
+    "back": "Лобная область"
+  },
+  {
+    "id": "907cf4d314fd1d2f",
+    "front": "Regio auricularis",
+    "back": "Область ушной раковины"
+  },
+  {
+    "id": "db963555f7b064ff",
+    "front": "Regio palpebralis",
+    "back": "Область век"
+  },
+  {
+    "id": "55aee81c3b1ffa94",
+    "front": "Regio temporalis",
+    "back": "Височная область"
+  },
+  {
+    "id": "af932cfd852d9733",
+    "front": "Regio nasalis",
+    "back": "Носовая область"
+  },
+  {
+    "id": "cd06c9f6ee514771",
+    "front": "Dorsum nasi",
+    "back": "Спинка носа"
+  },
+  {
+    "id": "74731d1eaa7a355c",
+    "front": "Regio lateralis nasi",
+    "back": "Боковая область носа"
+  },
+  {
+    "id": "b971e387115c9459",
+    "front": "Regio infraorbitalis",
+    "back": "Подглазничная область"
+  },
+  {
+    "id": "86b16e4c9664abed",
+    "front": "Regio naris",
+    "back": "Область ноздрей"
+  },
+  {
+    "id": "8f2b938448326cfd",
+    "front": "Regio labialis superior",
+    "back": "Область верхней губы"
+  },
+  {
+    "id": "8328c4f4aa249b6b",
+    "front": "Regio labialis inferior",
+    "back": "Область нижней губы"
+  },
+  {
+    "id": "34f40ccf1971e2a4",
+    "front": "Regio mentalis",
+    "back": "Область подбородка"
+  },
+  {
+    "id": "8e93d0a5bf03abe4",
+    "front": "Regio buccalis",
+    "back": "Щечная область"
+  },
+  {
+    "id": "3f324beea0fc7ff1",
+    "front": "Regio masseterica",
+    "back": "Жевательная область"
+  },
+  {
+    "id": "bdaa72a937ce2d67",
+    "front": "Cervix",
+    "back": "Шея"
+  },
+  {
+    "id": "fe4348f66a36d932",
+    "front": "Regio parotidea",
+    "back": "Околоушная область"
+  },
+  {
+    "id": "f7e910b82476475e",
+    "front": "Regio brachiocephalica",
+    "back": "Область плечеголовной мышцы"
+  },
+  {
+    "id": "0eabbe6a2ead821c",
+    "front": "Regio colli ventralis",
+    "back": "Нижняя шейная область"
+  },
+  {
+    "id": "99b5c79d18eb1fb1",
+    "front": "Regio laryngea",
+    "back": "Гортанная область"
+  },
+  {
+    "id": "6e4dbde54c2c8035",
+    "front": "Regio trachealis",
+    "back": "Трахеальная область"
+  },
+  {
+    "id": "d81a83e32a2c2151",
+    "front": "Sulcus jugularis",
+    "back": "Яремный желоб"
+  },
+  {
+    "id": "96573713360ce9c4",
+    "front": "Truncus",
+    "back": "Туловище"
+  },
+  {
+    "id": "74667b2475655ea5",
+    "front": "Regio interscapularis",
+    "back": "Область холки"
+  },
+  {
+    "id": "70c8bdb9ec77459a",
+    "front": "Regio dorsalis",
+    "back": "Спинная область"
+  },
+  {
+    "id": "b30124bfbce868d8",
+    "front": "Regio sternalis",
+    "back": "Грудинная область"
+  },
+  {
+    "id": "7c4cf48289b16790",
+    "front": "Regio presternalis",
+    "back": "Предгрудинная область"
+  },
+  {
+    "id": "ea2831a00bbeedec",
+    "front": "Regio costalis",
+    "back": "Реберная область"
+  },
+  {
+    "id": "c19fa59a734ebf0e",
+    "front": "Regio lumbalis",
+    "back": "Поясничная область"
+  },
+  {
+    "id": "1eadd9fd7ee2acfd",
+    "front": "Abdomen",
+    "back": "Живот (брюхо)"
+  },
+  {
+    "id": "9e3aad2197f91815",
+    "front": "Regio xiphoidea",
+    "back": "Область мечевидного хряща"
+  },
+  {
+    "id": "497707c66adcaafd",
+    "front": "Regio iliaca",
+    "back": "Подвздошная область"
+  },
+  {
+    "id": "20dbb4037989e237",
+    "front": "Fossa paralumbalis",
+    "back": "Голодная ямка"
+  },
+  {
+    "id": "857d209989e8587f",
+    "front": "Regio umbilicalis",
+    "back": "Пупочная область"
+  },
+  {
+    "id": "97432263e03511c2",
+    "front": "Regio inguinalis",
+    "back": "Паховая область"
+  },
+  {
+    "id": "9518144b6225b9a6",
+    "front": "Regio pubica",
+    "back": "Лонная область"
+  },
+  {
+    "id": "264584f0ed986813",
+    "front": "Regio sacralis",
+    "back": "Крестцовая область"
+  },
+  {
+    "id": "e57c60035125a25c",
+    "front": "Regio glutea",
+    "back": "Ягодичная область"
+  },
+  {
+    "id": "836c516b12aaaa2f",
+    "front": "Cauda",
+    "back": "Хвост"
+  },
+  {
+    "id": "9f16ff18bfa79d24",
+    "front": "Radix caudae",
+    "back": "Корень хвоста"
+  },
+  {
+    "id": "bad8166e1ba417ac",
+    "front": "Membri thoracici",
+    "back": "Грудная конечность"
+  },
+  {
+    "id": "e81f03daf3e8eaa9",
+    "front": "Cingulum membri thoracici",
+    "back": "Плечевой пояс"
+  },
+  {
+    "id": "c42d1c3e92f32069",
+    "front": "Membri thoracici liberi",
+    "back": "Свободный отдел грудной конечности"
+  },
+  {
+    "id": "bd2ea0ddedc7bc59",
+    "front": "Regio scapularis",
+    "back": "Область лопатки"
+  },
+  {
+    "id": "1f60f6f6b9e11bde",
+    "front": "Regio brachii",
+    "back": "Область плеча"
+  },
+  {
+    "id": "fe7c146cfe7eced5",
+    "front": "Linea anconea",
+    "back": "Локтевая линия"
+  },
+  {
+    "id": "5f09c87fa85e2c60",
+    "front": "Antebrachii",
+    "back": "Предплечье"
+  },
+  {
+    "id": "b5fa5cbbb7ef70f7",
+    "front": "Manus",
+    "back": "Кисть"
+  },
+  {
+    "id": "61b81a6bac6e096c",
+    "front": "Carpus",
+    "back": "Запястье"
+  },
+  {
+    "id": "3b6ebc0be6eb8613",
+    "front": "Metacarpus",
+    "back": "Пясть"
+  },
+  {
+    "id": "256b9a46cea8c868",
+    "front": "Digiti manus",
+    "back": "Пальцы кисти"
+  },
+  {
+    "id": "2a24c2c800e3597f",
+    "front": "Membri pelvini",
+    "back": "Тазовая конечность"
+  },
+  {
+    "id": "21253108a6a0607b",
+    "front": "Cingulum membri pelvini",
+    "back": "Тазовый пояс"
+  },
+  {
+    "id": "a84df4c23a3e2ab8",
+    "front": "Membri pelvini liberi",
+    "back": "Свободный отдел тазовой конечности"
+  },
+  {
+    "id": "d10197aa47f32185",
+    "front": "Regio perinealis",
+    "back": "Область промежности"
+  },
+  {
+    "id": "f600b714c84b0159",
+    "front": "Regio femoris",
+    "back": "Область бедра"
+  },
+  {
+    "id": "fadc215f8aedceb7",
+    "front": "Regio cruris",
+    "back": "Область голени"
+  },
+  {
+    "id": "3241ec3f58ea1ed1",
+    "front": "Pedis",
+    "back": "Стопа"
+  },
+  {
+    "id": "6fae17bd5f5aa3d4",
+    "front": "Tarsus",
+    "back": "Заплюсна"
+  },
+  {
+    "id": "1aaff3274471be98",
+    "front": "Metatarsus",
+    "back": "Плюсна"
+  },
+  {
+    "id": "a8cf8c45a263811a",
+    "front": "Digiti pedis",
+    "back": "Пальцы стопы"
+  },
+  {
+    "id": "58c8ab1322735755",
+    "front": "Plana sagittalia",
+    "back": "Сагиттальные плоскости"
+  },
+  {
+    "id": "2083fe1ce97dc0fc",
+    "front": "Planum medianum",
+    "back": "Медианная (срединная) плоскость"
+  },
+  {
+    "id": "d4ffda6044df7c03",
+    "front": "Lateralis",
+    "back": "Латеральный (боковой)"
+  },
+  {
+    "id": "301b2076a9f1e7e3",
+    "front": "Medialis",
+    "back": "Медиальный (средний)"
+  },
+  {
+    "id": "1c92e2f4cc884654",
+    "front": "Plana dorsalia",
+    "back": "Дорсальные плоскости"
+  },
+  {
+    "id": "4a4f4332427d6893",
+    "front": "Ventralis",
+    "back": "Вентральный (брюшной)"
+  },
+  {
+    "id": "a2736713db390f71",
+    "front": "Plana transversalia",
+    "back": "Поперечные плоскости"
+  },
+  {
+    "id": "32f619f106134f81",
+    "front": "Cranialis",
+    "back": "Краниальный"
+  },
+  {
+    "id": "303d31cddc2c04e2",
+    "front": "Caudalis",
+    "back": "Каудальный"
+  },
+  {
+    "id": "102752eb2ce6c9be",
+    "front": "Rostralis",
+    "back": "Ростральный"
+  },
+  {
+    "id": "fab86b1bee01ac84",
+    "front": "Aboralis",
+    "back": "Аборальный"
+  },
+  {
+    "id": "ffac07e9d445860a",
+    "front": "Proximalis",
+    "back": "Проксимальный"
+  },
+  {
+    "id": "c7de5b7e6fbf57ae",
+    "front": "Distalis",
+    "back": "Дистальный"
+  },
+  {
+    "id": "543d37d5a7d8f546",
+    "front": "Dorsum manus",
+    "back": "Спинка кисти"
+  },
+  {
+    "id": "41e8a3139f3567ec",
+    "front": "Palma manus",
+    "back": "Ладонь"
+  },
+  {
+    "id": "5fb7d2b8191024c5",
+    "front": "Facies dorsalis",
+    "back": "Дорсальная поверхность"
+  },
+  {
+    "id": "8e0c4d3c0795cb3d",
+    "front": "Facies palmaris",
+    "back": "Пальмарная поверхность"
+  },
+  {
+    "id": "b60eb04f532800cf",
+    "front": "Dorsum",
+    "back": "Спинка (стопы)"
+  },
+  {
+    "id": "6b57d8a50b4058d7",
+    "front": "Planta",
+    "back": "Подошва"
+  },
+  {
+    "id": "7d9e5e0f218e47f8",
+    "front": "Facies plantaris",
+    "back": "Плантарная поверхность"
+  },
+  {
+    "id": "0cd0467157aebd7a",
+    "front": "Axialis",
+    "back": "Осевой"
+  },
+  {
+    "id": "5b1c10e2ed76ff82",
+    "front": "Abaxialis",
+    "back": "Неосевой"
+  },
+  {
+    "id": "b865f4139142bec2",
+    "front": "Periosteum",
+    "back": "Надкостница (периост)"
+  },
+  {
+    "id": "01f0ae0b7f2397eb",
+    "front": "Perichondrium",
+    "back": "Надхрящница"
+  },
+  {
+    "id": "29913b1e6c895ccc",
+    "front": "Endosteum",
+    "back": "Эндост"
+  },
+  {
+    "id": "b282f564c5e15efd",
+    "front": "Substantia spongiosa",
+    "back": "Губчатое вещество"
+  },
+  {
+    "id": "43241426473e8a86",
+    "front": "Substantia compacta",
+    "back": "Компактное вещество"
+  },
+  {
+    "id": "c41bdf50441f905c",
+    "front": "Osteon",
+    "back": "Остеон (гаверсова система)"
+  },
+  {
+    "id": "d48e103be008e4f4",
+    "front": "Skeleton",
+    "back": "Скелет"
+  },
+  {
+    "id": "db3adac27b2a59cd",
+    "front": "Vertebra",
+    "back": "Позвонок"
+  },
+  {
+    "id": "0bdb7412e089aeda",
+    "front": "Corpus vertebrae",
+    "back": "Тело позвонка"
+  },
+  {
+    "id": "39129ff839fa32ac",
+    "front": "Caput vertebrae",
+    "back": "Головка позвонка"
+  },
+  {
+    "id": "2ac947dc85616eae",
+    "front": "Fossa vertebrae",
+    "back": "Ямка позвонка"
+  },
+  {
+    "id": "b7e4b9d6df537abb",
+    "front": "Crista ventralis",
+    "back": "Вентральный гребень"
+  },
+  {
+    "id": "5939d039809568b2",
+    "front": "Arcus vertebrae",
+    "back": "Дужка позвонка"
+  },
+  {
+    "id": "7f00a4ed436ceaed",
+    "front": "Foramen vertebrae",
+    "back": "Отверстие позвонка"
+  },
+  {
+    "id": "2088ead9f97a01e8",
+    "front": "Canalis vertebralis",
+    "back": "Позвоночный канал"
+  },
+  {
+    "id": "dd1e2dbed7e11785",
+    "front": "Incisura vertebralis cranialis",
+    "back": "Краниальная позвоночная вырезка"
+  },
+  {
+    "id": "bf59f18bb2a76ad0",
+    "front": "Incisura vertebralis caudalis",
+    "back": "Каудальная позвоночная вырезка"
+  },
+  {
+    "id": "eed51b54b5055a1d",
+    "front": "Foramen intervertebrale",
+    "back": "Межпозвоночное отверстие"
+  },
+  {
+    "id": "649114290abf6c3c",
+    "front": "Processus articularis cranialis",
+    "back": "Краниальный суставной отросток"
+  },
+  {
+    "id": "c3916d3d783471ba",
+    "front": "Processus articularis caudalis",
+    "back": "Каудальный суставной отросток"
+  },
+  {
+    "id": "4a8fa11d7e48442f",
+    "front": "Processus transversus",
+    "back": "Поперечный отросток"
+  },
+  {
+    "id": "453913eaa3b35a9b",
+    "front": "Processus spinosus",
+    "back": "Остистый отросток"
+  },
+  {
+    "id": "9d02e9e5c2767f59",
+    "front": "Vertebrae thoracicae",
+    "back": "Грудные позвонки"
+  },
+  {
+    "id": "80bd1749d7caf60f",
+    "front": "Fovea costalis cranialis",
+    "back": "Краниальная реберная ямка"
+  },
+  {
+    "id": "bdf701ffdde7a3a7",
+    "front": "Fovea costalis caudalis",
+    "back": "Каудальная реберная фасетка (ямочка)"
+  },
+  {
+    "id": "413c158df47fc050",
+    "front": "Fovea costalis processus transversalis",
+    "back": "Реберная фасетка на поперечном отростке"
+  },
+  {
+    "id": "21c543046b2c2a08",
+    "front": "Processus mamillaris",
+    "back": "Сосцевидный отросток"
+  },
+  {
+    "id": "f5774ffceae6ccf4",
+    "front": "Foramen vertebrale laterale",
+    "back": "Боковое позвоночное отверстие"
+  },
+  {
+    "id": "35479948349732da",
+    "front": "Processus accessorius",
+    "back": "Добавочный отросток"
+  },
+  {
+    "id": "625fb19092db60c8",
+    "front": "Costae",
+    "back": "Ребра"
+  },
+  {
+    "id": "a105a407690d4a8f",
+    "front": "Os costale",
+    "back": "Реберная кость"
+  },
+  {
+    "id": "e6536432365d5558",
+    "front": "Cartilago costalis",
+    "back": "Реберный хрящ"
+  },
+  {
+    "id": "7752e2e6515c242d",
+    "front": "Costae verae",
+    "back": "Истинные ребра"
+  },
+  {
+    "id": "e6edaf5b8f728cd5",
+    "front": "Costae spuriae",
+    "back": "Ложные ребра"
+  },
+  {
+    "id": "a4f0f58c4fc99f2a",
+    "front": "Arcus costalis",
+    "back": "Реберная дуга"
+  },
+  {
+    "id": "09fd6c1b62b3600c",
+    "front": "Costae fluctuantes",
+    "back": "Висячие ребра"
+  },
+  {
+    "id": "a525376960f54705",
+    "front": "Caput costae",
+    "back": "Головка ребра"
+  },
+  {
+    "id": "358ff7da90a7a81c",
+    "front": "Tuberculum costae",
+    "back": "Бугорок ребра"
+  },
+  {
+    "id": "920d6d9dabd5e5dc",
+    "front": "Collum costae",
+    "back": "Шейка ребра"
+  },
+  {
+    "id": "0d6885ded2bf2dc1",
+    "front": "Angulus costae",
+    "back": "Угол ребра"
+  },
+  {
+    "id": "1ec713c141e0f3fe",
+    "front": "Corpus costae",
+    "back": "Тело ребра"
+  },
+  {
+    "id": "bb9cd0bf5aec8025",
+    "front": "Margo cranialis",
+    "back": "Передний край"
+  },
+  {
+    "id": "8e11b8334965a7a2",
+    "front": "Margo caudalis",
+    "back": "Задний край"
+  },
+  {
+    "id": "a0fb633dc30a3786",
+    "front": "Sulcus muscularis",
+    "back": "Мышечный желоб"
+  },
+  {
+    "id": "7a241af56b6e7baa",
+    "front": "Sulcus vascularis",
+    "back": "Сосудистый желоб"
+  },
+  {
+    "id": "fdeb6011d71a9e57",
+    "front": "Tuberculum m. scalenae",
+    "back": "Бугорок лестничной мышцы"
+  },
+  {
+    "id": "f73a497e90b3b811",
+    "front": "Sternum",
+    "back": "Грудная кость (грудина)"
+  },
+  {
+    "id": "fee390c17c6e42af",
+    "front": "Sternebrae",
+    "back": "Сегменты грудины (стернебры)"
+  },
+  {
+    "id": "079defcd02fd4d7f",
+    "front": "Manubrium sterni",
+    "back": "Рукоятка грудины"
+  },
+  {
+    "id": "247fb6e08b465172",
+    "front": "Corpus sterni",
+    "back": "Тело грудины"
+  },
+  {
+    "id": "2fcd82d5fca5b3ac",
+    "front": "Foveae articulares",
+    "back": "Суставные ямки"
+  },
+  {
+    "id": "5ce6f9817cfeb084",
+    "front": "Processus xiphoideus",
+    "back": "Мечевидный отросток"
+  },
+  {
+    "id": "af9c41898b49b5f2",
+    "front": "Cartilago xiphoidea",
+    "back": "Мечевидный хрящ"
+  },
+  {
+    "id": "c0a42296cfee26ff",
+    "front": "Vertebrae cervicales",
+    "back": "Шейные позвонки"
+  },
+  {
+    "id": "0b45f4611dbba005",
+    "front": "Atlas",
+    "back": "Атлант (первый шейный позвонок)"
+  },
+  {
+    "id": "dd320b0f35024dfe",
+    "front": "Arcus dorsalis et ventralis",
+    "back": "Дорсальная и вентральная дужки"
+  },
+  {
+    "id": "3dfe0fbdd7298818",
+    "front": "Tuberculum dorsale",
+    "back": "Дорсальный бугорок"
+  },
+  {
+    "id": "87967d0b62864a30",
+    "front": "Tuberculum ventrale",
+    "back": "Вентральный бугорок"
+  },
+  {
+    "id": "fd86ffef01fc8046",
+    "front": "Ala atlantis",
+    "back": "Крыло атланта"
+  },
+  {
+    "id": "1495f6de876736bc",
+    "front": "Fossa atlantis",
+    "back": "Ямка атланта"
+  },
+  {
+    "id": "5f94699327f6fdb7",
+    "front": "Foramen alare",
+    "back": "Крыловое отверстие"
+  },
+  {
+    "id": "2c43f75d3dbae8ab",
+    "front": "Fovea articularis cranialis",
+    "back": "Краниальная суставная ямочка"
+  },
+  {
+    "id": "f105ed05b5d3a67b",
+    "front": "Fovea articularis caudalis",
+    "back": "Каудальная суставная ямочка"
+  },
+  {
+    "id": "8fe1e28a9d7bffb0",
+    "front": "Foramen transversarium",
+    "back": "Поперечное отверстие"
+  },
+  {
+    "id": "d96a9331cedb5eed",
+    "front": "Incisura alaris",
+    "back": "Крыловая вырезка"
+  },
+  {
+    "id": "f2a47536e502891e",
+    "front": "Axis",
+    "back": "Ось (эпистрофей, второй шейный позвонок)"
+  },
+  {
+    "id": "6f23f37a9909e334",
+    "front": "Dens",
+    "back": "Зуб осевого позвонка"
+  },
+  {
+    "id": "9dc95ed5f21c5bca",
+    "front": "Crista dorsalis",
+    "back": "Дорсальный гребень"
+  },
+  {
+    "id": "bec74de476b8720f",
+    "front": "Foramen intervertebrale craniale",
+    "back": "Краниальное межпозвоночное отверстие"
+  },
+  {
+    "id": "3da93dae27a835b4",
+    "front": "Processus costotransversalis",
+    "back": "Поперечно-реберный отросток"
+  },
+  {
+    "id": "4341fbf2c6abd4ff",
+    "front": "Lamina ventralis",
+    "back": "Вентральная пластинка"
+  },
+  {
+    "id": "89060f2de2028ada",
+    "front": "Vertebrae lumbales",
+    "back": "Поясничные позвонки"
   }
 ]
