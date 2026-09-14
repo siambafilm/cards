@@ -74,43 +74,6 @@
   }
   .lang-btn .lang-emoji { margin-right: 6px; }
 
-  /* ---- Сеты (порции слов) ---- */
-  .sets-bar {
-    width: 100%;
-    max-width: 760px;
-    display: none;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 10px;
-  }
-  .set-btn {
-    padding: 7px 13px;
-    background: #fff;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
-    font-size: .82rem;
-    font-weight: 600;
-    color: var(--muted);
-    cursor: pointer;
-    font-family: inherit;
-    transition: border-color .15s, background .15s, color .15s, transform .1s;
-  }
-  .set-btn:hover:not(.active) { color: var(--text); border-color: #cbd5e1; }
-  .set-btn:active { transform: scale(.97); }
-  .set-btn.active {
-    border-color: var(--accent); color: var(--accent); background: #eef0ff;
-  }
-  .set-btn.completed:not(.active) {
-    border-color: var(--green); color: #065f46; background: #ecfdf5;
-  }
-  .set-btn.review { border-color: #f59e0b; color: #b45309; }
-  .set-btn.review.active { background: #fef3c7; color: #92400e; }
-
-  .set-indicator {
-    width: 100%; max-width: 760px; text-align: center;
-    font-size: .85rem; color: var(--muted); margin-bottom: 10px; min-height: 1.2em;
-  }
-
   /* ---- Подрежимы (Карточки / Тест / Подбор) ---- */
   .tabs {
     width: 100%;
@@ -333,10 +296,6 @@
   <button class="tab" data-mode="match">Подбор</button>
 </div>
 
-<!-- Сеты (порции слов) -->
-<div class="sets-bar" id="setsBar"></div>
-<div class="set-indicator" id="setIndicator"></div>
-
 <div id="statusBanner" class="status-banner warn" style="display:none;"></div>
 
 <div class="progress-bar">
@@ -396,21 +355,10 @@
   </div>
 </div>
 
-<!-- ======================= Сет пройден ======================= -->
-<div class="view" id="setDoneView" style="display:none">
-  <div class="question-panel">
-    <div class="content">✅ Сет пройден!</div>
-    <div style="margin-top: 20px; color: var(--muted)" id="setDoneHint"></div>
-  </div>
-  <div class="controls">
-    <button class="btn-primary" id="nextSetBtn">Следующий сет →</button>
-  </div>
-</div>
-
 <!-- ======================= Финал ======================= -->
 <div class="view" id="doneView" style="display:none">
   <div class="question-panel">
-    <div class="content">🎉 Всё пройдено, включая повторение!</div>
+    <div class="content">🎉 Все карточки пройдены!</div>
     <div style="margin-top: 20px; color: var(--muted)">Нажмите «↻ Заново», чтобы начать с начала</div>
   </div>
 </div>
@@ -493,8 +441,6 @@ const FALLBACK = {
 // ============================================================
 //  СОСТОЯНИЕ
 // ============================================================
-const DEFAULT_BATCH_SIZE = 50; // максимум слов в одном сете
-
 let currentLang = 'latin';
 let allCards    = [];
 let queue       = [];
@@ -503,18 +449,6 @@ let mode        = 'flashcard';
 let flipped     = false;
 let testState   = null;
 let matchState  = null;
-
-// ---- Сеты (порции по DEFAULT_BATCH_SIZE слов) ----
-let batchSize        = DEFAULT_BATCH_SIZE;
-let sets             = [];    // sets[i] = массив карточек в сете i
-let setIndex         = 0;     // индекс текущего сета (или -1, если reviewMode)
-let setLearnedKeys   = {};    // { idx: [key, key, ...] } — выученные в сете idx (не текущем)
-let setQueueKeys     = {};    // { idx: [key, key, ...] } — оставшиеся в сете idx (не текущем)
-let repeatKeys       = new Set(); // ключи карточек, которые хоть раз нажали «Повторить»
-let reviewMode       = false; // true = идёт финальное повторение
-let reviewKeys       = null;  // фиксированный набор карточек для повторения (ключи)
-let reviewLearnedKeys = [];
-let reviewQueueKeys   = null;
 
 // ============================================================
 //  DOM
@@ -548,9 +482,6 @@ const modalOverlay = $('modalOverlay');
 const modalError   = $('modalError');
 const newFront     = $('newFront');
 const newBack      = $('newBack');
-const setsBarEl    = $('setsBar');
-const setIndicatorEl = $('setIndicator');
-const nextSetBtn   = $('nextSetBtn');
 
 // ============================================================
 //  УТИЛИТЫ
@@ -597,31 +528,13 @@ function hideBanner() { statusBanner.style.display = 'none'; }
 // ============================================================
 //  СОХРАНЕНИЕ ПРОГРЕССА (для каждого языка — свой ключ)
 // ============================================================
-function syncCurrentIntoStore() {
-  if (reviewMode) {
-    reviewLearnedKeys = learned.map(cardKey);
-    reviewQueueKeys   = queue.map(cardKey);
-  } else {
-    setLearnedKeys[setIndex] = learned.map(cardKey);
-    setQueueKeys[setIndex]   = queue.map(cardKey);
-  }
-}
-
 function saveState() {
   try {
-    syncCurrentIntoStore();
     localStorage.setItem(cfg().storageKey, JSON.stringify({
-      v: 3,
+      v: 2,
       mode,
-      batchSize,
-      setIndex: reviewMode ? -1 : setIndex,
-      setsKeys: sets.map(s => s.map(cardKey)),
-      setLearnedKeys,
-      setQueueKeys,
-      repeatKeys: Array.from(repeatKeys),
-      reviewKeys,
-      reviewLearnedKeys,
-      reviewQueueKeys,
+      learned: learned.map(cardKey),
+      queue:   queue.map(cardKey),
     }));
     localStorage.setItem('flashcards_last_lang', currentLang);
   } catch (e) {
@@ -641,148 +554,11 @@ function clearSavedState() {
 }
 
 // ============================================================
-//  СЕТЫ (порции слов) + ФИНАЛЬНОЕ ПОВТОРЕНИЕ
-// ============================================================
-
-// Режем весь (перемешанный) набор карточек на сеты по batchSize штук.
-function buildSets() {
-  const shuffled = shuffle([...allCards]);
-  sets = [];
-  for (let i = 0; i < shuffled.length; i += batchSize) {
-    sets.push(shuffled.slice(i, i + batchSize));
-  }
-  if (sets.length === 0) sets = [[]];
-}
-
-// Загружает в рабочие queue/learned прогресс сета idx (или начинает его с нуля).
-function loadWorkingSet(idx) {
-  setIndex = idx;
-  reviewMode = false;
-  const set = sets[idx] || [];
-  const byKey = new Map(set.map(c => [cardKey(c), c]));
-
-  const lk = setLearnedKeys[idx];
-  const qk = setQueueKeys[idx];
-
-  if (lk || qk) {
-    const usedKeys = new Set();
-    learned = (lk || []).map(k => byKey.get(k)).filter(Boolean);
-    learned.forEach(c => usedKeys.add(cardKey(c)));
-
-    const q = (qk || []).map(k => byKey.get(k)).filter(Boolean);
-    q.forEach(c => usedKeys.add(cardKey(c)));
-
-    // Карточки, которых почему-то не было ни в learned, ни в queue
-    // (например, добавлены позже) — докидываем в конец очереди.
-    for (const c of set) {
-      if (!usedKeys.has(cardKey(c))) { q.push(c); usedKeys.add(cardKey(c)); }
-    }
-    queue = q;
-  } else {
-    queue = shuffle([...set]);
-    learned = [];
-  }
-}
-
-// Все ли сеты полностью выучены?
-function isAllSetsComplete() {
-  for (let i = 0; i < sets.length; i++) {
-    const size = sets[i].length;
-    if (size === 0) continue;
-    const learnedCount = (i === setIndex && !reviewMode) ? learned.length : (setLearnedKeys[i] || []).length;
-    if (learnedCount < size) return false;
-  }
-  return true;
-}
-
-// Собирает набор карточек для финального повторения:
-// приоритет — те, что хотя бы раз отметили «Повторить»,
-// иначе — случайная выборка из всей колоды.
-function buildReviewSet() {
-  let cards;
-  if (repeatKeys.size > 0) {
-    const byKey = new Map(allCards.map(c => [cardKey(c), c]));
-    cards = Array.from(repeatKeys).map(k => byKey.get(k)).filter(Boolean);
-  } else {
-    const n = Math.min(15, allCards.length);
-    cards = shuffle([...allCards]).slice(0, n);
-  }
-  shuffle(cards);
-  reviewKeys = cards.map(cardKey);
-  return cards;
-}
-
-function enterReviewRound() {
-  reviewMode = true;
-  setIndex = -1;
-  const set = buildReviewSet();
-  queue = [...set];
-  learned = [];
-  reviewLearnedKeys = [];
-  reviewQueueKeys = null;
-  showBanner('🔁 Финальное повторение: ' + set.length + (set.length === 1 ? ' слово' : ' слов'), 'info', 5000);
-}
-
-// Переключиться на конкретный (уже существующий) сет.
-function switchToSet(i) {
-  if (!reviewMode && i === setIndex) return;
-  syncCurrentIntoStore();
-  loadWorkingSet(i);
-  flipped = false; testState = null; matchState = null;
-  render();
-}
-
-// Переключиться на уже сгенерированный набор повторения.
-function switchToReview() {
-  if (reviewMode || !reviewKeys) return;
-  syncCurrentIntoStore();
-  reviewMode = true;
-  setIndex = -1;
-  const byKeyAll = new Map(allCards.map(c => [cardKey(c), c]));
-  const reviewCards = reviewKeys.map(k => byKeyAll.get(k)).filter(Boolean);
-  const lByKey = new Map(reviewCards.map(c => [cardKey(c), c]));
-  if (reviewLearnedKeys.length || reviewQueueKeys) {
-    learned = (reviewLearnedKeys || []).map(k => lByKey.get(k)).filter(Boolean);
-    queue   = (reviewQueueKeys   || []).map(k => lByKey.get(k)).filter(Boolean);
-  } else {
-    learned = [];
-    queue = [...reviewCards];
-  }
-  flipped = false; testState = null; matchState = null;
-  render();
-}
-
-// Перейти на следующий незавершённый сет (или к повторению, если все готовы).
-function goToNextSet() {
-  syncCurrentIntoStore();
-  if (isAllSetsComplete()) { enterReviewRound(); render(); return; }
-  let next = -1;
-  for (let i = 1; i <= sets.length; i++) {
-    const idx = (setIndex + i) % sets.length;
-    const size = sets[idx].length;
-    const learnedCount = (idx === setIndex ? learned.length : (setLearnedKeys[idx] || []).length);
-    if (size > 0 && learnedCount < size) { next = idx; break; }
-  }
-  if (next === -1) { enterReviewRound(); render(); return; }
-  loadWorkingSet(next);
-  flipped = false; testState = null; matchState = null;
-  render();
-}
-
-// ============================================================
 //  СЕССИЯ
 // ============================================================
 function startFresh() {
-  batchSize = DEFAULT_BATCH_SIZE;
-  buildSets();
-  setLearnedKeys = {};
-  setQueueKeys = {};
-  repeatKeys = new Set();
-  reviewKeys = null;
-  reviewLearnedKeys = [];
-  reviewQueueKeys = null;
-  loadWorkingSet(0);
-  mode = mode || 'flashcard';
+  queue = shuffle([...allCards]);   // ← всегда в разнобой
+  learned = [];
   flipped = false;
   testState = null;
   matchState = null;
@@ -790,55 +566,35 @@ function startFresh() {
 }
 
 function restoreSession(saved) {
-  batchSize = saved.batchSize || DEFAULT_BATCH_SIZE;
+  const byKey = new Map();
+  for (const c of allCards) byKey.set(cardKey(c), c);
 
-  const byKeyAll = new Map(allCards.map(c => [cardKey(c), c]));
+  const learnedCards = [];
+  const queueCards = [];
+  const usedKeys = new Set();
 
-  // Восстанавливаем сеты по сохранённым ключам.
-  sets = (saved.setsKeys || []).map(keys => keys.map(k => byKeyAll.get(k)).filter(Boolean));
-
-  // Карточки, которых не было ни в одном сете (добавлены позже) — раскладываем по новым сетам.
-  const knownKeys = new Set();
-  sets.forEach(s => s.forEach(c => knownKeys.add(cardKey(c))));
-  const newCards = shuffle(allCards.filter(c => !knownKeys.has(cardKey(c))));
-  if (newCards.length) {
-    let lastSet = sets[sets.length - 1];
-    if (!lastSet) { lastSet = []; sets.push(lastSet); }
-    while (newCards.length) {
-      if (lastSet.length >= batchSize) { lastSet = []; sets.push(lastSet); }
-      lastSet.push(...newCards.splice(0, batchSize - lastSet.length));
+  if (saved) {
+    for (const k of saved.learned || []) {
+      const c = byKey.get(k);
+      if (c && !usedKeys.has(k)) { learnedCards.push(c); usedKeys.add(k); }
+    }
+    for (const k of saved.queue || []) {
+      const c = byKey.get(k);
+      if (c && !usedKeys.has(k)) { queueCards.push(c); usedKeys.add(k); }
     }
   }
-  if (sets.length === 0) sets = [[]];
 
-  setLearnedKeys = saved.setLearnedKeys || {};
-  setQueueKeys   = saved.setQueueKeys   || {};
-  repeatKeys     = new Set(saved.repeatKeys || []);
-  reviewKeys         = saved.reviewKeys || null;
-  reviewLearnedKeys  = saved.reviewLearnedKeys || [];
-  reviewQueueKeys    = saved.reviewQueueKeys || null;
+  // Новые карточки — в конец очереди, в случайном порядке
+  const fresh = [];
+  for (const c of allCards) {
+    const k = cardKey(c);
+    if (!usedKeys.has(k)) { fresh.push(c); usedKeys.add(k); }
+  }
+  queue = queueCards.concat(shuffle(fresh));
 
-  mode = saved.mode || 'flashcard';
+  learned = learnedCards;
+  mode = (saved && saved.mode) || 'flashcard';
   if (!['flashcard', 'test', 'match'].includes(mode)) mode = 'flashcard';
-
-  if (saved.setIndex === -1 && reviewKeys) {
-    reviewMode = true;
-    setIndex = -1;
-    const reviewCards = reviewKeys.map(k => byKeyAll.get(k)).filter(Boolean);
-    const lByKey = new Map(reviewCards.map(c => [cardKey(c), c]));
-    if (reviewLearnedKeys.length || reviewQueueKeys) {
-      learned = (reviewLearnedKeys || []).map(k => lByKey.get(k)).filter(Boolean);
-      queue   = (reviewQueueKeys   || []).map(k => lByKey.get(k)).filter(Boolean);
-    } else {
-      learned = [];
-      queue = [...reviewCards];
-    }
-  } else {
-    let idx = typeof saved.setIndex === 'number' ? saved.setIndex : 0;
-    if (idx < 0 || idx >= sets.length) idx = 0;
-    loadWorkingSet(idx);
-  }
-
   flipped = false;
   testState = null;
   matchState = null;
@@ -851,18 +607,12 @@ function markKnown() {
   if (!currentCard()) return;
   learned.push(queue.shift());
   flipped = false; testState = null; matchState = null;
-  if (queue.length === 0 && !reviewMode) {
-    syncCurrentIntoStore();
-    if (isAllSetsComplete()) enterReviewRound();
-  }
   render();
 }
 
 function markRepeat() {
   if (!currentCard()) return;
-  const c = queue.shift();
-  repeatKeys.add(cardKey(c));
-  queue.push(c);
+  queue.push(queue.shift());
   flipped = false; testState = null; matchState = null;
   render();
 }
@@ -878,12 +628,12 @@ function render() {
 }
 
 function updateProgress() {
-  const curSize = reviewMode ? (queue.length + learned.length) : (sets[setIndex] ? sets[setIndex].length : 0);
-  const curLearned = learned.length;
-  progressFill.style.width = (curSize ? curLearned / curSize * 100 : 0) + '%';
+  const total = allCards.length;
+  const done = learned.length;
+  progressFill.style.width = (total ? done / total * 100 : 0) + '%';
   remainingEl.textContent = queue.length;
-  learnedEl.textContent = curLearned;
-  totalEl.textContent = curSize;
+  learnedEl.textContent = done;
+  totalEl.textContent = total;
 }
 
 function updateTabs() {
@@ -895,77 +645,16 @@ function updateTabs() {
   });
 }
 
-// Панель с кнопками сетов + повторением
-function renderSetsBar() {
-  if (sets.length <= 1 && !reviewKeys) {
-    setsBarEl.style.display = 'none';
-    setsBarEl.innerHTML = '';
-    return;
-  }
-  setsBarEl.style.display = 'flex';
-  setsBarEl.innerHTML = '';
-
-  sets.forEach((s, i) => {
-    const size = s.length;
-    const learnedCount = (i === setIndex && !reviewMode) ? learned.length : (setLearnedKeys[i] || []).length;
-    const completed = size > 0 && learnedCount >= size;
-
-    const btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'set-btn'
-      + (!reviewMode && i === setIndex ? ' active' : '')
-      + (completed ? ' completed' : '');
-    btn.textContent = 'Сет ' + (i + 1) + (completed ? ' ✓' : '');
-    btn.title = learnedCount + '/' + size;
-    btn.addEventListener('click', () => switchToSet(i));
-    setsBarEl.appendChild(btn);
-  });
-
-  if (reviewKeys || isAllSetsComplete()) {
-    const rbtn = document.createElement('button');
-    rbtn.type = 'button';
-    rbtn.className = 'set-btn review' + (reviewMode ? ' active' : '');
-    rbtn.textContent = '🔁 Повторение';
-    rbtn.addEventListener('click', () => {
-      if (reviewMode) return;
-      if (reviewKeys) switchToReview();
-      else { syncCurrentIntoStore(); enterReviewRound(); render(); }
-    });
-    setsBarEl.appendChild(rbtn);
-  }
-}
-
-function updateSetIndicator() {
-  if (sets.length <= 1 && !reviewKeys) { setIndicatorEl.textContent = ''; return; }
-  if (reviewMode) {
-    setIndicatorEl.textContent = '🔁 Финальное повторение — выучено ' + learned.length + ' из ' + (learned.length + queue.length);
-  } else {
-    const size = sets[setIndex] ? sets[setIndex].length : 0;
-    setIndicatorEl.textContent = 'Сет ' + (setIndex + 1) + ' из ' + sets.length + ' · выучено ' + learned.length + ' из ' + size;
-  }
-}
-
 function renderActiveView() {
-  renderSetsBar();
-  updateSetIndicator();
-
   const c = currentCard();
-  const setComplete = !c && !reviewMode;
-  const allDone = !c && reviewMode;
+  const done = !c;
 
-  $('doneView').style.display = allDone ? 'block' : 'none';
-  $('setDoneView').style.display = setComplete ? 'block' : 'none';
+  $('doneView').style.display = done ? 'block' : 'none';
   document.querySelectorAll('.view[data-mode]').forEach(v => {
-    v.classList.toggle('active', !!c && v.dataset.mode === mode);
+    v.classList.toggle('active', !done && v.dataset.mode === mode);
   });
 
-  if (setComplete) {
-    $('setDoneHint').textContent = sets.length > 1
-      ? 'Сет №' + (setIndex + 1) + ' пройден. Переключитесь на следующий сет.'
-      : 'Этот сет пройден.';
-  }
-
-  if (!c) return;
+  if (done) return;
 
   if (mode === 'flashcard') renderFlashcard(c);
   else if (mode === 'test') renderTest(c);
@@ -1135,12 +824,6 @@ async function saveNewCard() {
 
     const newCard = { id: data.id || ('local-' + Date.now()), front, back };
     allCards.push(newCard);
-    if (!reviewMode) {
-      if (!sets[setIndex]) sets[setIndex] = [];
-      sets[setIndex].push(newCard);
-    } else if (reviewKeys) {
-      reviewKeys.push(cardKey(newCard));
-    }
     queue.push(newCard);
 
     closeModal();
@@ -1239,9 +922,6 @@ testInput.addEventListener('keydown', (e) => {
     else if (testState.correct) markKnown();
   }
 });
-
-// Сеты
-nextSetBtn.addEventListener('click', goToNextSet);
 
 // Подбор
 matchNextBtn.addEventListener('click', markKnown);
