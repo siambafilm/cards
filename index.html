@@ -430,6 +430,8 @@
     <textarea id="newFront" rows="3" placeholder="Введите вопрос..."></textarea>
     <label for="newBack" id="labelBack">Ответ</label>
     <textarea id="newBack" rows="3" placeholder="Введите ответ..."></textarea>
+    <label for="newPassword">Пароль</label>
+    <input type="password" id="newPassword" placeholder="Введите пароль..." autocomplete="off">
     <div class="modal-actions">
       <button class="btn-ghost" id="cancelModal">Отмена</button>
       <button class="btn-primary" id="saveModal">Сохранить</button>
@@ -548,6 +550,7 @@ const modalOverlay = $('modalOverlay');
 const modalError   = $('modalError');
 const newFront     = $('newFront');
 const newBack      = $('newBack');
+const newPassword  = $('newPassword');
 const setsBarEl    = $('setsBar');
 const setIndicatorEl = $('setIndicator');
 const nextSetBtn   = $('nextSetBtn');
@@ -1099,6 +1102,7 @@ function openModal() {
   updateModalForLang();
   newFront.value = '';
   newBack.value = '';
+  newPassword.value = '';
   modalError.classList.remove('show');
   modalError.textContent = '';
   modalOverlay.classList.add('open');
@@ -1109,9 +1113,15 @@ function closeModal() { modalOverlay.classList.remove('open'); }
 async function saveNewCard() {
   const front = newFront.value.trim();
   const back  = newBack.value.trim();
+  const password = newPassword.value;
 
   if (!front || !back) {
     modalError.textContent = 'Заполните оба поля.';
+    modalError.classList.add('show');
+    return;
+  }
+  if (!password) {
+    modalError.textContent = 'Введите пароль.';
     modalError.classList.add('show');
     return;
   }
@@ -1133,11 +1143,14 @@ async function saveNewCard() {
     const res = await fetch(ADD_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lang: currentLang, front, back }),
+      body: JSON.stringify({ lang: currentLang, front, back, password }),
     });
 
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.ok) {
+      if (res.status === 403) {
+        throw new Error(data.error || 'Неверный пароль.');
+      }
       if (res.status === 409) {
         throw new Error(data.error || 'Такое слово уже есть в списке.');
       }

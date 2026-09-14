@@ -37,6 +37,22 @@ if (!isset($allowed[$lang])) {
 }
 $file = __DIR__ . '/' . $allowed[$lang];
 
+// ---- Проверка пароля ----
+$passwordFile = __DIR__ . '/pAsS.txt';
+if (!file_exists($passwordFile) || !is_readable($passwordFile)) {
+    http_response_code(500);
+    echo json_encode(['error' => 'Файл pAsS.txt не найден на сервере'], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+$expectedPassword = trim((string)file_get_contents($passwordFile));
+$providedPassword = isset($input['password']) ? (string)$input['password'] : '';
+
+if ($expectedPassword === '' || !hash_equals($expectedPassword, $providedPassword)) {
+    http_response_code(403);
+    echo json_encode(['error' => 'Неверный пароль'], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
 $front = isset($input['front']) ? trim((string)$input['front']) : '';
 $back  = isset($input['back'])  ? trim((string)$input['back'])  : '';
 
