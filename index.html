@@ -37,15 +37,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
     gap: 10px;
     flex-wrap: wrap;
   }
-
   header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; }
-
   .header-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
+  /* ---- Языки (глобальные) ---- */
+  .lang-switch {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .lang-btn {
+    flex: 1;
+    padding: 14px 18px;
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--muted);
+    cursor: pointer;
+    transition: border-color .15s, background .15s, color .15s, transform .1s;
+    font-family: inherit;
+  }
+  .lang-btn:hover:not(.active) { color: var(--text); border-color: #cbd5e1; }
+  .lang-btn:active { transform: scale(.99); }
+  .lang-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: #eef0ff;
+  }
+  .lang-btn .lang-emoji { margin-right: 6px; }
+
+  /* ---- Подрежимы (Карточки / Тест / Подбор) ---- */
   .tabs {
     width: 100%;
     max-width: 760px;
@@ -56,7 +85,6 @@
     border-radius: 12px;
     margin-bottom: 18px;
   }
-
   .tab {
     flex: 1;
     padding: 10px 14px;
@@ -71,11 +99,7 @@
     font-family: inherit;
   }
   .tab:hover:not(.active) { color: var(--text); }
-  .tab.active {
-    background: #fff;
-    color: var(--text);
-    box-shadow: 0 1px 3px rgba(0,0,0,.08);
-  }
+  .tab.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
 
   .progress-bar {
     width: 100%;
@@ -97,98 +121,46 @@
   .view { display: none; width: 100%; max-width: 760px; }
   .view.active { display: block; }
 
-  /* ---- Карточка (flashcard) ---- */
+  /* ---- Карточка ---- */
   .card-scene {
-    width: 100%;
-    height: 380px;
-    perspective: 1200px;
-    cursor: pointer;
-    margin-bottom: 24px;
+    width: 100%; height: 380px; perspective: 1200px; cursor: pointer; margin-bottom: 24px;
   }
   .card {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: relative; width: 100%; height: 100%;
     transform-style: preserve-3d;
     transition: transform .55s cubic-bezier(.4,.2,.2,1);
     border-radius: var(--radius);
   }
   .card.flipped { transform: rotateY(180deg); }
-
   .card-face {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    border-radius: var(--radius);
-    background: var(--card-bg);
+    position: absolute; inset: 0; backface-visibility: hidden;
+    border-radius: var(--radius); background: var(--card-bg);
     box-shadow: var(--shadow);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 32px;
-    text-align: center;
-    overflow-y: auto;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 40px 32px; text-align: center; overflow-y: auto;
   }
   .card-face.back { transform: rotateY(180deg); }
 
   .label {
-    font-size: .75rem;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    color: var(--muted);
-    margin-bottom: 16px;
-    font-weight: 600;
+    font-size: .75rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--muted); margin-bottom: 16px; font-weight: 600;
   }
+  .content { font-size: 1.6rem; line-height: 1.5; font-weight: 500; word-break: break-word; white-space: pre-wrap; }
+  .hint { margin-top: 24px; font-size: .85rem; color: var(--muted); }
+  .tags { margin-top: 18px; font-size: .75rem; color: var(--muted); font-style: italic; }
 
-  .content {
-    font-size: 1.6rem;
-    line-height: 1.5;
-    font-weight: 500;
-    word-break: break-word;
-    white-space: pre-wrap;
-  }
-
-  .hint {
-    margin-top: 24px;
-    font-size: .85rem;
-    color: var(--muted);
-  }
-
-  .tags {
-    margin-top: 18px;
-    font-size: .75rem;
-    color: var(--muted);
-    font-style: italic;
-  }
-
-  /* ---- Общий панель вопроса (для теста и подбора) ---- */
   .question-panel {
-    background: var(--card-bg);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 40px 32px;
-    text-align: center;
-    margin-bottom: 20px;
+    background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 40px 32px; text-align: center; margin-bottom: 20px;
     min-height: 180px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
   }
 
-  /* ---- Тест ---- */
   .answer-input {
-    width: 100%;
-    padding: 16px 18px;
-    font-size: 1.1rem;
-    border: 2px solid #d1d5db;
-    border-radius: 12px;
-    font-family: inherit;
-    transition: border-color .2s, background .2s;
-    margin-bottom: 14px;
-    color: var(--text);
-    background: #fff;
+    width: 100%; padding: 16px 18px; font-size: 1.1rem;
+    border: 2px solid #d1d5db; border-radius: 12px;
+    font-family: inherit; transition: border-color .2s, background .2s;
+    margin-bottom: 14px; color: var(--text); background: #fff;
   }
   .answer-input:focus { outline: none; border-color: var(--accent); }
   .answer-input.correct { border-color: var(--green); background: #ecfdf5; }
@@ -196,42 +168,22 @@
   .answer-input:disabled { opacity: .95; }
 
   .feedback {
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: .95rem;
-    margin-bottom: 14px;
-    display: none;
-    line-height: 1.5;
-    text-align: left;
+    padding: 12px 16px; border-radius: 10px; font-size: .95rem;
+    margin-bottom: 14px; display: none; line-height: 1.5; text-align: left;
   }
   .feedback.show { display: block; }
   .feedback.correct { background: #ecfdf5; color: #065f46; }
   .feedback.wrong   { background: #fef2f2; color: #991b1b; }
   .feedback strong { font-weight: 700; }
 
-  /* ---- Подбор ---- */
-  .options {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-  @media (max-width: 600px) {
-    .options { grid-template-columns: 1fr; }
-  }
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+  @media (max-width: 600px) { .options { grid-template-columns: 1fr; } }
   .option {
-    padding: 18px 20px;
-    background: var(--card-bg);
-    border: 2px solid #e5e7eb;
-    border-radius: 14px;
-    font-size: 1rem;
-    text-align: left;
-    cursor: pointer;
+    padding: 18px 20px; background: var(--card-bg);
+    border: 2px solid #e5e7eb; border-radius: 14px;
+    font-size: 1rem; text-align: left; cursor: pointer;
     transition: border-color .15s, background .15s, transform .1s;
-    font-family: inherit;
-    color: var(--text);
-    font-weight: 500;
-    line-height: 1.4;
+    font-family: inherit; color: var(--text); font-weight: 500; line-height: 1.4;
   }
   .option:hover:not(:disabled) { border-color: var(--accent); background: #f9fafb; }
   .option:active:not(:disabled) { transform: scale(.99); }
@@ -239,134 +191,72 @@
   .option.wrong   { border-color: var(--red);   background: #fef2f2; color: #991b1b; }
   .option:disabled { cursor: default; }
 
-  /* ---- Кнопки ---- */
-  .controls {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 24px;
-  }
-
+  .controls { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 24px; }
   button {
-    border: none;
-    border-radius: 12px;
-    padding: 13px 26px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background .2s, transform .1s;
-    font-family: inherit;
+    border: none; border-radius: 12px; padding: 13px 26px;
+    font-size: 1rem; font-weight: 600; cursor: pointer;
+    transition: background .2s, transform .1s; font-family: inherit;
   }
   button:active:not(:disabled) { transform: scale(.97); }
   button:disabled { opacity: .4; cursor: not-allowed; }
 
   .btn-primary { background: var(--accent); color: #fff; }
   .btn-primary:hover:not(:disabled) { background: var(--accent-hover); }
-
   .btn-know { background: var(--green); color: #fff; }
   .btn-know:hover:not(:disabled) { background: #0d9668; }
-
   .btn-repeat { background: #fee2e2; color: var(--red); }
   .btn-repeat:hover:not(:disabled) { background: #fecaca; }
-
   .btn-ghost {
-    background: transparent;
-    color: var(--muted);
-    border: 1.5px solid #d1d5db;
-    padding: 11px 22px;
+    background: transparent; color: var(--muted);
+    border: 1.5px solid #d1d5db; padding: 11px 22px;
   }
   .btn-ghost:hover:not(:disabled) { background: #f3f4f6; }
 
   .stats {
-    font-size: .9rem;
-    color: var(--muted);
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    justify-content: center;
+    font-size: .9rem; color: var(--muted);
+    display: flex; gap: 18px; flex-wrap: wrap; justify-content: center;
   }
   .stats strong { color: var(--text); }
 
   .status-banner {
-    width: 100%;
-    max-width: 760px;
-    padding: 12px 16px;
-    border-radius: 12px;
-    font-size: .9rem;
-    margin-bottom: 16px;
-    text-align: center;
-    line-height: 1.5;
+    width: 100%; max-width: 760px; padding: 12px 16px;
+    border-radius: 12px; font-size: .9rem; margin-bottom: 16px;
+    text-align: center; line-height: 1.5;
   }
-  .status-banner.warn  { background: #fef3c7; color: #92400e; }
-  .status-banner.info  { background: #dbeafe; color: #1e40af; }
-  .status-banner.ok    { background: #d1fae5; color: #065f46; }
+  .status-banner.warn { background: #fef3c7; color: #92400e; }
+  .status-banner.info { background: #dbeafe; color: #1e40af; }
+  .status-banner.ok   { background: #d1fae5; color: #065f46; }
 
-  /* ---- Модальное окно ---- */
   .modal-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    z-index: 100;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s;
+    position: fixed; inset: 0; background: rgba(0,0,0,.45);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px; z-index: 100;
+    opacity: 0; pointer-events: none; transition: opacity .25s;
   }
   .modal-overlay.open { opacity: 1; pointer-events: auto; }
-
   .modal {
-    background: #fff;
-    border-radius: var(--radius);
-    padding: 32px;
-    width: 100%;
-    max-width: 520px;
-    box-shadow: var(--shadow);
+    background: #fff; border-radius: var(--radius); padding: 32px;
+    width: 100%; max-width: 520px; box-shadow: var(--shadow);
   }
   .modal h2 { font-size: 1.2rem; margin-bottom: 20px; }
-
   .modal label {
-    display: block;
-    font-size: .85rem;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: var(--muted);
+    display: block; font-size: .85rem; font-weight: 600;
+    margin-bottom: 6px; color: var(--muted);
   }
-
   .modal input, .modal textarea {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1.5px solid #d1d5db;
-    border-radius: 10px;
-    font-size: 1rem;
-    font-family: inherit;
-    margin-bottom: 14px;
-    resize: vertical;
-    transition: border-color .2s;
-    color: var(--text);
+    width: 100%; padding: 12px 14px;
+    border: 1.5px solid #d1d5db; border-radius: 10px;
+    font-size: 1rem; font-family: inherit; margin-bottom: 14px;
+    resize: vertical; transition: border-color .2s; color: var(--text);
   }
   .modal input:focus, .modal textarea:focus { outline: none; border-color: var(--accent); }
-
   .modal-error {
-    background: #fef2f2;
-    color: #991b1b;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: .85rem;
-    margin-bottom: 12px;
-    display: none;
+    background: #fef2f2; color: #991b1b;
+    padding: 10px 14px; border-radius: 8px; font-size: .85rem;
+    margin-bottom: 12px; display: none;
   }
   .modal-error.show { display: block; }
-
-  .modal-actions {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-    margin-top: 8px;
-  }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 8px; }
 
   @media (max-width: 600px) {
     .card-scene { height: 320px; }
@@ -375,6 +265,7 @@
     .question-panel { padding: 28px 20px; }
     header h1 { font-size: 1.2rem; }
     .tab { font-size: .85rem; padding: 9px 8px; }
+    .lang-btn { font-size: .9rem; padding: 12px 10px; }
   }
 </style>
 </head>
@@ -383,11 +274,22 @@
 <header>
   <h1>📇 Мои карточки</h1>
   <div class="header-actions">
-    <button class="btn-ghost" id="restartBtn" title="Сбросить прогресс и начать заново">↻ Заново</button>
+    <button class="btn-ghost" id="restartBtn" title="Сбросить прогресс текущего языка">↻ Заново</button>
     <button class="btn-ghost" id="addBtn">+ Добавить</button>
   </div>
 </header>
 
+<!-- Глобальный переключатель языка -->
+<div class="lang-switch" id="langSwitch">
+  <button class="lang-btn active" data-lang="latin">
+    <span class="lang-emoji">🏛️</span>Латинский
+  </button>
+  <button class="lang-btn" data-lang="english">
+    <span class="lang-emoji">🇬🇧</span>Английский
+  </button>
+</div>
+
+<!-- Подрежимы -->
 <div class="tabs" id="tabs">
   <button class="tab active" data-mode="flashcard">Карточки</button>
   <button class="tab" data-mode="test">Тест</button>
@@ -400,7 +302,7 @@
   <div class="progress-fill" id="progressFill"></div>
 </div>
 
-<!-- ======================= РЕЖИМ 1: КАРТОЧКИ ======================= -->
+<!-- ======================= Карточки ======================= -->
 <div class="view" data-mode="flashcard">
   <div class="card-scene" id="cardScene">
     <div class="card" id="card">
@@ -423,7 +325,7 @@
   </div>
 </div>
 
-<!-- ======================= РЕЖИМ 2: ТЕСТ ======================= -->
+<!-- ======================= Тест ======================= -->
 <div class="view" data-mode="test">
   <div class="question-panel">
     <div class="label">Вопрос</div>
@@ -439,7 +341,7 @@
   </div>
 </div>
 
-<!-- ======================= РЕЖИМ 3: ПОДБОР ======================= -->
+<!-- ======================= Подбор ======================= -->
 <div class="view" data-mode="match">
   <div class="question-panel">
     <div class="label">Выберите правильный ответ</div>
@@ -453,7 +355,7 @@
   </div>
 </div>
 
-<!-- ======================= ФИНАЛ ======================= -->
+<!-- ======================= Финал ======================= -->
 <div class="view" id="doneView" style="display:none">
   <div class="question-panel">
     <div class="content">🎉 Все карточки пройдены!</div>
@@ -467,14 +369,14 @@
   <span>Всего: <strong id="total">0</strong></span>
 </div>
 
-<!-- ======================= МОДАЛЬНОЕ ОКНО ======================= -->
+<!-- ======================= Модалка ======================= -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
-    <h2>Новая карточка</h2>
+    <h2 id="modalTitle">Новая карточка</h2>
     <div class="modal-error" id="modalError"></div>
-    <label for="newFront">Вопрос (Front)</label>
+    <label for="newFront" id="labelFront">Вопрос</label>
     <textarea id="newFront" rows="3" placeholder="Введите вопрос..."></textarea>
-    <label for="newBack">Ответ (Back)</label>
+    <label for="newBack" id="labelBack">Ответ</label>
     <textarea id="newBack" rows="3" placeholder="Введите ответ..."></textarea>
     <div class="modal-actions">
       <button class="btn-ghost" id="cancelModal">Отмена</button>
@@ -484,58 +386,93 @@
 </div>
 
 <script>
-// ========== КОНФИГ ==========
-const CARDS_URL = 'cards.json';
-// Направление теста и подбора.
-//   'back-to-front' — показываем back (русский перевод), пишем front (латынь)
-//   'front-to-back' — наоборот
-// Если ваша колода устроена иначе — просто поменяйте это значение.
-const TEST_DIRECTION = 'back-to-front';
-const ADD_URL   = 'add_card.php';
-const STORAGE_KEY = 'flashcards_state_v1';
+// ============================================================
+//  КОНФИГ ЯЗЫКОВ
+// ============================================================
+const LANGS = {
+  latin: {
+    title: '🏛️ Латинский',
+    file: 'latin.json',
+    storageKey: 'flashcards_state_v2_latin',
+    // Что показывать в тесте и подборе, что писать в ответ.
+    // front — «лицо» карточки (латинское слово), back — перевод.
+    // Если у вас наоборот — поменяйте местами.
+    questionField: 'back',   // показываем перевод
+    answerField:   'front',  // просим ввести латинское слово
+    placeholder: 'Введите слово на латыни...',
+    // Подсказки в модалке добавления
+    frontLabel: 'Слово (латынь)',
+    backLabel:  'Перевод (русский)',
+    frontPlaceholder: 'например: aqua',
+    backPlaceholder:  'например: вода',
+  },
+  english: {
+    title: '🇬🇧 Английский',
+    file: 'english.json',
+    storageKey: 'flashcards_state_v2_english',
+    questionField: 'back',
+    answerField:   'front',
+    placeholder: 'Введите слово на английском...',
+    frontLabel: 'Слово (английский)',
+    backLabel:  'Перевод (русский)',
+    frontPlaceholder: 'например: water',
+    backPlaceholder:  'например: вода',
+  },
+};
 
-const FALLBACK_CARDS = [
-  { id: 'demo1', front: 'Что такое HTML?', back: 'Язык разметки гипертекста.' },
-  { id: 'demo2', front: 'Что такое CSS?', back: 'Каскадные таблицы стилей.' },
-  { id: 'demo3', front: 'Что такое JavaScript?', back: 'Язык программирования для веб-страниц.' },
-  { id: 'demo4', front: 'Что такое DOM?', back: 'Объектная модель документа.' },
-];
+const ADD_URL = 'add_card.php';
 
-// ========== СОСТОЯНИЕ ==========
-let allCards = [];
-let queue    = [];
-let learned  = [];
-let mode     = 'flashcard';
+// Демо-карточки, если JSON не загрузился (открытие через file://)
+const FALLBACK = {
+  latin: [
+    { id: 'l1', front: 'aqua',  back: 'вода' },
+    { id: 'l2', front: 'ignis', back: 'огонь' },
+    { id: 'l3', front: 'terra', back: 'земля' },
+    { id: 'l4', front: 'ventus', back: 'ветер' },
+  ],
+  english: [
+    { id: 'e1', front: 'water', back: 'вода' },
+    { id: 'e2', front: 'fire',  back: 'огонь' },
+    { id: 'e3', front: 'earth', back: 'земля' },
+    { id: 'e4', front: 'wind',  back: 'ветер' },
+  ],
+};
 
-let flipped = false;
-let testState = null;   // { checked, correct }
-let matchState = null;  // { options: [...], correct, picked }
+// ============================================================
+//  СОСТОЯНИЕ
+// ============================================================
+let currentLang = 'latin';
+let allCards    = [];
+let queue       = [];
+let learned     = [];
+let mode        = 'flashcard';
+let flipped     = false;
+let testState   = null;
+let matchState  = null;
 
-// ========== DOM ==========
+// ============================================================
+//  DOM
+// ============================================================
 const $ = (id) => document.getElementById(id);
 const cardEl       = $('card');
 const fcFront      = $('fcFront');
 const fcBack       = $('fcBack');
 const fcFrontTags  = $('fcFrontTags');
 const fcBackTags   = $('fcBackTags');
-
-const testFront       = $('testFront');
-const testInput       = $('testInput');
-const testFeedback    = $('testFeedback');
-const testCheckBtn    = $('testCheck');
-const testRepeatBtn   = $('testRepeat');
-const testNextBtn     = $('testNext');
-const testKnowBtn     = $('testKnowAnyway');
-
-const matchFront      = $('matchFront');
-const matchOptions    = $('matchOptions');
-const matchRepeatBtn  = $('matchRepeat');
-const matchNextBtn    = $('matchNext');
-const matchKnowBtn    = $('matchKnowAnyway');
-
-const fcRepeatBtn     = $('fcRepeat');
-const fcKnowBtn       = $('fcKnow');
-
+const testFront    = $('testFront');
+const testInput    = $('testInput');
+const testFeedback = $('testFeedback');
+const testCheckBtn = $('testCheck');
+const testRepeatBtn= $('testRepeat');
+const testNextBtn  = $('testNext');
+const testKnowBtn  = $('testKnowAnyway');
+const matchFront   = $('matchFront');
+const matchOptions = $('matchOptions');
+const matchRepeatBtn = $('matchRepeat');
+const matchNextBtn   = $('matchNext');
+const matchKnowBtn   = $('matchKnowAnyway');
+const fcRepeatBtn  = $('fcRepeat');
+const fcKnowBtn    = $('fcKnow');
 const progressFill = $('progressFill');
 const remainingEl  = $('remaining');
 const learnedEl    = $('learned');
@@ -546,16 +483,17 @@ const modalError   = $('modalError');
 const newFront     = $('newFront');
 const newBack      = $('newBack');
 
-// ========== УТИЛИТЫ ==========
+// ============================================================
+//  УТИЛИТЫ
+// ============================================================
+function cfg() { return LANGS[currentLang]; }
+
 function cardKey(c) {
   return c.id ? 'id:' + c.id : 'k:' + (c.front || '') + '\x00' + (c.back || '');
 }
 
 function normalize(s) {
-  return String(s || '')
-    .toLowerCase()
-    .replace(/\s+/g, ' ')
-    .trim();
+  return String(s || '').toLowerCase().replace(/\s+/g, ' ').trim();
 }
 
 function shuffle(arr) {
@@ -570,6 +508,12 @@ function formatTags(tags) {
   return tags && tags.length ? '#' + tags.join(' #') : '';
 }
 
+function escapeHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
 function showBanner(text, kind = 'warn', ms = 0) {
   statusBanner.textContent = text;
   statusBanner.className = 'status-banner ' + kind;
@@ -579,20 +523,20 @@ function showBanner(text, kind = 'warn', ms = 0) {
     showBanner._t = setTimeout(() => { statusBanner.style.display = 'none'; }, ms);
   }
 }
+function hideBanner() { statusBanner.style.display = 'none'; }
 
-function hideBanner() {
-  statusBanner.style.display = 'none';
-}
-
-// ========== СОХРАНЕНИЕ ПРОГРЕССА ==========
+// ============================================================
+//  СОХРАНЕНИЕ ПРОГРЕССА (для каждого языка — свой ключ)
+// ============================================================
 function saveState() {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
-      v: 1,
+    localStorage.setItem(cfg().storageKey, JSON.stringify({
+      v: 2,
       mode,
       learned: learned.map(cardKey),
       queue:   queue.map(cardKey),
     }));
+    localStorage.setItem('flashcards_last_lang', currentLang);
   } catch (e) {
     console.warn('Не удалось сохранить прогресс:', e);
   }
@@ -600,16 +544,18 @@ function saveState() {
 
 function loadSavedState() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(cfg().storageKey);
     return raw ? JSON.parse(raw) : null;
   } catch { return null; }
 }
 
 function clearSavedState() {
-  try { localStorage.removeItem(STORAGE_KEY); } catch {}
+  try { localStorage.removeItem(cfg().storageKey); } catch {}
 }
 
-// ========== СЕССИЯ ==========
+// ============================================================
+//  СЕССИЯ
+// ============================================================
 function startFresh() {
   queue = shuffle([...allCards]);   // ← всегда в разнобой
   learned = [];
@@ -630,30 +576,22 @@ function restoreSession(saved) {
   if (saved) {
     for (const k of saved.learned || []) {
       const c = byKey.get(k);
-      if (c && !usedKeys.has(k)) {
-        learnedCards.push(c);
-        usedKeys.add(k);
-      }
+      if (c && !usedKeys.has(k)) { learnedCards.push(c); usedKeys.add(k); }
     }
     for (const k of saved.queue || []) {
       const c = byKey.get(k);
-      if (c && !usedKeys.has(k)) {
-        queueCards.push(c);
-        usedKeys.add(k);
-      }
+      if (c && !usedKeys.has(k)) { queueCards.push(c); usedKeys.add(k); }
     }
   }
 
-  // Всё, что не восстановили (новые карточки) — в конец очереди
+  // Новые карточки — в конец очереди, в случайном порядке
+  const fresh = [];
   for (const c of allCards) {
     const k = cardKey(c);
-    if (!usedKeys.has(k)) {
-      queueCards.push(c);
-      usedKeys.add(k);
-    }
+    if (!usedKeys.has(k)) { fresh.push(c); usedKeys.add(k); }
   }
+  queue = queueCards.concat(shuffle(fresh));
 
-  queue = queueCards;
   learned = learnedCards;
   mode = (saved && saved.mode) || 'flashcard';
   if (!['flashcard', 'test', 'match'].includes(mode)) mode = 'flashcard';
@@ -663,29 +601,25 @@ function restoreSession(saved) {
   render();
 }
 
-function currentCard() {
-  return queue.length > 0 ? queue[0] : null;
-}
+function currentCard() { return queue.length > 0 ? queue[0] : null; }
 
 function markKnown() {
   if (!currentCard()) return;
   learned.push(queue.shift());
-  flipped = false;
-  testState = null;
-  matchState = null;
+  flipped = false; testState = null; matchState = null;
   render();
 }
 
 function markRepeat() {
   if (!currentCard()) return;
   queue.push(queue.shift());
-  flipped = false;
-  testState = null;
-  matchState = null;
+  flipped = false; testState = null; matchState = null;
   render();
 }
 
-// ========== РЕНДЕР ==========
+// ============================================================
+//  РЕНДЕР
+// ============================================================
 function render() {
   updateProgress();
   updateTabs();
@@ -706,6 +640,9 @@ function updateTabs() {
   document.querySelectorAll('.tab').forEach(t => {
     t.classList.toggle('active', t.dataset.mode === mode);
   });
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === currentLang);
+  });
 }
 
 function renderActiveView() {
@@ -713,7 +650,6 @@ function renderActiveView() {
   const done = !c;
 
   $('doneView').style.display = done ? 'block' : 'none';
-
   document.querySelectorAll('.view[data-mode]').forEach(v => {
     v.classList.toggle('active', !done && v.dataset.mode === mode);
   });
@@ -735,16 +671,14 @@ function renderFlashcard(c) {
 }
 
 function renderTest(c) {
-  const showBack = TEST_DIRECTION === 'back-to-front';
-  const questionText = showBack ? c.back : c.front;
+  const conf = cfg();
+  const q = c[conf.questionField] || '(пусто)';
 
-  testFront.textContent = questionText || '(пусто)';
+  testFront.textContent = q;
   testInput.value = '';
   testInput.disabled = false;
   testInput.className = 'answer-input';
-  testInput.placeholder = showBack
-    ? 'Введите ответ на латыни...'
-    : 'Введите перевод...';
+  testInput.placeholder = conf.placeholder;
   testFeedback.className = 'feedback';
   testFeedback.textContent = '';
   testCheckBtn.style.display = '';
@@ -756,14 +690,15 @@ function renderTest(c) {
 }
 
 function renderMatch(c) {
-  matchFront.textContent = c.front || '(пусто)';
+  const conf = cfg();
+  matchFront.textContent = c[conf.questionField] || '(пусто)';
   matchRepeatBtn.style.display = 'none';
   matchNextBtn.style.display = 'none';
   matchKnowBtn.style.display = 'none';
 
-  const correct = c.back || '(пусто)';
+  const correct = c[conf.answerField] || '(пусто)';
   const pool = Array.from(new Set(
-    allCards.map(x => x.back).filter(b => b && b !== correct)
+    allCards.map(x => x[conf.answerField]).filter(b => b && b !== correct)
   ));
   shuffle(pool);
   const nOptions = Math.min(4, pool.length + 1);
@@ -771,7 +706,6 @@ function renderMatch(c) {
   shuffle(opts);
 
   matchState = { options: opts, correct, picked: -1 };
-
   matchOptions.innerHTML = '';
   opts.forEach((opt, i) => {
     const btn = document.createElement('button');
@@ -782,15 +716,16 @@ function renderMatch(c) {
   });
 }
 
-// ========== ТЕСТ: ПРОВЕРКА ==========
+// ============================================================
+//  ТЕСТ
+// ============================================================
 function checkTest() {
   const c = currentCard();
   if (!c || !testState) return;
   if (testState.checked) return;
 
-  const showBack = TEST_DIRECTION === 'back-to-front';
-  const expected = normalize(showBack ? c.front : c.back);   // что вводит юзер
-  const shown    = showBack ? c.back : c.front;              // что показали
+  const conf = cfg();
+  const expected = normalize(c[conf.answerField]);
   const user = normalize(testInput.value);
   const correct = user !== '' && user === expected;
 
@@ -814,23 +749,15 @@ function checkTest() {
   }
 }
 
-function escapeHtml(s) {
-  return String(s)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
-
-// ========== ПОДБОР: ВЫБОР ==========
+// ============================================================
+//  ПОДБОР
+// ============================================================
 function pickMatchOption(idx) {
   if (!matchState || matchState.picked !== -1) return;
-  const c = currentCard();
-  if (!c) return;
+  if (!currentCard()) return;
 
   matchState.picked = idx;
-  const picked = matchState.options[idx];
+  const picked  = matchState.options[idx];
   const correct = matchState.correct;
   const isCorrect = picked === correct;
 
@@ -841,16 +768,24 @@ function pickMatchOption(idx) {
     if (i === idx && !isCorrect) b.classList.add('wrong');
   });
 
-  if (isCorrect) {
-    matchNextBtn.style.display = '';
-  } else {
-    matchRepeatBtn.style.display = '';
-    matchKnowBtn.style.display = '';
-  }
+  if (isCorrect) matchNextBtn.style.display = '';
+  else { matchRepeatBtn.style.display = ''; matchKnowBtn.style.display = ''; }
 }
 
-// ========== МОДАЛЬНОЕ ОКНО ==========
+// ============================================================
+//  МОДАЛКА
+// ============================================================
+function updateModalForLang() {
+  const conf = cfg();
+  $('modalTitle').textContent = 'Новая карточка — ' + conf.title;
+  $('labelFront').textContent = conf.frontLabel;
+  $('labelBack').textContent  = conf.backLabel;
+  newFront.placeholder = conf.frontPlaceholder;
+  newBack.placeholder  = conf.backPlaceholder;
+}
+
 function openModal() {
+  updateModalForLang();
   newFront.value = '';
   newBack.value = '';
   modalError.classList.remove('show');
@@ -858,10 +793,7 @@ function openModal() {
   modalOverlay.classList.add('open');
   newFront.focus();
 }
-
-function closeModal() {
-  modalOverlay.classList.remove('open');
-}
+function closeModal() { modalOverlay.classList.remove('open'); }
 
 async function saveNewCard() {
   const front = newFront.value.trim();
@@ -882,22 +814,20 @@ async function saveNewCard() {
     const res = await fetch(ADD_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ front, back }),
+      body: JSON.stringify({ lang: currentLang, front, back }),
     });
 
     const data = await res.json().catch(() => ({}));
-
     if (!res.ok || !data.ok) {
       throw new Error(data.error || ('Ошибка сервера: HTTP ' + res.status));
     }
 
-    // Добавляем карточку в текущую сессию
     const newCard = { id: data.id || ('local-' + Date.now()), front, back };
     allCards.push(newCard);
     queue.push(newCard);
 
     closeModal();
-    showBanner('✓ Карточка добавлена на сервер', 'ok', 2500);
+    showBanner('✓ Карточка добавлена в ' + cfg().title, 'ok', 2500);
     render();
   } catch (e) {
     modalError.textContent = e.message || 'Не удалось сохранить карточку.';
@@ -908,14 +838,65 @@ async function saveNewCard() {
   }
 }
 
-// ========== СОБЫТИЯ ==========
-// Переключение режимов
+// ============================================================
+//  ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА
+// ============================================================
+async function switchLang(newLang) {
+  if (newLang === currentLang) return;
+  saveState();                       // сохраняем прогресс текущего языка
+  currentLang = newLang;
+  localStorage.setItem('flashcards_last_lang', currentLang);
+  hideBanner();
+  await loadAndInit();
+}
+
+// ============================================================
+//  ЗАГРУЗКА КАРТОЧЕК
+// ============================================================
+async function loadCards(url) {
+  try {
+    const res = await fetch(url, { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) throw new Error('Пустой JSON');
+    return { cards: data, source: 'json' };
+  } catch (e) {
+    console.warn('Не удалось загрузить', url, ':', e);
+    return { cards: FALLBACK[currentLang] || [], source: 'fallback', error: e };
+  }
+}
+
+async function loadAndInit() {
+  const conf = cfg();
+  const { cards, source } = await loadCards(conf.file);
+  allCards = cards;
+
+  if (source === 'fallback') {
+    showBanner(
+      '⚠️ Не удалось загрузить ' + conf.file + ' — показаны демо-карточки. ' +
+      'Проверьте, что файл лежит рядом с index.html и страница открыта через http(s).',
+      'warn'
+    );
+  }
+
+  const saved = loadSavedState();
+  if (saved) restoreSession(saved);
+  else startFresh();
+}
+
+// ============================================================
+//  СОБЫТИЯ
+// ============================================================
+// Переключение языка
+document.querySelectorAll('.lang-btn').forEach(b => {
+  b.addEventListener('click', () => switchLang(b.dataset.lang));
+});
+
+// Переключение подрежима
 document.querySelectorAll('.tab').forEach(t => {
   t.addEventListener('click', () => {
     mode = t.dataset.mode;
-    flipped = false;
-    testState = null;
-    matchState = null;
+    flipped = false; testState = null; matchState = null;
     render();
   });
 });
@@ -947,15 +928,15 @@ matchNextBtn.addEventListener('click', markKnown);
 matchRepeatBtn.addEventListener('click', markRepeat);
 matchKnowBtn.addEventListener('click', markKnown);
 
-// Заново
+// Заново (только текущий язык)
 $('restartBtn').addEventListener('click', () => {
   if (queue.length === 0 && learned.length === 0) return;
-  if (!confirm('Сбросить прогресс и начать колоду заново?')) return;
+  if (!confirm('Сбросить прогресс и начать колоду «' + cfg().title + '» заново?')) return;
   clearSavedState();
   startFresh();
 });
 
-// Добавить
+// Модалка
 $('addBtn').addEventListener('click', openModal);
 $('cancelModal').addEventListener('click', closeModal);
 $('saveModal').addEventListener('click', saveNewCard);
@@ -969,7 +950,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
     return;
   }
-  if (e.target === testInput) return; // не мешаем вводу
+  if (e.target === testInput) return;
 
   if (e.code === 'Space') {
     if (mode === 'flashcard') { e.preventDefault(); $('cardScene').click(); }
@@ -979,47 +960,23 @@ document.addEventListener('keydown', (e) => {
     document.querySelector('.tab[data-mode="test"]').click();
   } else if (e.key === '3') {
     document.querySelector('.tab[data-mode="match"]').click();
+  } else if (e.key === 'q' || e.key === 'Q') {
+    // Q — переключить язык
+    switchLang(currentLang === 'latin' ? 'english' : 'latin');
   } else if (e.key.toLowerCase() === 'r') {
     $('restartBtn').click();
   }
 });
 
-// ========== ЗАГРУЗКА ==========
-async function loadCards() {
-  try {
-    const res = await fetch(CARDS_URL, { cache: 'no-store' });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    if (!Array.isArray(data) || data.length === 0) {
-      throw new Error('Пустой или неверный формат JSON');
-    }
-    return { cards: data, source: 'json' };
-  } catch (e) {
-    console.warn('Не удалось загрузить', CARDS_URL, ':', e);
-    return { cards: FALLBACK_CARDS, source: 'fallback', error: e };
-  }
-}
-
+// ============================================================
+//  СТАРТ
+// ============================================================
 (async () => {
-  const { cards, source } = await loadCards();
-  allCards = cards;
+  // Запоминаем последний выбранный язык
+  const last = localStorage.getItem('flashcards_last_lang');
+  if (last && LANGS[last]) currentLang = last;
 
-  if (source === 'fallback') {
-    showBanner(
-      '⚠️ Не удалось загрузить cards.json — показаны демо-карточки. ' +
-      'Проверьте, что файл лежит рядом с index.html и открыт через http(s).',
-      'warn'
-    );
-  }
-
-  const saved = loadSavedState();
-  if (saved) {
-    restoreSession(saved);
-  } else {
-    startFresh();
-  }
-
-  // На случай, если пользователь закроет вкладку — сохраним ещё раз
+  await loadAndInit();
   window.addEventListener('beforeunload', saveState);
 })();
 </script>

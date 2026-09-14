@@ -1,0 +1,287 @@
+[
+  {
+    "id": "139e6a0d33e9d8e7",
+    "front": "teeth",
+    "back": "зуб"
+  },
+  {
+    "id": "3dc5c0e2b3e404bf",
+    "front": "wings",
+    "back": "крылья"
+  },
+  {
+    "id": "b6c0846df7c31e67",
+    "front": "neck",
+    "back": "шея"
+  },
+  {
+    "id": "19273617be3a7b63",
+    "front": "mane",
+    "back": "грива"
+  },
+  {
+    "id": "e17fa6b1e604f328",
+    "front": "legs",
+    "back": "ноги"
+  },
+  {
+    "id": "28bb0f15d2a6a125",
+    "front": "hair",
+    "back": "волосы"
+  },
+  {
+    "id": "623d3864d420f18d",
+    "front": "fur",
+    "back": "мех"
+  },
+  {
+    "id": "d726b27e828d5705",
+    "front": "feathers",
+    "back": "перья"
+  },
+  {
+    "id": "7fc2bf510b6d2673",
+    "front": "heads",
+    "back": "головы"
+  },
+  {
+    "id": "3b34208a0d7f261d",
+    "front": "leaves",
+    "back": "листья"
+  },
+  {
+    "id": "f3d240e3bb970f03",
+    "front": "hoof",
+    "back": "копыто"
+  },
+  {
+    "id": "3d758064dcb7c631",
+    "front": "horns",
+    "back": "рога"
+  },
+  {
+    "id": "ca55c0e1dbd4a031",
+    "front": "feet",
+    "back": "стопа"
+  },
+  {
+    "id": "6210f135b80a5bf2",
+    "front": "eyes",
+    "back": "глаза"
+  },
+  {
+    "id": "4a21183c52e1f43a",
+    "front": "nose",
+    "back": "нос"
+  },
+  {
+    "id": "660a1bbd7a0491fb",
+    "front": "tail",
+    "back": "хвост"
+  },
+  {
+    "id": "be8f2552df03d52d",
+    "front": "ears",
+    "back": "уши"
+  },
+  {
+    "id": "9d92cd1d6d6c6e7a",
+    "front": "toes",
+    "back": "пальцы ног"
+  },
+  {
+    "id": "5b7fc6da2ee8e121",
+    "front": "nails",
+    "back": "ногти"
+  },
+  {
+    "id": "e160e14a1e948c3b",
+    "front": "claws",
+    "back": "когти"
+  },
+  {
+    "id": "e1fe3c64c7e4ff61",
+    "front": "thumb",
+    "back": "большой палец"
+  },
+  {
+    "id": "076e036e7465ea87",
+    "front": "low",
+    "back": "низко"
+  },
+  {
+    "id": "8d591b61ca01e74a",
+    "front": "bark",
+    "back": "лаять"
+  },
+  {
+    "id": "2a74c0e62a11b64a",
+    "front": "trumpet",
+    "back": "труба"
+  },
+  {
+    "id": "da681ef40d4f3b23",
+    "front": "croak",
+    "back": "кваканье"
+  },
+  {
+    "id": "bd7630fa23eef250",
+    "front": "neigh",
+    "back": "ржать"
+  },
+  {
+    "id": "2ea7bf0aef484d31",
+    "front": "bleat",
+    "back": "блеять"
+  },
+  {
+    "id": "a823ed609f3e4a28",
+    "front": "roar",
+    "back": "рычание"
+  },
+  {
+    "id": "3bf782e4e10df3a6",
+    "front": "squeak",
+    "back": "скрип"
+  },
+  {
+    "id": "b7ed34d28efc0f41",
+    "front": "grunt",
+    "back": "ворчание"
+  },
+  {
+    "id": "fa23dcb360fa7ef2",
+    "front": "crow",
+    "back": "ворон"
+  },
+  {
+    "id": "4b3df829faee3bf5",
+    "front": "sheep",
+    "back": "овца"
+  },
+  {
+    "id": "83cfebd12a4b3d70",
+    "front": "chikens",
+    "back": "курицы"
+  },
+  {
+    "id": "a7b3ef1d6ea5ef0d",
+    "front": "turkeys",
+    "back": "индейки"
+  },
+  {
+    "id": "93bfe92aefd78fa1",
+    "front": "goats",
+    "back": "козы"
+  },
+  {
+    "id": "4bf830aefbc0d49f",
+    "front": "ducks",
+    "back": "утки"
+  },
+  {
+    "id": "3fe8dbca7fe83b0a",
+    "front": "geese",
+    "back": "гуси"
+  },
+  {
+    "id": "8bda2e3faef30cde",
+    "front": "pigs",
+    "back": "свиньи"
+  },
+  {
+    "id": "3efd8ab34dfaef89",
+    "front": "horses",
+    "back": "лошади"
+  },
+  {
+    "id": "9bfad3eefc83abde",
+    "front": "ostriches",
+    "back": "страусы"
+  },
+  {
+    "id": "a3bfed29fa7e3bc0",
+    "front": "cub",
+    "back": "детёныш"
+  },
+  {
+    "id": "4fed3ab2ea7cf3d1",
+    "front": "calf",
+    "back": "телёнок"
+  },
+  {
+    "id": "8fbed39acde3bc7a",
+    "front": "kid",
+    "back": "ребёнок"
+  },
+  {
+    "id": "7bf3ea2debc48fd3",
+    "front": "gosling",
+    "back": "гусёнок"
+  },
+  {
+    "id": "3be4fdba23e7cf8d",
+    "front": "duckling",
+    "back": "утёнок"
+  },
+  {
+    "id": "4b7edc3afe24d3ba",
+    "front": "chicken",
+    "back": "курица"
+  },
+  {
+    "id": "9be43fd72aefbc04",
+    "front": "piglet",
+    "back": "поросёнок"
+  },
+  {
+    "id": "a3be4fde2aef3bd7",
+    "front": "lamb",
+    "back": "ягнёнок"
+  },
+  {
+    "id": "2bfed34ab7ec3fd4",
+    "front": "puppy",
+    "back": "щенок"
+  },
+  {
+    "id": "f3ebd24ade3bcf41",
+    "front": "birds",
+    "back": "птицы"
+  },
+  {
+    "id": "a7efb34d2ebd4fc3",
+    "front": "pig",
+    "back": "свинья"
+  },
+  {
+    "id": "3be4df872aefbc0d",
+    "front": "hen",
+    "back": "курица"
+  },
+  {
+    "id": "d3be4f8a2efc3bd4",
+    "front": "crocodile",
+    "back": "крокодил"
+  },
+  {
+    "id": "4be3dfd82aefbc0d",
+    "front": "bull",
+    "back": "бык"
+  },
+  {
+    "id": "a7be3fd42efbc0d3",
+    "front": "lion",
+    "back": "лев"
+  },
+  {
+    "id": "3be4fd82aefbc3d4",
+    "front": "fish",
+    "back": "рыба"
+  },
+  {
+    "id": "9be4fd832aefbc7d",
+    "front": "stag",
+    "back": "олень, самец"
+  }
+]
