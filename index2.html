@@ -111,17 +111,6 @@
     font-size: .85rem; color: var(--muted); margin-bottom: 10px; min-height: 1.2em;
   }
 
-  .dict-empty { text-align: center; color: var(--muted); padding: 30px 10px; }
-  .dict-item {
-    background: var(--card-bg); border-radius: 14px; box-shadow: var(--shadow);
-    padding: 16px 22px; margin-bottom: 12px;
-    display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
-  }
-  .dict-front { font-weight: 700; font-size: 1.1rem; }
-  .dict-arrow { color: var(--muted); }
-  .dict-back  { font-size: 1.05rem; color: var(--text); }
-  .dict-tags  { flex-basis: 100%; font-size: .75rem; color: var(--muted); font-style: italic; }
-
   /* ---- Подрежимы (Карточки / Тест / Подбор) ---- */
   .tabs {
     width: 100%;
@@ -342,7 +331,6 @@
   <button class="tab active" data-mode="flashcard">Карточки</button>
   <button class="tab" data-mode="test">Тест</button>
   <button class="tab" data-mode="match">Подбор</button>
-  <button class="tab" data-mode="dictionary">Словарь</button>
 </div>
 
 <!-- Сеты (порции слов) -->
@@ -406,17 +394,6 @@
     <button class="btn-know" id="matchKnowAnyway" style="display:none">✓ Всё равно знаю</button>
     <button class="btn-know" id="matchNext" style="display:none">Дальше →</button>
   </div>
-</div>
-
-<!-- ======================= Словарь ======================= -->
-<div class="view" data-mode="dictionary">
-  <div class="question-panel" style="align-items: stretch;">
-    <div class="label" style="align-self:center;">Найти перевод</div>
-    <input type="text" class="answer-input" id="dictInput"
-           placeholder="Введите слово на русском или иностранном..."
-           autocomplete="off" autocapitalize="off" spellcheck="false" style="margin-bottom:0;">
-  </div>
-  <div id="dictResults" style="margin-top: 16px;"></div>
 </div>
 
 <!-- ======================= Сет пройден ======================= -->
@@ -577,8 +554,6 @@ const newPassword  = $('newPassword');
 const setsBarEl    = $('setsBar');
 const setIndicatorEl = $('setIndicator');
 const nextSetBtn   = $('nextSetBtn');
-const dictInput    = $('dictInput');
-const dictResults  = $('dictResults');
 
 // ============================================================
 //  УТИЛИТЫ
@@ -847,7 +822,7 @@ function restoreSession(saved) {
   reviewQueueKeys    = saved.reviewQueueKeys || null;
 
   mode = saved.mode || 'flashcard';
-  if (!['flashcard', 'test', 'match', 'dictionary'].includes(mode)) mode = 'flashcard';
+  if (!['flashcard', 'test', 'match'].includes(mode)) mode = 'flashcard';
 
   if (saved.setIndex === -1 && reviewKeys) {
     reviewMode = true;
@@ -977,16 +952,6 @@ function renderActiveView() {
   renderSetsBar();
   updateSetIndicator();
 
-  if (mode === 'dictionary') {
-    $('doneView').style.display = 'none';
-    $('setDoneView').style.display = 'none';
-    document.querySelectorAll('.view[data-mode]').forEach(v => {
-      v.classList.toggle('active', v.dataset.mode === 'dictionary');
-    });
-    renderDictionary();
-    return;
-  }
-
   const c = currentCard();
   const setComplete = !c && !reviewMode;
   const allDone = !c && reviewMode;
@@ -1063,58 +1028,6 @@ function renderMatch(c) {
     btn.addEventListener('click', () => pickMatchOption(i));
     matchOptions.appendChild(btn);
   });
-}
-
-// ============================================================
-//  СЛОВАРЬ (поиск по front/back текущего языка)
-// ============================================================
-function renderDictionary() {
-  const raw = dictInput.value;
-  const q = normalize(raw);
-  dictResults.innerHTML = '';
-
-  if (!q) {
-    dictResults.innerHTML = '<div class="dict-empty">Начните вводить слово — на русском или на ' +
-      escapeHtml(cfg().title.replace(/^\S+\s*/, '')) + '.</div>';
-    return;
-  }
-
-  const matches = allCards.filter(c =>
-    normalize(c.front).includes(q) || normalize(c.back).includes(q)
-  );
-
-  matches.sort((a, b) => {
-    const aExact = normalize(a.front) === q || normalize(a.back) === q ? 1 : 0;
-    const bExact = normalize(b.front) === q || normalize(b.back) === q ? 1 : 0;
-    return bExact - aExact;
-  });
-
-  if (matches.length === 0) {
-    dictResults.innerHTML = '<div class="dict-empty">Ничего не найдено в словаре «' +
-      escapeHtml(cfg().title) + '».</div>';
-    return;
-  }
-
-  matches.slice(0, 50).forEach(c => {
-    const div = document.createElement('div');
-    div.className = 'dict-item';
-    const tagsHtml = (c.tags && c.tags.length)
-      ? '<div class="dict-tags">#' + c.tags.map(escapeHtml).join(' #') + '</div>'
-      : '';
-    div.innerHTML =
-      '<div class="dict-front">' + escapeHtml(c.front) + '</div>' +
-      '<div class="dict-arrow">→</div>' +
-      '<div class="dict-back">' + escapeHtml(c.back) + '</div>' +
-      tagsHtml;
-    dictResults.appendChild(div);
-  });
-
-  if (matches.length > 50) {
-    const more = document.createElement('div');
-    more.className = 'dict-empty';
-    more.textContent = 'И ещё ' + (matches.length - 50) + '… уточните запрос.';
-    dictResults.appendChild(more);
-  }
 }
 
 // ============================================================
@@ -1275,7 +1188,6 @@ async function switchLang(newLang) {
   currentLang = newLang;
   localStorage.setItem('flashcards_last_lang', currentLang);
   hideBanner();
-  dictInput.value = '';
   await loadAndInit();
 }
 
@@ -1327,12 +1239,8 @@ document.querySelectorAll('.tab').forEach(t => {
     mode = t.dataset.mode;
     flipped = false; testState = null; matchState = null;
     render();
-    if (mode === 'dictionary' && window.innerWidth > 700) dictInput.focus();
   });
 });
-
-// Словарь — живой поиск по мере ввода
-dictInput.addEventListener('input', renderDictionary);
 
 // Карточки
 $('cardScene').addEventListener('click', () => {
@@ -1386,7 +1294,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
     return;
   }
-  if (e.target === testInput || e.target === dictInput) return;
+  if (e.target === testInput) return;
 
   if (e.code === 'Space') {
     if (mode === 'flashcard') { e.preventDefault(); $('cardScene').click(); }
@@ -1396,8 +1304,6 @@ document.addEventListener('keydown', (e) => {
     document.querySelector('.tab[data-mode="test"]').click();
   } else if (e.key === '3') {
     document.querySelector('.tab[data-mode="match"]').click();
-  } else if (e.key === '4') {
-    document.querySelector('.tab[data-mode="dictionary"]').click();
   } else if (e.key === 'q' || e.key === 'Q') {
     // Q — переключить язык
     switchLang(currentLang === 'latin' ? 'english' : 'latin');
