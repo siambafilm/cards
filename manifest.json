@@ -1,74 +1,285 @@
-[
-  {
-    "file": "anatomical_nouns.json",
-    "words": 68
-  },
-  {
-    "file": "anatomical_adjectives.json",
-    "words": 103
-  },
-  {
-    "file": "numbers.json",
-    "words": 20
-  },
-  {
-    "file": "latin_prefixes_prepositions.json",
-    "words": 22
-  },
-  {
-    "file": "greek_prefixes.json",
-    "words": 17
-  },
-  {
-    "file": "colors.json",
-    "words": 8
-  },
-  {
-    "file": "animals.json",
-    "words": 15
-  },
-  {
-    "file": "clinical_adjectives.json",
-    "words": 36
-  },
-  {
-    "file": "clinical_nouns.json",
-    "words": 32
-  },
-  {
-    "file": "disease_term_elements.json",
-    "words": 12
-  },
-  {
-    "file": "diagnosis_treatment_term_elements.json",
-    "words": 12
-  },
-  {
-    "file": "surgical_term_elements.json",
-    "words": 6
-  },
-  {
-    "file": "greek_latin_equivalents_1.json",
-    "words": 41
-  },
-  {
-    "file": "greek_latin_equivalents_2.json",
-    "words": 41
-  },
-  {
-    "file": "drug_forms_solid_dry.json",
-    "words": 11
-  },
-  {
-    "file": "drug_forms_soft_semiliquid.json",
-    "words": 5
-  },
-  {
-    "file": "drug_forms_liquid.json",
-    "words": 12
-  },
-  {
-    "file": "prescription_terms.json",
-    "words": 27
-  }
-]
+{
+  "languages": [
+    {
+      "key": "latin",
+      "title": "🏛️ Латинский",
+      "group": "Основные",
+      "file": "langs/latin.json",
+      "storageKey": "flashcards_state_v2_latin",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите слово на латыни...",
+      "frontLabel": "Слово (латынь)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: aqua",
+      "backPlaceholder": "например: вода"
+    },
+    {
+      "key": "anatomical_nouns",
+      "title": "🫀 Анатомия — существительные",
+      "group": "Основные",
+      "file": "langs/anatomical_nouns.json",
+      "storageKey": "flashcards_state_v2_anatomical_nouns",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинское слово...",
+      "frontLabel": "Слово (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: costa",
+      "backPlaceholder": "например: ребро"
+    },
+    {
+      "key": "anatomical_adjectives",
+      "title": "🫀 Анатомия — прилагательные",
+      "group": "Основные",
+      "file": "langs/anatomical_adjectives.json",
+      "storageKey": "flashcards_state_v2_anatomical_adjectives",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинское слово...",
+      "frontLabel": "Слово (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: anterior",
+      "backPlaceholder": "например: передний"
+    },
+    {
+      "key": "numbers",
+      "title": "🔢 Числительные",
+      "group": "Основные",
+      "file": "langs/numbers.json",
+      "storageKey": "flashcards_state_v2_numbers",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинское слово...",
+      "frontLabel": "Слово (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: unus",
+      "backPlaceholder": "например: один"
+    },
+    {
+      "key": "latin_prefixes_prepositions",
+      "title": "🔤 Латинские приставки и предлоги",
+      "group": "Основные",
+      "file": "langs/latin_prefixes_prepositions.json",
+      "storageKey": "flashcards_state_v2_latin_prefixes_prepositions",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинское слово...",
+      "frontLabel": "Слово (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: ad",
+      "backPlaceholder": "например: к, при"
+    },
+    {
+      "key": "greek_prefixes",
+      "title": "🇬🇷 Греческие приставки",
+      "group": "Основные",
+      "file": "langs/greek_prefixes.json",
+      "storageKey": "flashcards_state_v2_greek_prefixes",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите греческий терминоэлемент...",
+      "frontLabel": "Терминоэлемент",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: anti",
+      "backPlaceholder": "например: против"
+    },
+    {
+      "key": "colors",
+      "title": "🎨 Цвета",
+      "group": "Основные",
+      "file": "langs/colors.json",
+      "storageKey": "flashcards_state_v2_colors",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинское слово...",
+      "frontLabel": "Слово (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: albus",
+      "backPlaceholder": "например: белый"
+    },
+    {
+      "key": "animals",
+      "title": "🐾 Названия животных",
+      "group": "Основные",
+      "file": "langs/animals.json",
+      "storageKey": "flashcards_state_v2_animals",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинское слово...",
+      "frontLabel": "Слово (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: equus",
+      "backPlaceholder": "например: лошадь"
+    },
+    {
+      "key": "clinical_adjectives",
+      "title": "🩺 Клиническая терминология — прилагательные",
+      "group": "Основные",
+      "file": "langs/clinical_adjectives.json",
+      "storageKey": "flashcards_state_v2_clinical_adjectives",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинское слово...",
+      "frontLabel": "Слово (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: acutus",
+      "backPlaceholder": "например: острый"
+    },
+    {
+      "key": "clinical_nouns",
+      "title": "🩺 Клиническая терминология — существительные",
+      "group": "Основные",
+      "file": "langs/clinical_nouns.json",
+      "storageKey": "flashcards_state_v2_clinical_nouns",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинское слово...",
+      "frontLabel": "Слово (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: abscessus",
+      "backPlaceholder": "например: абсцесс"
+    },
+    {
+      "key": "disease_term_elements",
+      "title": "🦠 Терминоэлементы — болезни",
+      "group": "Основные",
+      "file": "langs/disease_term_elements.json",
+      "storageKey": "flashcards_state_v2_disease_term_elements",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите терминоэлемент...",
+      "frontLabel": "Терминоэлемент",
+      "backLabel": "Значение (русский)",
+      "frontPlaceholder": "например: pathia",
+      "backPlaceholder": "например: болезнь"
+    },
+    {
+      "key": "diagnosis_treatment_term_elements",
+      "title": "🔬 Терминоэлементы — диагностика и лечение",
+      "group": "Основные",
+      "file": "langs/diagnosis_treatment_term_elements.json",
+      "storageKey": "flashcards_state_v2_diagnosis_treatment_term_elements",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите терминоэлемент...",
+      "frontLabel": "Терминоэлемент",
+      "backLabel": "Значение (русский)",
+      "frontPlaceholder": "например: scopia",
+      "backPlaceholder": "например: осмотр"
+    },
+    {
+      "key": "surgical_term_elements",
+      "title": "⚕️ Хирургические терминоэлементы",
+      "group": "Основные",
+      "file": "langs/surgical_term_elements.json",
+      "storageKey": "flashcards_state_v2_surgical_term_elements",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите терминоэлемент...",
+      "frontLabel": "Терминоэлемент",
+      "backLabel": "Значение (русский)",
+      "frontPlaceholder": "например: tomia",
+      "backPlaceholder": "например: рассечение"
+    },
+    {
+      "key": "greek_latin_equivalents_1",
+      "title": "🇬🇷🇱🇦 Греко-латинские эквиваленты — часть 1",
+      "group": "Основные",
+      "file": "langs/greek_latin_equivalents_1.json",
+      "storageKey": "flashcards_state_v2_greek_latin_equivalents_1",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите греческий терминоэлемент...",
+      "frontLabel": "Греческий терминоэлемент",
+      "backLabel": "Латинский эквивалент и перевод",
+      "frontPlaceholder": "например: spondylo",
+      "backPlaceholder": "например: vertebra — позвонок"
+    },
+    {
+      "key": "greek_latin_equivalents_2",
+      "title": "🇬🇷🇱🇦 Греко-латинские эквиваленты — часть 2",
+      "group": "Основные",
+      "file": "langs/greek_latin_equivalents_2.json",
+      "storageKey": "flashcards_state_v2_greek_latin_equivalents_2",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите греческий терминоэлемент...",
+      "frontLabel": "Греческий терминоэлемент",
+      "backLabel": "Латинский эквивалент и перевод",
+      "frontPlaceholder": "например: dermo",
+      "backPlaceholder": "например: cutis — кожа"
+    },
+    {
+      "key": "drug_forms_solid_dry",
+      "title": "💊 Лекарственные формы — твёрдые и сухие",
+      "group": "Основные",
+      "file": "langs/drug_forms_solid_dry.json",
+      "storageKey": "flashcards_state_v2_drug_forms_solid_dry",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите название лекарственной формы...",
+      "frontLabel": "Название (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: tabuletta",
+      "backPlaceholder": "например: таблетка"
+    },
+    {
+      "key": "drug_forms_soft_semiliquid",
+      "title": "💊 Лекарственные формы — мягкие и полужидкие",
+      "group": "Основные",
+      "file": "langs/drug_forms_soft_semiliquid.json",
+      "storageKey": "flashcards_state_v2_drug_forms_soft_semiliquid",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите название лекарственной формы...",
+      "frontLabel": "Название (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: unguentum",
+      "backPlaceholder": "например: мазь"
+    },
+    {
+      "key": "drug_forms_liquid",
+      "title": "💧 Лекарственные формы — жидкие",
+      "group": "Основные",
+      "file": "langs/drug_forms_liquid.json",
+      "storageKey": "flashcards_state_v2_drug_forms_liquid",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите название лекарственной формы...",
+      "frontLabel": "Название (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: solutio",
+      "backPlaceholder": "например: раствор"
+    },
+    {
+      "key": "prescription_terms",
+      "title": "📜 Рецептурные термины и выражения",
+      "group": "Основные",
+      "file": "langs/prescription_terms.json",
+      "storageKey": "flashcards_state_v2_prescription_terms",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинский термин или выражение...",
+      "frontLabel": "Термин / выражение (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: misce ut fiat",
+      "backPlaceholder": "например: смешай, чтобы получилось"
+    },
+    {
+      "key": "english",
+      "title": "🇬🇧 Английский",
+      "group": "Другие языки",
+      "file": "langs/english.json",
+      "storageKey": "flashcards_state_v2_english",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите слово на английском...",
+      "frontLabel": "Слово (английский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: water",
+      "backPlaceholder": "например: вода",
+      "requiresUnlock": true
+    }
+  ]
+}

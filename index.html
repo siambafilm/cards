@@ -44,65 +44,22 @@
   header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: -.02em; }
   .header-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
-  /* ---- Языки (глобальные) ---- */
-  .lang-switch {
-    width: 100%;
-    max-width: 760px;
-    display: flex;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-  .lang-btn {
-    flex: 1;
-    padding: 14px 18px;
-    background: #fff;
-    border: 2px solid #e5e7eb;
-    border-radius: 14px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--muted);
-    cursor: pointer;
-    transition: border-color .15s, background .15s, color .15s, transform .1s;
-    font-family: inherit;
-  }
-  .lang-btn:hover:not(.active) { color: var(--text); border-color: #cbd5e1; }
-  .lang-btn:active { transform: scale(.99); }
-  .lang-btn.active {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: #eef0ff;
-  }
-  .lang-btn .lang-emoji { margin-right: 6px; }
-
   /* ---- Сеты (порции слов) ---- */
   .sets-bar {
-    width: 100%;
-    max-width: 760px;
-    display: none;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 10px;
+    width: 100%; max-width: 760px;
+    display: none; flex-wrap: wrap; gap: 6px; margin-bottom: 10px;
   }
   .set-btn {
-    padding: 7px 13px;
-    background: #fff;
-    border: 2px solid #e5e7eb;
-    border-radius: 10px;
-    font-size: .82rem;
-    font-weight: 600;
-    color: var(--muted);
-    cursor: pointer;
-    font-family: inherit;
+    padding: 7px 13px; background: #fff;
+    border: 2px solid #e5e7eb; border-radius: 10px;
+    font-size: .82rem; font-weight: 600; color: var(--muted);
+    cursor: pointer; font-family: inherit;
     transition: border-color .15s, background .15s, color .15s, transform .1s;
   }
   .set-btn:hover:not(.active) { color: var(--text); border-color: #cbd5e1; }
   .set-btn:active { transform: scale(.97); }
-  .set-btn.active {
-    border-color: var(--accent); color: var(--accent); background: #eef0ff;
-  }
-  .set-btn.completed:not(.active) {
-    border-color: var(--green); color: #065f46; background: #ecfdf5;
-  }
+  .set-btn.active { border-color: var(--accent); color: var(--accent); background: #eef0ff; }
+  .set-btn.completed:not(.active) { border-color: var(--green); color: #065f46; background: #ecfdf5; }
   .set-btn.review { border-color: #f59e0b; color: #b45309; }
   .set-btn.review.active { background: #fef3c7; color: #92400e; }
 
@@ -122,48 +79,28 @@
   .dict-back  { font-size: 1.05rem; color: var(--text); }
   .dict-tags  { flex-basis: 100%; font-size: .75rem; color: var(--muted); font-style: italic; }
 
-  /* ---- Подрежимы (Карточки / Тест / Подбор) ---- */
+  /* ---- Подрежимы ---- */
   .tabs {
-    width: 100%;
-    max-width: 760px;
-    display: flex;
-    gap: 6px;
-    background: #e5e7eb;
-    padding: 4px;
-    border-radius: 12px;
-    margin-bottom: 18px;
+    width: 100%; max-width: 760px;
+    display: flex; gap: 6px;
+    background: #e5e7eb; padding: 4px; border-radius: 12px; margin-bottom: 18px;
   }
   .tab {
-    flex: 1;
-    padding: 10px 14px;
-    border: none;
-    background: transparent;
-    border-radius: 9px;
-    font-weight: 600;
-    color: var(--muted);
-    cursor: pointer;
-    font-size: .95rem;
-    transition: background .15s, color .15s;
-    font-family: inherit;
+    flex: 1; padding: 10px 14px; border: none; background: transparent;
+    border-radius: 9px; font-weight: 600; color: var(--muted);
+    cursor: pointer; font-size: .95rem;
+    transition: background .15s, color .15s; font-family: inherit;
   }
   .tab:hover:not(.active) { color: var(--text); }
   .tab.active { background: #fff; color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
 
   .progress-bar {
-    width: 100%;
-    max-width: 760px;
-    height: 8px;
-    background: #e5e7eb;
-    border-radius: 99px;
-    overflow: hidden;
-    margin-bottom: 24px;
+    width: 100%; max-width: 760px; height: 8px;
+    background: #e5e7eb; border-radius: 99px; overflow: hidden; margin-bottom: 24px;
   }
   .progress-fill {
-    height: 100%;
-    width: 0%;
-    background: var(--accent);
-    border-radius: 99px;
-    transition: width .35s ease;
+    height: 100%; width: 0%; background: var(--accent);
+    border-radius: 99px; transition: width .35s ease;
   }
 
   .view { display: none; width: 100%; max-width: 760px; }
@@ -275,110 +212,69 @@
   .status-banner.info { background: #dbeafe; color: #1e40af; }
   .status-banner.ok   { background: #d1fae5; color: #065f46; }
 
-
-  /* ---- Боковое меню наборов ---- */
+  /* ---- Боковое меню ---- */
   .menu-toggle {
-    position: fixed;
-    top: 18px;
-    left: 18px;
-    z-index: 220;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    border-radius: 14px;
-    background: #fff;
-    color: var(--text);
-    border: 1.5px solid #e5e7eb;
-    box-shadow: var(--shadow);
-    font-size: 1.35rem;
+    position: fixed; top: 18px; left: 18px; z-index: 220;
+    width: 48px; height: 48px; padding: 0;
+    border-radius: 14px; background: #fff; color: var(--text);
+    border: 1.5px solid #e5e7eb; box-shadow: var(--shadow);
+    font-size: 1.35rem; line-height: 1;
+    transition: opacity .2s ease, transform .25s ease;
   }
   .menu-toggle:hover { background: #f3f4f6; }
+  /* Скрываем кнопку, когда сайдбар открыт */
+  body.sidebar-open .menu-toggle {
+    opacity: 0;
+    transform: translateX(-110%);
+    pointer-events: none;
+  }
 
   .sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 190;
+    position: fixed; inset: 0; z-index: 190;
     background: rgba(0,0,0,.35);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s;
+    opacity: 0; pointer-events: none; transition: opacity .25s;
   }
-  .sidebar-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-  }
+  .sidebar-overlay.open { opacity: 1; pointer-events: auto; }
 
   .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 200;
+    position: fixed; top: 0; left: 0; bottom: 0; z-index: 200;
     width: min(360px, 88vw);
     background: #fff;
     box-shadow: 10px 0 35px rgba(0,0,0,.14);
     transform: translateX(-105%);
     transition: transform .25s ease;
-    display: flex;
-    flex-direction: column;
+    display: flex; flex-direction: column;
   }
   .sidebar.open { transform: translateX(0); }
 
   .sidebar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 20px;
-    border-bottom: 1px solid #e5e7eb;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 12px; padding: 20px; border-bottom: 1px solid #e5e7eb;
   }
   .sidebar-header h2 { font-size: 1.1rem; }
   .sidebar-close {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    background: transparent;
-    color: var(--muted);
-    font-size: 1.25rem;
+    width: 40px; height: 40px; padding: 0;
+    background: transparent; color: var(--muted); font-size: 1.25rem;
   }
   .sidebar-close:hover { background: #f3f4f6; }
 
-  .sidebar-list {
-    overflow-y: auto;
-    padding: 10px;
-  }
+  .sidebar-list { overflow-y: auto; padding: 10px; }
   .sidebar-item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 14px;
-    margin-bottom: 5px;
-    border: 0;
-    border-radius: 12px;
-    background: transparent;
-    color: var(--text);
-    text-align: left;
-    font-size: .95rem;
-    font-weight: 600;
+    width: 100%; display: flex; align-items: center; gap: 10px;
+    padding: 13px 14px; margin-bottom: 5px;
+    border: 0; border-radius: 12px;
+    background: transparent; color: var(--text);
+    text-align: left; font-size: .95rem; font-weight: 600;
   }
   .sidebar-item:hover { background: #f3f4f6; }
-  .sidebar-item.active {
-    background: #eef0ff;
-    color: var(--accent);
-  }
+  .sidebar-item.active { background: #eef0ff; color: var(--accent); }
   .sidebar-item .sidebar-check {
-    margin-left: auto;
-    color: var(--green);
-    font-size: .85rem;
+    margin-left: auto; color: var(--green); font-size: .85rem;
   }
   .sidebar-section {
-    padding: 10px 14px 6px;
-    color: var(--muted);
-    font-size: .72rem;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-weight: 700;
+    padding: 10px 14px 6px; color: var(--muted);
+    font-size: .72rem; text-transform: uppercase;
+    letter-spacing: .08em; font-weight: 700;
   }
 
   @media (max-width: 600px) {
@@ -424,7 +320,6 @@
     .question-panel { padding: 28px 20px; }
     header h1 { font-size: 1.2rem; }
     .tab { font-size: .85rem; padding: 9px 8px; }
-    .lang-btn { font-size: .9rem; padding: 12px 10px; }
   }
 </style>
 </head>
@@ -438,11 +333,9 @@
   </div>
 </header>
 
-<!-- Боковое меню наборов -->
+<!-- Боковое меню -->
 <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" title="Наборы слов">☰</button>
-
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
-
 <aside class="sidebar" id="sidebar" aria-hidden="true">
   <div class="sidebar-header">
     <h2>📚 Наборы слов</h2>
@@ -459,7 +352,7 @@
   <button class="tab" data-mode="dictionary">Словарь</button>
 </div>
 
-<!-- Сеты (порции слов) -->
+<!-- Сеты -->
 <div class="sets-bar" id="setsBar"></div>
 <div class="set-indicator" id="setIndicator"></div>
 
@@ -469,7 +362,7 @@
   <div class="progress-fill" id="progressFill"></div>
 </div>
 
-<!-- ======================= Карточки ======================= -->
+<!-- Карточки -->
 <div class="view" data-mode="flashcard">
   <div class="card-scene" id="cardScene">
     <div class="card" id="card">
@@ -492,7 +385,7 @@
   </div>
 </div>
 
-<!-- ======================= Тест ======================= -->
+<!-- Тест -->
 <div class="view" data-mode="test">
   <div class="question-panel">
     <div class="label">Вопрос</div>
@@ -508,7 +401,7 @@
   </div>
 </div>
 
-<!-- ======================= Подбор ======================= -->
+<!-- Подбор -->
 <div class="view" data-mode="match">
   <div class="question-panel">
     <div class="label">Выберите правильный ответ</div>
@@ -522,7 +415,7 @@
   </div>
 </div>
 
-<!-- ======================= Словарь ======================= -->
+<!-- Словарь -->
 <div class="view" data-mode="dictionary">
   <div class="question-panel" style="align-items: stretch;">
     <div class="label" style="align-self:center;">Найти перевод</div>
@@ -533,7 +426,7 @@
   <div id="dictResults" style="margin-top: 16px;"></div>
 </div>
 
-<!-- ======================= Сет пройден ======================= -->
+<!-- Сет пройден -->
 <div class="view" id="setDoneView" style="display:none">
   <div class="question-panel">
     <div class="content">✅ Сет пройден!</div>
@@ -544,7 +437,7 @@
   </div>
 </div>
 
-<!-- ======================= Финал ======================= -->
+<!-- Финал -->
 <div class="view" id="doneView" style="display:none">
   <div class="question-panel">
     <div class="content">🎉 Всё пройдено, включая повторение!</div>
@@ -558,7 +451,7 @@
   <span>Всего: <strong id="total">0</strong></span>
 </div>
 
-<!-- ======================= Модалка ======================= -->
+<!-- Модалка -->
 <div class="modal-overlay" id="modalOverlay">
   <div class="modal">
     <h2 id="modalTitle">Новая карточка</h2>
@@ -578,275 +471,15 @@
 
 <script>
 // ============================================================
-//  КОНФИГ ЯЗЫКОВ
+//  КОНФИГ — загружается из manifest.json
 // ============================================================
-const LANGS = {
-  latin: {
-    title: '🏛️ Латинский',
-    file: 'latin.json',
-    storageKey: 'flashcards_state_v2_latin',
-    // Что показывать в тесте и подборе, что писать в ответ.
-    // front — «лицо» карточки (латинское слово), back — перевод.
-    // Если у вас наоборот — поменяйте местами.
-    questionField: 'back',   // показываем перевод
-    answerField:   'front',  // просим ввести латинское слово
-    placeholder: 'Введите слово на латыни...',
-    // Подсказки в модалке добавления
-    frontLabel: 'Слово (латынь)',
-    backLabel:  'Перевод (русский)',
-    frontPlaceholder: 'например: aqua',
-    backPlaceholder:  'например: вода',
-  },
-  anatomical_nouns: {
-    title: '🫀 Анатомия — существительные',
-    file: 'anatomical_nouns.json',
-    storageKey: 'flashcards_state_v2_anatomical_nouns',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинское слово...',
-    frontLabel: 'Слово (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: costa',
-    backPlaceholder: 'например: ребро',
-  },
-
-  anatomical_adjectives: {
-    title: '🫀 Анатомия — прилагательные',
-    file: 'anatomical_adjectives.json',
-    storageKey: 'flashcards_state_v2_anatomical_adjectives',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинское слово...',
-    frontLabel: 'Слово (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: anterior',
-    backPlaceholder: 'например: передний',
-  },
-
-  numbers: {
-    title: '🔢 Числительные',
-    file: 'numbers.json',
-    storageKey: 'flashcards_state_v2_numbers',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинское слово...',
-    frontLabel: 'Слово (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: unus',
-    backPlaceholder: 'например: один',
-  },
-
-  latin_prefixes_prepositions: {
-    title: '🔤 Латинские приставки и предлоги',
-    file: 'latin_prefixes_prepositions.json',
-    storageKey: 'flashcards_state_v2_latin_prefixes_prepositions',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинское слово...',
-    frontLabel: 'Слово (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: ad',
-    backPlaceholder: 'например: к, при',
-  },
-
-  greek_prefixes: {
-    title: '🇬🇷 Греческие приставки',
-    file: 'greek_prefixes.json',
-    storageKey: 'flashcards_state_v2_greek_prefixes',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите греческий терминоэлемент...',
-    frontLabel: 'Терминоэлемент',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: anti',
-    backPlaceholder: 'например: против',
-  },
-
-  colors: {
-    title: '🎨 Цвета',
-    file: 'colors.json',
-    storageKey: 'flashcards_state_v2_colors',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинское слово...',
-    frontLabel: 'Слово (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: albus',
-    backPlaceholder: 'например: белый',
-  },
-
-  animals: {
-    title: '🐾 Названия животных',
-    file: 'animals.json',
-    storageKey: 'flashcards_state_v2_animals',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинское слово...',
-    frontLabel: 'Слово (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: equus',
-    backPlaceholder: 'например: лошадь',
-  },
-
-  clinical_adjectives: {
-    title: '🩺 Клиническая терминология — прилагательные',
-    file: 'clinical_adjectives.json',
-    storageKey: 'flashcards_state_v2_clinical_adjectives',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинское слово...',
-    frontLabel: 'Слово (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: acutus',
-    backPlaceholder: 'например: острый',
-  },
-
-  clinical_nouns: {
-    title: '🩺 Клиническая терминология — существительные',
-    file: 'clinical_nouns.json',
-    storageKey: 'flashcards_state_v2_clinical_nouns',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинское слово...',
-    frontLabel: 'Слово (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: abscessus',
-    backPlaceholder: 'например: абсцесс',
-  },
-
-  disease_term_elements: {
-    title: '🦠 Терминоэлементы — болезни',
-    file: 'disease_term_elements.json',
-    storageKey: 'flashcards_state_v2_disease_term_elements',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите терминоэлемент...',
-    frontLabel: 'Терминоэлемент',
-    backLabel: 'Значение (русский)',
-    frontPlaceholder: 'например: pathia',
-    backPlaceholder: 'например: болезнь',
-  },
-
-  diagnosis_treatment_term_elements: {
-    title: '🔬 Терминоэлементы — диагностика и лечение',
-    file: 'diagnosis_treatment_term_elements.json',
-    storageKey: 'flashcards_state_v2_diagnosis_treatment_term_elements',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите терминоэлемент...',
-    frontLabel: 'Терминоэлемент',
-    backLabel: 'Значение (русский)',
-    frontPlaceholder: 'например: scopia',
-    backPlaceholder: 'например: осмотр',
-  },
-
-  surgical_term_elements: {
-    title: '⚕️ Хирургические терминоэлементы',
-    file: 'surgical_term_elements.json',
-    storageKey: 'flashcards_state_v2_surgical_term_elements',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите терминоэлемент...',
-    frontLabel: 'Терминоэлемент',
-    backLabel: 'Значение (русский)',
-    frontPlaceholder: 'например: tomia',
-    backPlaceholder: 'например: рассечение',
-  },
-
-  greek_latin_equivalents_1: {
-    title: '🇬🇷🇱🇦 Греко-латинские эквиваленты — часть 1',
-    file: 'greek_latin_equivalents_1.json',
-    storageKey: 'flashcards_state_v2_greek_latin_equivalents_1',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите греческий терминоэлемент...',
-    frontLabel: 'Греческий терминоэлемент',
-    backLabel: 'Латинский эквивалент и перевод',
-    frontPlaceholder: 'например: spondylo',
-    backPlaceholder: 'например: vertebra — позвонок',
-  },
-
-  greek_latin_equivalents_2: {
-    title: '🇬🇷🇱🇦 Греко-латинские эквиваленты — часть 2',
-    file: 'greek_latin_equivalents_2.json',
-    storageKey: 'flashcards_state_v2_greek_latin_equivalents_2',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите греческий терминоэлемент...',
-    frontLabel: 'Греческий терминоэлемент',
-    backLabel: 'Латинский эквивалент и перевод',
-    frontPlaceholder: 'например: dermo',
-    backPlaceholder: 'например: cutis — кожа',
-  },
-
-  drug_forms_solid_dry: {
-    title: '💊 Лекарственные формы — твёрдые и сухие',
-    file: 'drug_forms_solid_dry.json',
-    storageKey: 'flashcards_state_v2_drug_forms_solid_dry',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите название лекарственной формы...',
-    frontLabel: 'Название (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: tabuletta',
-    backPlaceholder: 'например: таблетка',
-  },
-
-  drug_forms_soft_semiliquid: {
-    title: '💊 Лекарственные формы — мягкие и полужидкие',
-    file: 'drug_forms_soft_semiliquid.json',
-    storageKey: 'flashcards_state_v2_drug_forms_soft_semiliquid',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите название лекарственной формы...',
-    frontLabel: 'Название (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: unguentum',
-    backPlaceholder: 'например: мазь',
-  },
-
-  drug_forms_liquid: {
-    title: '💧 Лекарственные формы — жидкие',
-    file: 'drug_forms_liquid.json',
-    storageKey: 'flashcards_state_v2_drug_forms_liquid',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите название лекарственной формы...',
-    frontLabel: 'Название (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: solutio',
-    backPlaceholder: 'например: раствор',
-  },
-
-  prescription_terms: {
-    title: '📜 Рецептурные термины и выражения',
-    file: 'prescription_terms.json',
-    storageKey: 'flashcards_state_v2_prescription_terms',
-    questionField: 'back',
-    answerField: 'front',
-    placeholder: 'Введите латинский термин или выражение...',
-    frontLabel: 'Термин / выражение (латинский)',
-    backLabel: 'Перевод (русский)',
-    frontPlaceholder: 'например: misce ut fiat',
-    backPlaceholder: 'например: смешай, чтобы получилось',
-  },
-  english: {
-    title: '🇬🇧 Английский',
-    file: 'english.json',
-    storageKey: 'flashcards_state_v2_english',
-    questionField: 'back',
-    answerField:   'front',
-    placeholder: 'Введите слово на английском...',
-    frontLabel: 'Слово (английский)',
-    backLabel:  'Перевод (русский)',
-    frontPlaceholder: 'например: water',
-    backPlaceholder:  'например: вода',
-  },
-};
+let LANGS = {};        // { key: {...} }
+let LANG_ORDER = [];   // порядок ключей, как в манифесте
 
 const ADD_URL = 'add_card.php';
+const MANIFEST_URL = 'manifest.json';
 
-// Демо-карточки, если JSON не загрузился (открытие через file://)
+// Демо-карточки, если JSON не загрузился
 const FALLBACK = {
   latin: [
     { id: 'l1', front: 'aqua',  back: 'вода' },
@@ -865,9 +498,9 @@ const FALLBACK = {
 // ============================================================
 //  СОСТОЯНИЕ
 // ============================================================
-const DEFAULT_BATCH_SIZE = 50; // максимум слов в одном сете
+const DEFAULT_BATCH_SIZE = 50;
 
-let currentLang = 'latin';
+let currentLang = null;
 let allCards    = [];
 let queue       = [];
 let learned     = [];
@@ -876,15 +509,14 @@ let flipped     = false;
 let testState   = null;
 let matchState  = null;
 
-// ---- Сеты (порции по DEFAULT_BATCH_SIZE слов) ----
 let batchSize        = DEFAULT_BATCH_SIZE;
-let sets             = [];    // sets[i] = массив карточек в сете i
-let setIndex         = 0;     // индекс текущего сета (или -1, если reviewMode)
-let setLearnedKeys   = {};    // { idx: [key, key, ...] } — выученные в сете idx (не текущем)
-let setQueueKeys     = {};    // { idx: [key, key, ...] } — оставшиеся в сете idx (не текущем)
-let repeatKeys       = new Set(); // ключи карточек, которые хоть раз нажали «Повторить»
-let reviewMode       = false; // true = идёт финальное повторение
-let reviewKeys       = null;  // фиксированный набор карточек для повторения (ключи)
+let sets             = [];
+let setIndex         = 0;
+let setLearnedKeys   = {};
+let setQueueKeys     = {};
+let repeatKeys       = new Set();
+let reviewMode       = false;
+let reviewKeys       = null;
 let reviewLearnedKeys = [];
 let reviewQueueKeys   = null;
 
@@ -926,136 +558,27 @@ const setIndicatorEl = $('setIndicator');
 const nextSetBtn   = $('nextSetBtn');
 const dictInput    = $('dictInput');
 const dictResults  = $('dictResults');
-const menuToggle = $('menuToggle');
-const sidebar = $('sidebar');
+const menuToggle   = $('menuToggle');
+const sidebar      = $('sidebar');
 const sidebarOverlay = $('sidebarOverlay');
 const sidebarClose = $('sidebarClose');
-const sidebarList = $('sidebarList');
+const sidebarList  = $('sidebarList');
 
 // ============================================================
 //  УТИЛИТЫ
 // ============================================================
+function cfg() { return LANGS[currentLang] || {}; }
 
-function isEnglishEnabled() {
-  return new URLSearchParams(window.location.search).get('eng') === 'true';
+function isEnglishUnlocked() {
+  return sessionStorage.getItem('eng_unlocked') === '1';
 }
 
-function getAvailableLangKeys() {
-  return Object.keys(LANGS).filter(key => key !== 'english' || isEnglishEnabled());
+function isLangVisible(key) {
+  const l = LANGS[key];
+  if (!l) return false;
+  if (l.requiresUnlock && !isEnglishUnlocked()) return false;
+  return true;
 }
-
-function openSidebar() {
-  sidebar.classList.add('open');
-  sidebarOverlay.classList.add('open');
-  sidebar.setAttribute('aria-hidden', 'false');
-}
-
-function closeSidebar() {
-  sidebar.classList.remove('open');
-  sidebarOverlay.classList.remove('open');
-  sidebar.setAttribute('aria-hidden', 'true');
-}
-
-function renderSidebar() {
-  sidebarList.innerHTML = '';
-
-  const keys = getAvailableLangKeys();
-  const groups = [
-    {
-      title: 'Латинский',
-      keys: keys.filter(k => k !== 'english')
-    }
-  ];
-
-  if (isEnglishEnabled()) {
-    groups.push({ title: 'Другие языки', keys: ['english'] });
-  }
-
-  groups.forEach(group => {
-    if (!group.keys.length) return;
-
-    const section = document.createElement('div');
-    section.className = 'sidebar-section';
-    section.textContent = group.title;
-    sidebarList.appendChild(section);
-
-    group.keys.forEach(key => {
-      const conf = LANGS[key];
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'sidebar-item' + (key === currentLang ? ' active' : '');
-      btn.dataset.lang = key;
-
-      const title = document.createElement('span');
-      title.textContent = conf.title;
-
-      btn.appendChild(title);
-
-      if (key === currentLang) {
-        const check = document.createElement('span');
-        check.className = 'sidebar-check';
-        check.textContent = '✓';
-        btn.appendChild(check);
-      }
-
-      btn.addEventListener('click', () => {
-        if (key === currentLang) {
-          closeSidebar();
-          return;
-        }
-        switchLanguage(key);
-        closeSidebar();
-      });
-
-      sidebarList.appendChild(btn);
-    });
-  });
-}
-
-function switchLanguage(langKey) {
-  if (!LANGS[langKey]) return;
-  if (langKey === 'english' && !isEnglishEnabled()) return;
-
-  syncCurrentIntoStore();
-  currentLang = langKey;
-  localStorage.setItem('flashcards_last_lang', currentLang);
-
-  allCards = [];
-  queue = [];
-  learned = [];
-  sets = [];
-  setIndex = 0;
-  setLearnedKeys = {};
-  setQueueKeys = {};
-  repeatKeys = new Set();
-  reviewMode = false;
-  reviewKeys = null;
-  reviewLearnedKeys = [];
-  reviewQueueKeys = null;
-  flipped = false;
-  testState = null;
-  matchState = null;
-
-  updateConfigUI();
-  renderSidebar();
-  if (!isEnglishEnabled() && currentLang === 'english') currentLang = 'latin';
-renderSidebar();
-updateConfigUI();
-
-loadLanguageData();
-}
-
-function updateConfigUI() {
-  const conf = cfg();
-  $('addBtn').textContent = '+ Добавить';
-  newFront.placeholder = conf.frontPlaceholder || 'Введите слово...';
-  newBack.placeholder = conf.backPlaceholder || 'Введите перевод...';
-  $('labelFront').textContent = conf.frontLabel || 'Вопрос';
-  $('labelBack').textContent = conf.backLabel || 'Ответ';
-  testInput.placeholder = conf.placeholder || 'Введите ответ...';
-}
-
-function cfg() { return LANGS[currentLang]; }
 
 function cardKey(c) {
   return c.id ? 'id:' + c.id : 'k:' + (c.front || '') + '\x00' + (c.back || '');
@@ -1095,7 +618,43 @@ function showBanner(text, kind = 'warn', ms = 0) {
 function hideBanner() { statusBanner.style.display = 'none'; }
 
 // ============================================================
-//  СОХРАНЕНИЕ ПРОГРЕССА (для каждого языка — свой ключ)
+//  ЗАГРУЗКА МАНИФЕСТА
+// ============================================================
+async function loadManifest() {
+  const res = await fetch(MANIFEST_URL, { cache: 'no-store' });
+  if (!res.ok) throw new Error('HTTP ' + res.status);
+  const data = await res.json();
+  const list = Array.isArray(data) ? data : (data && data.languages);
+  if (!Array.isArray(list) || list.length === 0) {
+    throw new Error('в манифесте нет ни одного языка');
+  }
+
+  LANGS = {};
+  LANG_ORDER = [];
+  list.forEach(item => {
+    if (!item || !item.key || !item.file) return;
+    LANGS[item.key] = {
+      title:             item.title             || item.key,
+      file:              item.file,
+      storageKey:        item.storageKey        || ('flashcards_state_v2_' + item.key),
+      questionField:     item.questionField     || 'back',
+      answerField:       item.answerField       || 'front',
+      placeholder:       item.placeholder       || 'Введите ответ...',
+      frontLabel:        item.frontLabel        || 'Вопрос',
+      backLabel:         item.backLabel         || 'Ответ',
+      frontPlaceholder:  item.frontPlaceholder  || '',
+      backPlaceholder:   item.backPlaceholder   || '',
+      group:             item.group             || '',
+      requiresUnlock:    !!item.requiresUnlock,
+    };
+    LANG_ORDER.push(item.key);
+  });
+
+  if (LANG_ORDER.length === 0) throw new Error('все записи в манифесте некорректны');
+}
+
+// ============================================================
+//  СОХРАНЕНИЕ ПРОГРЕССА
 // ============================================================
 function syncCurrentIntoStore() {
   if (reviewMode) {
@@ -1108,6 +667,7 @@ function syncCurrentIntoStore() {
 }
 
 function saveState() {
+  if (!currentLang || !LANGS[currentLang]) return;
   try {
     syncCurrentIntoStore();
     localStorage.setItem(cfg().storageKey, JSON.stringify({
@@ -1141,10 +701,114 @@ function clearSavedState() {
 }
 
 // ============================================================
-//  СЕТЫ (порции слов) + ФИНАЛЬНОЕ ПОВТОРЕНИЕ
+//  САЙДБАР
 // ============================================================
+function openSidebar() {
+  document.body.classList.add('sidebar-open');
+  sidebar.classList.add('open');
+  sidebarOverlay.classList.add('open');
+  sidebar.setAttribute('aria-hidden', 'false');
+}
 
-// Режем весь (перемешанный) набор карточек на сеты по batchSize штук.
+function closeSidebar() {
+  document.body.classList.remove('sidebar-open');
+  sidebar.classList.remove('open');
+  sidebarOverlay.classList.remove('open');
+  sidebar.setAttribute('aria-hidden', 'true');
+}
+
+function renderSidebar() {
+  sidebarList.innerHTML = '';
+  const visible = LANG_ORDER.filter(isLangVisible);
+  if (!visible.length) return;
+
+  // Группируем по полю group (сохраняя порядок появления)
+  const groups = [];
+  const groupIndex = new Map();
+  visible.forEach(k => {
+    const g = LANGS[k].group || '';
+    if (!groupIndex.has(g)) {
+      groupIndex.set(g, groups.length);
+      groups.push({ title: g, keys: [] });
+    }
+    groups[groupIndex.get(g)].keys.push(k);
+  });
+
+  groups.forEach(({ title, keys }) => {
+    if (title) {
+      const section = document.createElement('div');
+      section.className = 'sidebar-section';
+      section.textContent = title;
+      sidebarList.appendChild(section);
+    }
+    keys.forEach(key => {
+      const conf = LANGS[key];
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'sidebar-item' + (key === currentLang ? ' active' : '');
+
+      const t = document.createElement('span');
+      t.textContent = conf.title;
+      btn.appendChild(t);
+
+      if (key === currentLang) {
+        const check = document.createElement('span');
+        check.className = 'sidebar-check';
+        check.textContent = '✓';
+        btn.appendChild(check);
+      }
+
+      btn.addEventListener('click', () => switchLanguage(key));
+      sidebarList.appendChild(btn);
+    });
+  });
+}
+
+// ============================================================
+//  ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА
+// ============================================================
+async function switchLanguage(langKey) {
+  if (!LANGS[langKey]) return;
+  if (!isLangVisible(langKey)) return;
+  if (langKey === currentLang) { closeSidebar(); return; }
+
+  saveState();
+  currentLang = langKey;
+  localStorage.setItem('flashcards_last_lang', currentLang);
+
+  // Сбрасываем рабочее состояние
+  allCards = []; queue = []; learned = []; sets = [];
+  setIndex = 0;
+  setLearnedKeys = {}; setQueueKeys = {};
+  repeatKeys = new Set();
+  reviewMode = false;
+  reviewKeys = null;
+  reviewLearnedKeys = []; reviewQueueKeys = null;
+  flipped = false; testState = null; matchState = null;
+
+  hideBanner();
+  dictInput.value = '';
+
+  updateConfigUI();
+  renderSidebar();
+
+  await loadAndInit();
+  closeSidebar();
+}
+
+function updateConfigUI() {
+  const conf = cfg();
+  if (!conf.title) return;
+  newFront.placeholder = conf.frontPlaceholder || 'Введите слово...';
+  newBack.placeholder  = conf.backPlaceholder  || 'Введите перевод...';
+  $('labelFront').textContent = conf.frontLabel || 'Вопрос';
+  $('labelBack').textContent  = conf.backLabel  || 'Ответ';
+  testInput.placeholder = conf.placeholder || 'Введите ответ...';
+}
+
+// ============================================================
+//  СЕТЫ
+// ============================================================
 function buildSets() {
   const shuffled = shuffle([...allCards]);
   sets = [];
@@ -1154,7 +818,6 @@ function buildSets() {
   if (sets.length === 0) sets = [[]];
 }
 
-// Загружает в рабочие queue/learned прогресс сета idx (или начинает его с нуля).
 function loadWorkingSet(idx) {
   setIndex = idx;
   reviewMode = false;
@@ -1172,8 +835,6 @@ function loadWorkingSet(idx) {
     const q = (qk || []).map(k => byKey.get(k)).filter(Boolean);
     q.forEach(c => usedKeys.add(cardKey(c)));
 
-    // Карточки, которых почему-то не было ни в learned, ни в queue
-    // (например, добавлены позже) — докидываем в конец очереди.
     for (const c of set) {
       if (!usedKeys.has(cardKey(c))) { q.push(c); usedKeys.add(cardKey(c)); }
     }
@@ -1184,7 +845,6 @@ function loadWorkingSet(idx) {
   }
 }
 
-// Все ли сеты полностью выучены?
 function isAllSetsComplete() {
   for (let i = 0; i < sets.length; i++) {
     const size = sets[i].length;
@@ -1195,9 +855,6 @@ function isAllSetsComplete() {
   return true;
 }
 
-// Собирает набор карточек для финального повторения:
-// приоритет — те, что хотя бы раз отметили «Повторить»,
-// иначе — случайная выборка из всей колоды.
 function buildReviewSet() {
   let cards;
   if (repeatKeys.size > 0) {
@@ -1223,7 +880,6 @@ function enterReviewRound() {
   showBanner('🔁 Финальное повторение: ' + set.length + (set.length === 1 ? ' слово' : ' слов'), 'info', 5000);
 }
 
-// Переключиться на конкретный (уже существующий) сет.
 function switchToSet(i) {
   if (!reviewMode && i === setIndex) return;
   syncCurrentIntoStore();
@@ -1232,7 +888,6 @@ function switchToSet(i) {
   render();
 }
 
-// Переключиться на уже сгенерированный набор повторения.
 function switchToReview() {
   if (reviewMode || !reviewKeys) return;
   syncCurrentIntoStore();
@@ -1252,7 +907,6 @@ function switchToReview() {
   render();
 }
 
-// Перейти на следующий незавершённый сет (или к повторению, если все готовы).
 function goToNextSet() {
   syncCurrentIntoStore();
   if (isAllSetsComplete()) { enterReviewRound(); render(); return; }
@@ -1282,7 +936,7 @@ function startFresh() {
   reviewLearnedKeys = [];
   reviewQueueKeys = null;
   loadWorkingSet(0);
-  mode = mode || 'flashcard';
+  mode = ['flashcard', 'test', 'match', 'dictionary'].includes(mode) ? mode : 'flashcard';
   flipped = false;
   testState = null;
   matchState = null;
@@ -1294,10 +948,8 @@ function restoreSession(saved) {
 
   const byKeyAll = new Map(allCards.map(c => [cardKey(c), c]));
 
-  // Восстанавливаем сеты по сохранённым ключам.
   sets = (saved.setsKeys || []).map(keys => keys.map(k => byKeyAll.get(k)).filter(Boolean));
 
-  // Карточки, которых не было ни в одном сете (добавлены позже) — раскладываем по новым сетам.
   const knownKeys = new Set();
   sets.forEach(s => s.forEach(c => knownKeys.add(cardKey(c))));
   const newCards = shuffle(allCards.filter(c => !knownKeys.has(cardKey(c))));
@@ -1393,7 +1045,6 @@ function updateTabs() {
   renderSidebar();
 }
 
-// Панель с кнопками сетов + повторением
 function renderSetsBar() {
   if (sets.length <= 1 && !reviewKeys) {
     setsBarEl.style.display = 'none';
@@ -1536,7 +1187,7 @@ function renderMatch(c) {
 }
 
 // ============================================================
-//  СЛОВАРЬ (поиск по front/back текущего языка)
+//  СЛОВАРЬ
 // ============================================================
 function renderDictionary() {
   const raw = dictInput.value;
@@ -1544,8 +1195,9 @@ function renderDictionary() {
   dictResults.innerHTML = '';
 
   if (!q) {
+    const langName = (cfg().title || '').replace(/^\S+\s*/, '');
     dictResults.innerHTML = '<div class="dict-empty">Начните вводить слово — на русском или на ' +
-      escapeHtml(cfg().title.replace(/^\S+\s*/, '')) + '.</div>';
+      escapeHtml(langName) + '.</div>';
     return;
   }
 
@@ -1614,7 +1266,7 @@ function checkTest() {
     testFeedback.className = 'feedback wrong show';
     testFeedback.innerHTML =
       '<strong>✗ Неверно.</strong><br>' +
-      'Правильный ответ: <strong>' + escapeHtml(expected || '(пусто)') + '</strong>';
+      'Правильный ответ: <strong>' + escapeHtml(c[conf.answerField] || '(пусто)') + '</strong>';
     testRepeatBtn.style.display = '';
     testKnowBtn.style.display = '';
   }
@@ -1705,12 +1357,8 @@ async function saveNewCard() {
 
     const data = await res.json().catch(() => ({}));
     if (!res.ok || !data.ok) {
-      if (res.status === 403) {
-        throw new Error(data.error || 'Неверный пароль.');
-      }
-      if (res.status === 409) {
-        throw new Error(data.error || 'Такое слово уже есть в списке.');
-      }
+      if (res.status === 403) throw new Error(data.error || 'Неверный пароль.');
+      if (res.status === 409) throw new Error(data.error || 'Такое слово уже есть в списке.');
       throw new Error(data.error || ('Ошибка сервера: HTTP ' + res.status));
     }
 
@@ -1737,20 +1385,6 @@ async function saveNewCard() {
 }
 
 // ============================================================
-//  ПЕРЕКЛЮЧЕНИЕ ЯЗЫКА
-// ============================================================
-async function switchLang(newLang) {
-  if (newLang === currentLang) return;
-  if (newLang === 'english' && !window.ENGLISH_UNLOCKED) return;
-  saveState();                       // сохраняем прогресс текущего языка
-  currentLang = newLang;
-  localStorage.setItem('flashcards_last_lang', currentLang);
-  hideBanner();
-  dictInput.value = '';
-  await loadAndInit();
-}
-
-// ============================================================
 //  ЗАГРУЗКА КАРТОЧЕК
 // ============================================================
 async function loadCards(url) {
@@ -1768,13 +1402,15 @@ async function loadCards(url) {
 
 async function loadAndInit() {
   const conf = cfg();
+  updateConfigUI();
+
   const { cards, source } = await loadCards(conf.file);
   allCards = cards;
 
   if (source === 'fallback') {
     showBanner(
       '⚠️ Не удалось загрузить ' + conf.file + ' — показаны демо-карточки. ' +
-      'Проверьте, что файл лежит рядом с index.html и страница открыта через http(s).',
+      'Убедитесь, что файл лежит в папке langs/, а страница открыта через http(s).',
       'warn'
     );
   }
@@ -1787,10 +1423,6 @@ async function loadAndInit() {
 // ============================================================
 //  СОБЫТИЯ
 // ============================================================
-// Переключение языка
-
-
-// Переключение подрежима
 document.querySelectorAll('.tab').forEach(t => {
   t.addEventListener('click', () => {
     mode = t.dataset.mode;
@@ -1800,10 +1432,8 @@ document.querySelectorAll('.tab').forEach(t => {
   });
 });
 
-// Словарь — живой поиск по мере ввода
 dictInput.addEventListener('input', renderDictionary);
 
-// Карточки
 $('cardScene').addEventListener('click', () => {
   if (!currentCard()) return;
   flipped = !flipped;
@@ -1812,7 +1442,6 @@ $('cardScene').addEventListener('click', () => {
 fcKnowBtn.addEventListener('click', (e) => { e.stopPropagation(); markKnown(); });
 fcRepeatBtn.addEventListener('click', (e) => { e.stopPropagation(); markRepeat(); });
 
-// Тест
 testCheckBtn.addEventListener('click', checkTest);
 testNextBtn.addEventListener('click', markKnown);
 testRepeatBtn.addEventListener('click', markRepeat);
@@ -1825,15 +1454,12 @@ testInput.addEventListener('keydown', (e) => {
   }
 });
 
-// Сеты
 nextSetBtn.addEventListener('click', goToNextSet);
 
-// Подбор
 matchNextBtn.addEventListener('click', markKnown);
 matchRepeatBtn.addEventListener('click', markRepeat);
 matchKnowBtn.addEventListener('click', markKnown);
 
-// Заново (только текущий язык)
 $('restartBtn').addEventListener('click', () => {
   if (queue.length === 0 && learned.length === 0) return;
   if (!confirm('Сбросить прогресс и начать колоду «' + cfg().title + '» заново?')) return;
@@ -1841,7 +1467,6 @@ $('restartBtn').addEventListener('click', () => {
   startFresh();
 });
 
-// Модалка
 $('addBtn').addEventListener('click', openModal);
 $('cancelModal').addEventListener('click', closeModal);
 $('saveModal').addEventListener('click', saveNewCard);
@@ -1849,10 +1474,19 @@ modalOverlay.addEventListener('click', (e) => {
   if (e.target === modalOverlay) closeModal();
 });
 
+// Сайдбар
+menuToggle.addEventListener('click', openSidebar);
+sidebarClose.addEventListener('click', closeSidebar);
+sidebarOverlay.addEventListener('click', closeSidebar);
+
 // Горячие клавиши
 document.addEventListener('keydown', (e) => {
   if (modalOverlay.classList.contains('open')) {
     if (e.key === 'Escape') closeModal();
+    return;
+  }
+  if (e.key === 'Escape') {
+    closeSidebar();
     return;
   }
   if (e.target === testInput || e.target === dictInput) return;
@@ -1867,9 +1501,6 @@ document.addEventListener('keydown', (e) => {
     document.querySelector('.tab[data-mode="match"]').click();
   } else if (e.key === '4') {
     document.querySelector('.tab[data-mode="dictionary"]').click();
-  } else if (e.key === 'q' || e.key === 'Q') {
-    // Q — переключить язык
-    switchLang(currentLang === 'latin' ? 'english' : 'latin');
   } else if (e.key.toLowerCase() === 'r') {
     $('restartBtn').click();
   }
@@ -1879,38 +1510,39 @@ document.addEventListener('keydown', (e) => {
 //  СТАРТ
 // ============================================================
 (async () => {
-  // Английский доступен только по отдельной ссылке с параметром ?eng=true
-  // (после первого перехода по такой ссылке остаётся доступен в этой вкладке браузера).
+  // Разблокировка английского по ?eng=true
   const params = new URLSearchParams(window.location.search);
   const engParam = (params.get('eng') || '').toLowerCase();
   if (engParam === 'true' || engParam === '1') {
     sessionStorage.setItem('eng_unlocked', '1');
   }
-  window.ENGLISH_UNLOCKED = sessionStorage.getItem('eng_unlocked') === '1';
 
-  if (!window.ENGLISH_UNLOCKED) {
-    $('langSwitch').style.display = 'none';
+  // Загружаем манифест
+  try {
+    await loadManifest();
+  } catch (e) {
+    showBanner(
+      '⚠️ Не удалось загрузить manifest.json (' + e.message + '). ' +
+      'Убедитесь, что файл лежит рядом с index.html и страница открыта через http(s), а не file://.',
+      'warn'
+    );
+    return;
   }
 
-  // Запоминаем последний выбранный язык (но не «Английский», если он не разблокирован)
+  // Выбираем стартовый язык
   const last = localStorage.getItem('flashcards_last_lang');
-  if (last && LANGS[last] && (last !== 'english' || window.ENGLISH_UNLOCKED)) {
+  if (last && LANGS[last] && isLangVisible(last)) {
     currentLang = last;
   } else {
-    currentLang = 'latin';
+    currentLang = LANG_ORDER.find(isLangVisible) || LANG_ORDER[0];
   }
+
+  updateConfigUI();
+  renderSidebar();
 
   await loadAndInit();
   window.addEventListener('beforeunload', saveState);
 })();
-// ---- Боковое меню ----
-menuToggle.addEventListener('click', openSidebar);
-sidebarClose.addEventListener('click', closeSidebar);
-sidebarOverlay.addEventListener('click', closeSidebar);
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeSidebar();
-});
-
 </script>
 </body>
 </html>

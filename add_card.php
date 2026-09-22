@@ -25,8 +25,26 @@ if (!is_array($input)) {
 
 // Разрешённые языки → имена файлов. Не даём писать куда попало.
 $allowed = [
-    'latin'   => 'latin.json',
-    'english' => 'english.json',
+    'latin'                              => 'latin.json',
+    'english'                            => 'english.json',
+    'anatomical_nouns'                   => 'anatomical_nouns.json',
+    'anatomical_adjectives'              => 'anatomical_adjectives.json',
+    'numbers'                            => 'numbers.json',
+    'latin_prefixes_prepositions'        => 'latin_prefixes_prepositions.json',
+    'greek_prefixes'                     => 'greek_prefixes.json',
+    'colors'                             => 'colors.json',
+    'animals'                            => 'animals.json',
+    'clinical_adjectives'                => 'clinical_adjectives.json',
+    'clinical_nouns'                     => 'clinical_nouns.json',
+    'disease_term_elements'              => 'disease_term_elements.json',
+    'diagnosis_treatment_term_elements'  => 'diagnosis_treatment_term_elements.json',
+    'surgical_term_elements'             => 'surgical_term_elements.json',
+    'greek_latin_equivalents_1'          => 'greek_latin_equivalents_1.json',
+    'greek_latin_equivalents_2'          => 'greek_latin_equivalents_2.json',
+    'drug_forms_solid_dry'               => 'drug_forms_solid_dry.json',
+    'drug_forms_soft_semiliquid'         => 'drug_forms_soft_semiliquid.json',
+    'drug_forms_liquid'                  => 'drug_forms_liquid.json',
+    'prescription_terms'                 => 'prescription_terms.json',
 ];
 
 $lang = isset($input['lang']) ? (string)$input['lang'] : '';
@@ -35,7 +53,7 @@ if (!isset($allowed[$lang])) {
     echo json_encode(['error' => 'Неизвестный язык: ' . $lang], JSON_UNESCAPED_UNICODE);
     exit;
 }
-$file = __DIR__ . '/' . $allowed[$lang];
+$file = __DIR__ . '/langs/' . $allowed[$lang];
 
 // ---- Проверка пароля ----
 $passwordFile = __DIR__ . '/pAsS.txt';
