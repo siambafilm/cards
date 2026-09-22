@@ -1,0 +1,42 @@
+[
+  {
+    "id": "7f71f56dfc37e56c",
+    "front": "chroma, color",
+    "back": "цвет"
+  },
+  {
+    "id": "fc0bed82bcb79151",
+    "front": "albus, leucos",
+    "back": "белый"
+  },
+  {
+    "id": "a6795db73323bde3",
+    "front": "flavus, luteus",
+    "back": "желтый"
+  },
+  {
+    "id": "c575646bf5b32972",
+    "front": "cyaneus",
+    "back": "синий"
+  },
+  {
+    "id": "fdfa2e974498e4b0",
+    "front": "ruber, erythros",
+    "back": "красный"
+  },
+  {
+    "id": "c8c2924748ab16dd",
+    "front": "cinereus, griseus",
+    "back": "серый"
+  },
+  {
+    "id": "1b33b8f73771c4a8",
+    "front": "niger, melas",
+    "back": "черный"
+  },
+  {
+    "id": "951c1be9191b3482",
+    "front": "viridis",
+    "back": "зеленый"
+  }
+]

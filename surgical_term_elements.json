@@ -1,0 +1,32 @@
+[
+  {
+    "id": "aa5a9d6ba01f8994",
+    "front": "tomia",
+    "back": "рассечение"
+  },
+  {
+    "id": "5bebc9c0a5b374b8",
+    "front": "stomia",
+    "back": "образование искусственного отверстия"
+  },
+  {
+    "id": "cdf4262bf28eddfb",
+    "front": "ectomia",
+    "back": "удаление всего органа"
+  },
+  {
+    "id": "85ae9a135ec8f933",
+    "front": "resectio",
+    "back": "удаление части органа"
+  },
+  {
+    "id": "191b262d916eb3d3",
+    "front": "amputatio",
+    "back": "отсечение"
+  },
+  {
+    "id": "278ee158af9aa5de",
+    "front": "perforatio",
+    "back": "прорыв стенки органа"
+  }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "c80877fc707d12e5",
+    "front": "equus",
+    "back": "Лошадь"
+  },
+  {
+    "id": "7115497a275ad6e5",
+    "front": "vacca",
+    "back": "Корова"
+  },
+  {
+    "id": "91a17174f4a5e0d4",
+    "front": "bovis",
+    "back": "Бык"
+  },
+  {
+    "id": "ad90b75e74f48786",
+    "front": "sus",
+    "back": "Свинья"
+  },
+  {
+    "id": "32913eab287e6742",
+    "front": "canis",
+    "back": "Собака"
+  },
+  {
+    "id": "6dacd58b7525d184",
+    "front": "ovis",
+    "back": "Овца"
+  },
+  {
+    "id": "8b8ed8e60d59cf7a",
+    "front": "capra",
+    "back": "Коза"
+  },
+  {
+    "id": "d03d1ff8a5582e77",
+    "front": "asinus",
+    "back": "Осёл"
+  },
+  {
+    "id": "b6c1c3c2b6ae3687",
+    "front": "mus",
+    "back": "Мышь"
+  },
+  {
+    "id": "87aa8f4d20f1f3ca",
+    "front": "leo",
+    "back": "Лев"
+  },
+  {
+    "id": "80ab945b503de9cd",
+    "front": "felis",
+    "back": "Кошка"
+  },
+  {
+    "id": "97b9a178cf23238c",
+    "front": "camelus",
+    "back": "Верблюд"
+  },
+  {
+    "id": "93e7e0db9eef5d16",
+    "front": "lupus",
+    "back": "Волк"
+  },
+  {
+    "id": "310d23d0b6501b9f",
+    "front": "anguis",
+    "back": "Змея"
+  },
+  {
+    "id": "0158a06dca2c4313",
+    "front": "cuniculus",
+    "back": "Кролик"
+  }
+]

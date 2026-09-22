@@ -1,0 +1,137 @@
+[
+  {
+    "id": "7c7dd921ed536664",
+    "front": "radix",
+    "back": "корень"
+  },
+  {
+    "id": "0970ecd76bf40ec4",
+    "front": "rizoma",
+    "back": "корневище"
+  },
+  {
+    "id": "51e85cfb4d24ed08",
+    "front": "cortex",
+    "back": "кора"
+  },
+  {
+    "id": "6d285db249e5b26a",
+    "front": "herba",
+    "back": "трава"
+  },
+  {
+    "id": "4b6fd0668f80be0d",
+    "front": "folium",
+    "back": "лист"
+  },
+  {
+    "id": "207f27198d7633ab",
+    "front": "flos",
+    "back": "цветок"
+  },
+  {
+    "id": "02f2a25c0cd8b6a1",
+    "front": "semen",
+    "back": "семя"
+  },
+  {
+    "id": "b87ccb3433f395c7",
+    "front": "recipe",
+    "back": "возьми"
+  },
+  {
+    "id": "e76dc7b63ba9cee0",
+    "front": "misce",
+    "back": "смешай"
+  },
+  {
+    "id": "7b08f4c13d17aedd",
+    "front": "da",
+    "back": "дай"
+  },
+  {
+    "id": "cdcf6cbcaf96a785",
+    "front": "signa",
+    "back": "обозначь"
+  },
+  {
+    "id": "4d7e441153b7d893",
+    "front": "dosa",
+    "back": "доза"
+  },
+  {
+    "id": "27703a8edc985bd6",
+    "front": "da tales doses",
+    "back": "дай таких доз"
+  },
+  {
+    "id": "6646db0f8b487eb8",
+    "front": "verte",
+    "back": "переверни"
+  },
+  {
+    "id": "c562203aabc00e34",
+    "front": "misce ut fiat",
+    "back": "смешай, чтобы получилось"
+  },
+  {
+    "id": "eb4ba528531a94f0",
+    "front": "cito",
+    "back": "быстро"
+  },
+  {
+    "id": "c112be4f97684177",
+    "front": "ana",
+    "back": "поровну"
+  },
+  {
+    "id": "0be801acede5a045",
+    "front": "aequalis",
+    "back": "равный"
+  },
+  {
+    "id": "d9ddc1f85f7c89a6",
+    "front": "gutta",
+    "back": "капля"
+  },
+  {
+    "id": "0aa34558805c8622",
+    "front": "vitrum",
+    "back": "склянка"
+  },
+  {
+    "id": "e900b2821a2887f5",
+    "front": "ampulla",
+    "back": "ампула"
+  },
+  {
+    "id": "18de596f2ec54739",
+    "front": "aqua destillata",
+    "back": "вода дистиллированная"
+  },
+  {
+    "id": "4f5fd5c2a8edfc1e",
+    "front": "divide in partes aequales",
+    "back": "раздели на равные части"
+  },
+  {
+    "id": "2dcfd42da81b985e",
+    "front": "numerus",
+    "back": "число"
+  },
+  {
+    "id": "733ca104a02e24e1",
+    "front": "purus",
+    "back": "чистый"
+  },
+  {
+    "id": "1755f0fe218b61b0",
+    "front": "quantum satis",
+    "back": "сколько нужно"
+  },
+  {
+    "id": "b689b5ad6f63f30d",
+    "front": "rectificatus",
+    "back": "очищенный"
+  }
+]

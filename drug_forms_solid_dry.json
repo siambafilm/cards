@@ -1,0 +1,57 @@
+[
+  {
+    "id": "c03990a5b012e98e",
+    "front": "species",
+    "back": "сборы"
+  },
+  {
+    "id": "1abfcc89c3624746",
+    "front": "pulvis",
+    "back": "порошок"
+  },
+  {
+    "id": "1bab085f2ae2c123",
+    "front": "dustus",
+    "back": "смесь порошков"
+  },
+  {
+    "id": "04b77a4cc5ffbe64",
+    "front": "pilula",
+    "back": "пилюля"
+  },
+  {
+    "id": "8957ecf4f7e95f28",
+    "front": "bolus",
+    "back": "болюс"
+  },
+  {
+    "id": "7906a6de4dbfaae0",
+    "front": "capsula",
+    "back": "капсула"
+  },
+  {
+    "id": "a97f5ff0255dbfd1",
+    "front": "bacillus et stilus",
+    "back": "лекарственная палочка и карандаш"
+  },
+  {
+    "id": "ea199f897d5454bd",
+    "front": "suppositoria",
+    "back": "свеча"
+  },
+  {
+    "id": "0be66d17fdebe6e0",
+    "front": "globules",
+    "back": "шарик"
+  },
+  {
+    "id": "32597a5799bcc159",
+    "front": "tabuletta",
+    "back": "таблетка"
+  },
+  {
+    "id": "398e2dd7d3f52d31",
+    "front": "butirum",
+    "back": "масло твердое"
+  }
+]

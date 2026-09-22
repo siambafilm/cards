@@ -1,0 +1,517 @@
+[
+  {
+    "id": "e43fd73d5f5c7fa5",
+    "front": "parasagittalis",
+    "back": "Парасагиттальный"
+  },
+  {
+    "id": "808976b49d19099d",
+    "front": "rostralis",
+    "back": "Ростральный"
+  },
+  {
+    "id": "58f3fd12251ebdd3",
+    "front": "nasalis",
+    "back": "Назальный"
+  },
+  {
+    "id": "11ae0a47105b8a2f",
+    "front": "aboralis",
+    "back": "Аборальный"
+  },
+  {
+    "id": "ef3b7b62ba42d9e3",
+    "front": "anterior",
+    "back": "Передний"
+  },
+  {
+    "id": "d11b8af5730fd1de",
+    "front": "posterior",
+    "back": "Задний"
+  },
+  {
+    "id": "a13e0f952729443c",
+    "front": "superior",
+    "back": "Верхний"
+  },
+  {
+    "id": "04377c33175a7edd",
+    "front": "inferior",
+    "back": "Нижний"
+  },
+  {
+    "id": "5df20b5e48af2bd3",
+    "front": "jugularis",
+    "back": "Яремный"
+  },
+  {
+    "id": "235dc9910ad1c1d4",
+    "front": "opticus",
+    "back": "Зрительный"
+  },
+  {
+    "id": "42f0421fbc9ed2db",
+    "front": "rotundus",
+    "back": "Круглый"
+  },
+  {
+    "id": "fda3af6f843a69b7",
+    "front": "ovalis",
+    "back": "Овальный"
+  },
+  {
+    "id": "d2c3c6afb5c48ecb",
+    "front": "caroticus",
+    "back": "Сонный"
+  },
+  {
+    "id": "234aca2ebc69c744",
+    "front": "trochlearis",
+    "back": "Блоковый"
+  },
+  {
+    "id": "cbd8951617d82353",
+    "front": "ulnaris",
+    "back": "Локтевой"
+  },
+  {
+    "id": "6d9dc9c3d3a00612",
+    "front": "accessorius",
+    "back": "Добавочный"
+  },
+  {
+    "id": "d802f33ae89476b1",
+    "front": "palmaris",
+    "back": "Пальмарный"
+  },
+  {
+    "id": "6620e46f7350228f",
+    "front": "compedalis",
+    "back": "Путовый"
+  },
+  {
+    "id": "cde858371f677a6b",
+    "front": "ungularis",
+    "back": "Копытный"
+  },
+  {
+    "id": "24d05f16ac2b14ea",
+    "front": "unguicularis",
+    "back": "Когтевой"
+  },
+  {
+    "id": "495aeb2827516194",
+    "front": "extensorius",
+    "back": "Разгибательный"
+  },
+  {
+    "id": "9e7409274d9b6f7b",
+    "front": "flexorius",
+    "back": "Сгибательный"
+  },
+  {
+    "id": "752e15d0ab2eb1ee",
+    "front": "parietalis",
+    "back": "Пристенный"
+  },
+  {
+    "id": "5dd9931918dcc467",
+    "front": "plantaris",
+    "back": "Подошвенный"
+  },
+  {
+    "id": "1d55b6ddcda73e4d",
+    "front": "sesamoideus",
+    "back": "Сесамовидный"
+  },
+  {
+    "id": "aab7a1f927acba19",
+    "front": "iliacus",
+    "back": "Подвздошный"
+  },
+  {
+    "id": "b3125eef281cef62",
+    "front": "pubicus",
+    "back": "Лонный"
+  },
+  {
+    "id": "d37aa9c25615046d",
+    "front": "ischiadicus",
+    "back": "Седалищный"
+  },
+  {
+    "id": "13ef8f10030dcbb3",
+    "front": "obturatorius",
+    "back": "Запертый"
+  },
+  {
+    "id": "49ed610cd8d56963",
+    "front": "xiphoideus",
+    "back": "Мечевидный"
+  },
+  {
+    "id": "fb7d538802032baf",
+    "front": "verus",
+    "back": "Истинный"
+  },
+  {
+    "id": "9048ab0bf35c1543",
+    "front": "spurius",
+    "back": "Ложный"
+  },
+  {
+    "id": "481939acfafb462c",
+    "front": "auricularis",
+    "back": "Ушковидный"
+  },
+  {
+    "id": "d78841242e3743fe",
+    "front": "nuchales",
+    "back": "Выйный"
+  },
+  {
+    "id": "7bcd6bb66dfa9957",
+    "front": "laceratus",
+    "back": "Рванный"
+  },
+  {
+    "id": "aac897a21002f15e",
+    "front": "cribrosa",
+    "back": "Продырявленный"
+  },
+  {
+    "id": "6fd0be65d2dd3810",
+    "front": "perpendicularis",
+    "back": "Перпендикулярный"
+  },
+  {
+    "id": "650f77d0cacd233a",
+    "front": "olfactorius",
+    "back": "Обонятельный"
+  },
+  {
+    "id": "1b374cf7abc53811",
+    "front": "conchalis",
+    "back": "Раковинный"
+  },
+  {
+    "id": "7b3bd54ace2e1d5b",
+    "front": "edentulus",
+    "back": "Беззубый"
+  },
+  {
+    "id": "59d06510f56d6e6c",
+    "front": "distalis",
+    "back": "Дистальный"
+  },
+  {
+    "id": "7ba05f39aa37937b",
+    "front": "proximalis",
+    "back": "Проксимальный"
+  },
+  {
+    "id": "de50e17a0bb10462",
+    "front": "placidus",
+    "back": "Плоский (гладкий)"
+  },
+  {
+    "id": "61983e84b8ef9213",
+    "front": "fibrosus",
+    "back": "Фиброзный"
+  },
+  {
+    "id": "ca72c161fc91fb1c",
+    "front": "radialis",
+    "back": "Радиальный"
+  },
+  {
+    "id": "9f69e5d6709d2c32",
+    "front": "chirurgicus",
+    "back": "Хирургический"
+  },
+  {
+    "id": "1f1e26c30642c7e1",
+    "front": "deltoideus",
+    "back": "Дельтовидный"
+  },
+  {
+    "id": "8746dc28b3b4a470",
+    "front": "ligamentosus",
+    "back": "Связочный"
+  },
+  {
+    "id": "6607b2d12c8c11fa",
+    "front": "synovialis",
+    "back": "Синовиальный"
+  },
+  {
+    "id": "c3fc7bb7d4619c7a",
+    "front": "styloideus",
+    "back": "Шиловидный"
+  },
+  {
+    "id": "986c45724c0d999e",
+    "front": "palmaris",
+    "back": "Ладонный"
+  },
+  {
+    "id": "c55af342838b17e3",
+    "front": "medianus",
+    "back": "Срединный"
+  },
+  {
+    "id": "98d2ae90f9d1722b",
+    "front": "sagittalis",
+    "back": "Стреловидный"
+  },
+  {
+    "id": "c475fb40da800e71",
+    "front": "segmentalis",
+    "back": "Сегментальный"
+  },
+  {
+    "id": "15d572cdce8961f2",
+    "front": "frontalis",
+    "back": "Фронтальный"
+  },
+  {
+    "id": "b43d50556e054d7a",
+    "front": "transversalis",
+    "back": "Поперечный"
+  },
+  {
+    "id": "9d26739810fc933d",
+    "front": "medialis",
+    "back": "Медиальный"
+  },
+  {
+    "id": "c4b9f0b77cf5ddc9",
+    "front": "lateralis",
+    "back": "Боковой"
+  },
+  {
+    "id": "4a518b7389c5b459",
+    "front": "ventralis",
+    "back": "Вентральный"
+  },
+  {
+    "id": "0df0e5191884c187",
+    "front": "dorsalis",
+    "back": "Спинной"
+  },
+  {
+    "id": "ec963996898ef644",
+    "front": "cranialis",
+    "back": "Черепной"
+  },
+  {
+    "id": "cce6193a8f50569a",
+    "front": "caudalis",
+    "back": "Хвостовой"
+  },
+  {
+    "id": "25c226569526a58a",
+    "front": "intermedius",
+    "back": "Промежуточный"
+  },
+  {
+    "id": "1713401e7a5c546d",
+    "front": "medius",
+    "back": "Средний"
+  },
+  {
+    "id": "902af98c121b0fcd",
+    "front": "internus",
+    "back": "Внутренний"
+  },
+  {
+    "id": "6ce50b07b1ede81c",
+    "front": "externus",
+    "back": "Наружный"
+  },
+  {
+    "id": "eca1e6cc86566e40",
+    "front": "dexter",
+    "back": "Правый"
+  },
+  {
+    "id": "1e3fca3bd7c973ad",
+    "front": "sinister",
+    "back": "Левый"
+  },
+  {
+    "id": "7a696fa2cb129c7b",
+    "front": "superficialis",
+    "back": "Поверхностный"
+  },
+  {
+    "id": "1270293ed93fbc62",
+    "front": "profundus",
+    "back": "Глубокий"
+  },
+  {
+    "id": "a2ab984811112982",
+    "front": "longus",
+    "back": "Длинный"
+  },
+  {
+    "id": "e0c75988ba60eabf",
+    "front": "mastoideus",
+    "back": "Сосцевидный"
+  },
+  {
+    "id": "16f40be72467f194",
+    "front": "spongiosus",
+    "back": "Губчатый"
+  },
+  {
+    "id": "fc073dbfd6a35085",
+    "front": "squamosus",
+    "back": "Чешуйчатый"
+  },
+  {
+    "id": "bb973ab01f00bc73",
+    "front": "fibrosus",
+    "back": "Волокнистый"
+  },
+  {
+    "id": "5497cd90b82de23a",
+    "front": "cartilagineus",
+    "back": "Хрящевой"
+  },
+  {
+    "id": "b8edbda5caa6c93f",
+    "front": "obliquus",
+    "back": "Косой"
+  },
+  {
+    "id": "2917af14be744e98",
+    "front": "osseus",
+    "back": "Костный"
+  },
+  {
+    "id": "6b4b6b6f3db75ef1",
+    "front": "palatinus",
+    "back": "Нёбный"
+  },
+  {
+    "id": "82019b1863a151e0",
+    "front": "petrosus",
+    "back": "Каменистый"
+  },
+  {
+    "id": "153ad601b32cc5af",
+    "front": "pterygoideus",
+    "back": "Крыловидный"
+  },
+  {
+    "id": "8ab06524b17ce507",
+    "front": "alaris",
+    "back": "Крыловой"
+  },
+  {
+    "id": "3827c7d9fcd8291a",
+    "front": "zygomaticus",
+    "back": "Скуловой"
+  },
+  {
+    "id": "32828f0c198b7035",
+    "front": "facialis",
+    "back": "Лицевой"
+  },
+  {
+    "id": "5a345bef9cae163a",
+    "front": "articularis",
+    "back": "Суставной"
+  },
+  {
+    "id": "e9c9b0b21fd64ad1",
+    "front": "ethmoidalis",
+    "back": "Решётчатый"
+  },
+  {
+    "id": "308f8949724ba343",
+    "front": "frontalis",
+    "back": "Лобный"
+  },
+  {
+    "id": "1c26a4a4276d756e",
+    "front": "lacrimalis",
+    "back": "Слёзный"
+  },
+  {
+    "id": "06cf0a8d62080b9a",
+    "front": "occipitalis",
+    "back": "Затылочный"
+  },
+  {
+    "id": "fe6dd2ffe5354512",
+    "front": "orbitalis",
+    "back": "Глазничный"
+  },
+  {
+    "id": "a8415b2588c04672",
+    "front": "horizontalis",
+    "back": "Горизонтальный"
+  },
+  {
+    "id": "cc94ceadfe18c50c",
+    "front": "brevis",
+    "back": "Короткий"
+  },
+  {
+    "id": "97009d5a86a8c332",
+    "front": "costalis",
+    "back": "Рёберный"
+  },
+  {
+    "id": "410f6aa78a750826",
+    "front": "clavicularis",
+    "back": "Ключичный"
+  },
+  {
+    "id": "6aaf5520a67bd9ca",
+    "front": "muscularis",
+    "back": "Мышечный"
+  },
+  {
+    "id": "89e5be06a9bd03e0",
+    "front": "vertebralis",
+    "back": "Позвоночный"
+  },
+  {
+    "id": "88f09ccf9763abdc",
+    "front": "cervicalis",
+    "back": "Шейный"
+  },
+  {
+    "id": "cd9c2fa3bf351a0c",
+    "front": "lumbalis",
+    "back": "Поясничный"
+  },
+  {
+    "id": "78d5278790df640d",
+    "front": "nasalis",
+    "back": "Носовой"
+  },
+  {
+    "id": "405d320daa6765ef",
+    "front": "parietalis",
+    "back": "Теменной"
+  },
+  {
+    "id": "38cf5e9dc61ae01c",
+    "front": "sacralis",
+    "back": "Крестцовый"
+  },
+  {
+    "id": "911a67b5448f86d9",
+    "front": "sphenoidalis",
+    "back": "Клиновидный"
+  },
+  {
+    "id": "a2fe0f4a85c2d251",
+    "front": "temporalis",
+    "back": "Височный"
+  }
+]

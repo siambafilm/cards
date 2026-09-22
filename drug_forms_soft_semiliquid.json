@@ -1,0 +1,27 @@
+[
+  {
+    "id": "0ab48133ad2b365a",
+    "front": "electuaria",
+    "back": "кашка"
+  },
+  {
+    "id": "fdbc0ed41ee5c6ec",
+    "front": "unguentum",
+    "back": "мазь"
+  },
+  {
+    "id": "db60e338d9d72c7a",
+    "front": "pasta",
+    "back": "паста (густая мазь)"
+  },
+  {
+    "id": "9f6643c458b29c37",
+    "front": "linimentum",
+    "back": "линимент (жидкая мазь)"
+  },
+  {
+    "id": "0b54d3fccb9bfa75",
+    "front": "emplastrum",
+    "back": "пластырь"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "c1b2b3cb6b437900",
+    "front": "solutio",
+    "back": "раствор"
+  },
+  {
+    "id": "b854d6966f75a333",
+    "front": "mixture",
+    "back": "микстура"
+  },
+  {
+    "id": "d9ddc1f85f7c89a6",
+    "front": "gutta",
+    "back": "капля"
+  },
+  {
+    "id": "b16d330340ffcc79",
+    "front": "infusum",
+    "back": "настой (водный)"
+  },
+  {
+    "id": "b49e5ace20c25907",
+    "front": "tinctura",
+    "back": "настойка (на спирте или эфире)"
+  },
+  {
+    "id": "6f207f2d00ef6d1b",
+    "front": "decoctum",
+    "back": "отвар"
+  },
+  {
+    "id": "cdfce4b9fbe87128",
+    "front": "extractum",
+    "back": "экстракт (вытяжка)"
+  },
+  {
+    "id": "a43fe200039648df",
+    "front": "emulsium",
+    "back": "эмульсия"
+  },
+  {
+    "id": "490575bc8bd9ab6e",
+    "front": "sirupus",
+    "back": "сироп"
+  },
+  {
+    "id": "70a89ca59d0a5dbe",
+    "front": "mucilago",
+    "back": "слизь"
+  },
+  {
+    "id": "0bce73f9d4bd6101",
+    "front": "suspensia",
+    "back": "суспензия"
+  },
+  {
+    "id": "5a37d367c7b2eefb",
+    "front": "oleum",
+    "back": "масло жидкое"
+  }
+]

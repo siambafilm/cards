@@ -1,0 +1,182 @@
+[
+  {
+    "id": "fd75efd44ecf1065",
+    "front": "allergicus, a, um",
+    "back": "аллергический"
+  },
+  {
+    "id": "b2eab0883b791112",
+    "front": "dolorosus, a, um",
+    "back": "болезненный"
+  },
+  {
+    "id": "b971db8b96f0d8e3",
+    "front": "varicosus, a, um",
+    "back": "варикозный"
+  },
+  {
+    "id": "a89874c1ddef4e6a",
+    "front": "humidus, a, um",
+    "back": "влажный"
+  },
+  {
+    "id": "53bb435b7ea54597",
+    "front": "ascendens, entis",
+    "back": "восходящий"
+  },
+  {
+    "id": "e745676ee3688e17",
+    "front": "congenitus, a, um",
+    "back": "врожденный"
+  },
+  {
+    "id": "0edd0886d03bf70b",
+    "front": "purulentus, a, um",
+    "back": "гнойный"
+  },
+  {
+    "id": "c0882ee5310fe597",
+    "front": "duplex, icis",
+    "back": "двойной"
+  },
+  {
+    "id": "4f6db42fc8837483",
+    "front": "benignus, a, um",
+    "back": "доброкачественный"
+  },
+  {
+    "id": "5f99548d8de424c3",
+    "front": "naturalis, e",
+    "back": "естественный"
+  },
+  {
+    "id": "476462780b6f2904",
+    "front": "adiposus, a, um",
+    "back": "жировой"
+  },
+  {
+    "id": "a21f7ebf0f81649b",
+    "front": "malignus, a, um",
+    "back": "злокачественный"
+  },
+  {
+    "id": "9a87ddfc172af8e5",
+    "front": "infectiosus, a, um",
+    "back": "инфекционный"
+  },
+  {
+    "id": "3659d3c3463feab8",
+    "front": "verus, a, um",
+    "back": "истинный"
+  },
+  {
+    "id": "0ee3f53ebf2f062d",
+    "front": "febrilis, e",
+    "back": "лихорадочный"
+  },
+  {
+    "id": "d297607bf1092de2",
+    "front": "spurius, a, um",
+    "back": "ложный"
+  },
+  {
+    "id": "36dff94c048673a4",
+    "front": "descendens, entis",
+    "back": "нисходящий"
+  },
+  {
+    "id": "6f6d23895888cb34",
+    "front": "complicatus, a, um",
+    "back": "осложненный"
+  },
+  {
+    "id": "8e4909ea0a393fc9",
+    "front": "acutus, a, um",
+    "back": "острый"
+  },
+  {
+    "id": "8495665f0f4be87f",
+    "front": "primarius, a, um",
+    "back": "первичный"
+  },
+  {
+    "id": "06c28af411adf9d0",
+    "front": "intermittens, entis",
+    "back": "перемежающийся"
+  },
+  {
+    "id": "e0cf2b03a219f743",
+    "front": "alimentarius, a, um",
+    "back": "пищевой"
+  },
+  {
+    "id": "cbb4a4eed09062ea",
+    "front": "planus, a, um",
+    "back": "плоский"
+  },
+  {
+    "id": "37e5b110a7a73d71",
+    "front": "praematurus, a, um",
+    "back": "преждевременный"
+  },
+  {
+    "id": "cabe61c963c93aba",
+    "front": "simplex, icis",
+    "back": "простой"
+  },
+  {
+    "id": "09d70958126efcc9",
+    "front": "diffusus, a, um",
+    "back": "разлитой"
+  },
+  {
+    "id": "4d9b32fd655f40ab",
+    "front": "latens, entis",
+    "back": "скрытый"
+  },
+  {
+    "id": "e9e832e9848e489c",
+    "front": "compositus, a, um",
+    "back": "сложный"
+  },
+  {
+    "id": "1bfbb770db66eccd",
+    "front": "siccus, a, um",
+    "back": "сухой"
+  },
+  {
+    "id": "d4df680677996dd4",
+    "front": "traumaticus, a, um",
+    "back": "травматический"
+  },
+  {
+    "id": "a67d1cfe926bb5c4",
+    "front": "functionalis, e",
+    "back": "функциональный"
+  },
+  {
+    "id": "d3489b32e47b4e61",
+    "front": "chronicus, a, um",
+    "back": "хронический"
+  },
+  {
+    "id": "17c60d35c8a1c5f5",
+    "front": "epidemicus, a, um",
+    "back": "эпидемический"
+  },
+  {
+    "id": "e0677bc7cc996fd3",
+    "front": "toxicus, a, um",
+    "back": "ядовитый"
+  },
+  {
+    "id": "09a19430972de95c",
+    "front": "ulcerosus, a, um",
+    "back": "язвенный"
+  },
+  {
+    "id": "2a4d935e9e98862c",
+    "front": "saprus, a, um",
+    "back": "гниение"
+  }
+]

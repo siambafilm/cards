@@ -1,0 +1,102 @@
+[
+  {
+    "id": "31e8f3ecd8af2cef",
+    "front": "unus, una, unum",
+    "back": "1"
+  },
+  {
+    "id": "3f33880f4317eb83",
+    "front": "duo, duae, duo",
+    "back": "2"
+  },
+  {
+    "id": "d77d45ca248bf9ae",
+    "front": "tres, tria",
+    "back": "3"
+  },
+  {
+    "id": "94b7bc8d7acd836f",
+    "front": "quattuor",
+    "back": "4"
+  },
+  {
+    "id": "15856b4a2a3dde99",
+    "front": "quinque",
+    "back": "5"
+  },
+  {
+    "id": "cba31b55224cae1f",
+    "front": "sex",
+    "back": "6"
+  },
+  {
+    "id": "30430fb59f79a802",
+    "front": "septem",
+    "back": "7"
+  },
+  {
+    "id": "b9ee8eb3195f47c1",
+    "front": "octo",
+    "back": "8"
+  },
+  {
+    "id": "a984d40b7c7091bf",
+    "front": "novem",
+    "back": "9"
+  },
+  {
+    "id": "5b4f4cbe2f5531fe",
+    "front": "decem",
+    "back": "10"
+  },
+  {
+    "id": "3dd48bcd619bff73",
+    "front": "primys, a/um",
+    "back": "первый"
+  },
+  {
+    "id": "953de6a87f34d7d7",
+    "front": "secundus, a, um",
+    "back": "второй"
+  },
+  {
+    "id": "f90b089eb21c1747",
+    "front": "tertius",
+    "back": "третий"
+  },
+  {
+    "id": "80a6d8284da4a388",
+    "front": "quartus",
+    "back": "четвёртый"
+  },
+  {
+    "id": "4788d06dc9a255f4",
+    "front": "quintus",
+    "back": "пятый"
+  },
+  {
+    "id": "017ab99b4b20495f",
+    "front": "sextus",
+    "back": "шестой"
+  },
+  {
+    "id": "4ffc606477e49037",
+    "front": "septimus",
+    "back": "седьмой"
+  },
+  {
+    "id": "f76ad7d09b6ecf3b",
+    "front": "octavus",
+    "back": "восьмой"
+  },
+  {
+    "id": "d8bf6c6c87a67598",
+    "front": "nonus",
+    "back": "девятый"
+  },
+  {
+    "id": "187f4d1e2788dd64",
+    "front": "decimus",
+    "back": "десятый"
+  }
+]

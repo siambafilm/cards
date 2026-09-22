@@ -275,117 +275,6 @@
   .status-banner.info { background: #dbeafe; color: #1e40af; }
   .status-banner.ok   { background: #d1fae5; color: #065f46; }
 
-
-  /* ---- Боковое меню наборов ---- */
-  .menu-toggle {
-    position: fixed;
-    top: 18px;
-    left: 18px;
-    z-index: 220;
-    width: 48px;
-    height: 48px;
-    padding: 0;
-    border-radius: 14px;
-    background: #fff;
-    color: var(--text);
-    border: 1.5px solid #e5e7eb;
-    box-shadow: var(--shadow);
-    font-size: 1.35rem;
-  }
-  .menu-toggle:hover { background: #f3f4f6; }
-
-  .sidebar-overlay {
-    position: fixed;
-    inset: 0;
-    z-index: 190;
-    background: rgba(0,0,0,.35);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .25s;
-  }
-  .sidebar-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    z-index: 200;
-    width: min(360px, 88vw);
-    background: #fff;
-    box-shadow: 10px 0 35px rgba(0,0,0,.14);
-    transform: translateX(-105%);
-    transition: transform .25s ease;
-    display: flex;
-    flex-direction: column;
-  }
-  .sidebar.open { transform: translateX(0); }
-
-  .sidebar-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 20px;
-    border-bottom: 1px solid #e5e7eb;
-  }
-  .sidebar-header h2 { font-size: 1.1rem; }
-  .sidebar-close {
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    background: transparent;
-    color: var(--muted);
-    font-size: 1.25rem;
-  }
-  .sidebar-close:hover { background: #f3f4f6; }
-
-  .sidebar-list {
-    overflow-y: auto;
-    padding: 10px;
-  }
-  .sidebar-item {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 13px 14px;
-    margin-bottom: 5px;
-    border: 0;
-    border-radius: 12px;
-    background: transparent;
-    color: var(--text);
-    text-align: left;
-    font-size: .95rem;
-    font-weight: 600;
-  }
-  .sidebar-item:hover { background: #f3f4f6; }
-  .sidebar-item.active {
-    background: #eef0ff;
-    color: var(--accent);
-  }
-  .sidebar-item .sidebar-check {
-    margin-left: auto;
-    color: var(--green);
-    font-size: .85rem;
-  }
-  .sidebar-section {
-    padding: 10px 14px 6px;
-    color: var(--muted);
-    font-size: .72rem;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    font-weight: 700;
-  }
-
-  @media (max-width: 600px) {
-    .menu-toggle { top: 12px; left: 12px; }
-    body { padding-top: 70px; }
-  }
-
   .modal-overlay {
     position: fixed; inset: 0; background: rgba(0,0,0,.45);
     display: flex; align-items: center; justify-content: center;
@@ -438,18 +327,15 @@
   </div>
 </header>
 
-<!-- Боковое меню наборов -->
-<button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" title="Наборы слов">☰</button>
-
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<aside class="sidebar" id="sidebar" aria-hidden="true">
-  <div class="sidebar-header">
-    <h2>📚 Наборы слов</h2>
-    <button class="sidebar-close" id="sidebarClose" aria-label="Закрыть меню">✕</button>
-  </div>
-  <div class="sidebar-list" id="sidebarList"></div>
-</aside>
+<!-- Глобальный переключатель языка -->
+<div class="lang-switch" id="langSwitch">
+  <button class="lang-btn active" data-lang="latin">
+    <span class="lang-emoji">🏛️</span>Латинский
+  </button>
+  <button class="lang-btn" data-lang="english">
+    <span class="lang-emoji">🇬🇧</span>Английский
+  </button>
+</div>
 
 <!-- Подрежимы -->
 <div class="tabs" id="tabs">
@@ -926,135 +812,10 @@ const setIndicatorEl = $('setIndicator');
 const nextSetBtn   = $('nextSetBtn');
 const dictInput    = $('dictInput');
 const dictResults  = $('dictResults');
-const menuToggle = $('menuToggle');
-const sidebar = $('sidebar');
-const sidebarOverlay = $('sidebarOverlay');
-const sidebarClose = $('sidebarClose');
-const sidebarList = $('sidebarList');
 
 // ============================================================
 //  УТИЛИТЫ
 // ============================================================
-
-function isEnglishEnabled() {
-  return new URLSearchParams(window.location.search).get('eng') === 'true';
-}
-
-function getAvailableLangKeys() {
-  return Object.keys(LANGS).filter(key => key !== 'english' || isEnglishEnabled());
-}
-
-function openSidebar() {
-  sidebar.classList.add('open');
-  sidebarOverlay.classList.add('open');
-  sidebar.setAttribute('aria-hidden', 'false');
-}
-
-function closeSidebar() {
-  sidebar.classList.remove('open');
-  sidebarOverlay.classList.remove('open');
-  sidebar.setAttribute('aria-hidden', 'true');
-}
-
-function renderSidebar() {
-  sidebarList.innerHTML = '';
-
-  const keys = getAvailableLangKeys();
-  const groups = [
-    {
-      title: 'Латинский',
-      keys: keys.filter(k => k !== 'english')
-    }
-  ];
-
-  if (isEnglishEnabled()) {
-    groups.push({ title: 'Другие языки', keys: ['english'] });
-  }
-
-  groups.forEach(group => {
-    if (!group.keys.length) return;
-
-    const section = document.createElement('div');
-    section.className = 'sidebar-section';
-    section.textContent = group.title;
-    sidebarList.appendChild(section);
-
-    group.keys.forEach(key => {
-      const conf = LANGS[key];
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'sidebar-item' + (key === currentLang ? ' active' : '');
-      btn.dataset.lang = key;
-
-      const title = document.createElement('span');
-      title.textContent = conf.title;
-
-      btn.appendChild(title);
-
-      if (key === currentLang) {
-        const check = document.createElement('span');
-        check.className = 'sidebar-check';
-        check.textContent = '✓';
-        btn.appendChild(check);
-      }
-
-      btn.addEventListener('click', () => {
-        if (key === currentLang) {
-          closeSidebar();
-          return;
-        }
-        switchLanguage(key);
-        closeSidebar();
-      });
-
-      sidebarList.appendChild(btn);
-    });
-  });
-}
-
-function switchLanguage(langKey) {
-  if (!LANGS[langKey]) return;
-  if (langKey === 'english' && !isEnglishEnabled()) return;
-
-  syncCurrentIntoStore();
-  currentLang = langKey;
-  localStorage.setItem('flashcards_last_lang', currentLang);
-
-  allCards = [];
-  queue = [];
-  learned = [];
-  sets = [];
-  setIndex = 0;
-  setLearnedKeys = {};
-  setQueueKeys = {};
-  repeatKeys = new Set();
-  reviewMode = false;
-  reviewKeys = null;
-  reviewLearnedKeys = [];
-  reviewQueueKeys = null;
-  flipped = false;
-  testState = null;
-  matchState = null;
-
-  updateConfigUI();
-  renderSidebar();
-  if (!isEnglishEnabled() && currentLang === 'english') currentLang = 'latin';
-renderSidebar();
-updateConfigUI();
-
-loadLanguageData();
-}
-
-function updateConfigUI() {
-  const conf = cfg();
-  $('addBtn').textContent = '+ Добавить';
-  newFront.placeholder = conf.frontPlaceholder || 'Введите слово...';
-  newBack.placeholder = conf.backPlaceholder || 'Введите перевод...';
-  $('labelFront').textContent = conf.frontLabel || 'Вопрос';
-  $('labelBack').textContent = conf.backLabel || 'Ответ';
-  testInput.placeholder = conf.placeholder || 'Введите ответ...';
-}
-
 function cfg() { return LANGS[currentLang]; }
 
 function cardKey(c) {
@@ -1390,7 +1151,9 @@ function updateTabs() {
   document.querySelectorAll('.tab').forEach(t => {
     t.classList.toggle('active', t.dataset.mode === mode);
   });
-  renderSidebar();
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === currentLang);
+  });
 }
 
 // Панель с кнопками сетов + повторением
@@ -1788,7 +1551,9 @@ async function loadAndInit() {
 //  СОБЫТИЯ
 // ============================================================
 // Переключение языка
-
+document.querySelectorAll('.lang-btn').forEach(b => {
+  b.addEventListener('click', () => switchLang(b.dataset.lang));
+});
 
 // Переключение подрежима
 document.querySelectorAll('.tab').forEach(t => {
@@ -1903,14 +1668,6 @@ document.addEventListener('keydown', (e) => {
   await loadAndInit();
   window.addEventListener('beforeunload', saveState);
 })();
-// ---- Боковое меню ----
-menuToggle.addEventListener('click', openSidebar);
-sidebarClose.addEventListener('click', closeSidebar);
-sidebarOverlay.addEventListener('click', closeSidebar);
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeSidebar();
-});
-
 </script>
 </body>
 </html>

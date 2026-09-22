@@ -1,0 +1,207 @@
+[
+  {
+    "id": "06d1f57ce4e52d4e",
+    "front": "dermo",
+    "back": "cutis — кожа"
+  },
+  {
+    "id": "cd6be97341a4f0bf",
+    "front": "onycho",
+    "back": "unguis — ноготь"
+  },
+  {
+    "id": "32ad4b833d5b06a4",
+    "front": "uro",
+    "back": "urina — моча"
+  },
+  {
+    "id": "a4f60bda91bb425c",
+    "front": "chole",
+    "back": "fel — желчь"
+  },
+  {
+    "id": "02387f25fd8d7a79",
+    "front": "sailo",
+    "back": "salvia — слюна"
+  },
+  {
+    "id": "9c92ef8ba0ae1b7e",
+    "front": "blenno",
+    "back": "mucus — слизь"
+  },
+  {
+    "id": "f6c1aa1dc91599f5",
+    "front": "galacto",
+    "back": "lac, lactus — молоко"
+  },
+  {
+    "id": "99f14ebffda4ac95",
+    "front": "lipo",
+    "back": "adeps — жир"
+  },
+  {
+    "id": "d33cd122a1bfaf0c",
+    "front": "steato",
+    "back": "sebut — сало"
+  },
+  {
+    "id": "c2553e52241df430",
+    "front": "pyo",
+    "back": "pus, puris — гной"
+  },
+  {
+    "id": "e8ee3ff3749d8eae",
+    "front": "hydro",
+    "back": "aqua — вода"
+  },
+  {
+    "id": "a75be79372a35fda",
+    "front": "myelo",
+    "back": "medulla spinalis — спинной мозг"
+  },
+  {
+    "id": "2784ed758313810c",
+    "front": "ophthalmo",
+    "back": "oculus — глаз"
+  },
+  {
+    "id": "691fafb35d242c3d",
+    "front": "raphe",
+    "back": "sutura — шов"
+  },
+  {
+    "id": "5082a08bb674aa4b",
+    "front": "cephalo",
+    "back": "caput — голова"
+  },
+  {
+    "id": "3246bc6a0802e1bb",
+    "front": "phaco",
+    "back": "lens — хрусталик"
+  },
+  {
+    "id": "6cfa324310c3ae4f",
+    "front": "blepharo",
+    "back": "palpebra — веко"
+  },
+  {
+    "id": "15f5504a545485db",
+    "front": "kerato",
+    "back": "cornea — роговица"
+  },
+  {
+    "id": "62ac67d64ec26c53",
+    "front": "sphygmo",
+    "back": "pulsus — пульс"
+  },
+  {
+    "id": "24bda4b11baaad3d",
+    "front": "osm, osmia",
+    "back": "odor — запах, обоняние"
+  },
+  {
+    "id": "9586370d6bf271d0",
+    "front": "phono",
+    "back": "vox — звук, голос"
+  },
+  {
+    "id": "fb8c8ccc04b0d394",
+    "front": "gyno",
+    "back": "femia — женщина"
+  },
+  {
+    "id": "604fbdbf5d38b124",
+    "front": "andro",
+    "back": "mas, maris — мужчина"
+  },
+  {
+    "id": "ecbba778946fa219",
+    "front": "toco",
+    "back": "partus — роды"
+  },
+  {
+    "id": "6c50cf03b111a720",
+    "front": "paedio",
+    "back": "infans — роды"
+  },
+  {
+    "id": "af2baff3dc5b9135",
+    "front": "chrono",
+    "back": "tempus — время"
+  },
+  {
+    "id": "23c0e6aee785ba64",
+    "front": "pharmaco",
+    "back": "medicamentum — лекарство"
+  },
+  {
+    "id": "fe201c3b366c2d1a",
+    "front": "fibula",
+    "back": "perone — малоберцовая кость"
+  },
+  {
+    "id": "5f266667d0868a8f",
+    "front": "magnus",
+    "back": "macros — большой"
+  },
+  {
+    "id": "8afa020013886223",
+    "front": "parvus",
+    "back": "micros — малый"
+  },
+  {
+    "id": "79939294ced1ee98",
+    "front": "calor",
+    "back": "therma — жар, тепло"
+  },
+  {
+    "id": "756a6767c6bf87e1",
+    "front": "cor",
+    "back": "cardia — сердце"
+  },
+  {
+    "id": "e3e7b97dae17aa1c",
+    "front": "mater",
+    "back": "meninx, mening — мозговая оболочка"
+  },
+  {
+    "id": "02fbd47d48bf40b5",
+    "front": "venter",
+    "back": "lapara — живот, брюхо, чрево"
+  },
+  {
+    "id": "d68ef967bf3da525",
+    "front": "auris",
+    "back": "us, otos — ухо"
+  },
+  {
+    "id": "11831d23a121df67",
+    "front": "corpus",
+    "back": "soma — тело"
+  },
+  {
+    "id": "91bcfeb0bf77ef83",
+    "front": "cornu",
+    "back": "keras, kerat — рожок, рог"
+  },
+  {
+    "id": "9e6c45d1b4291c6d",
+    "front": "foetus (fetus)",
+    "back": "embryon — зародыш, плод"
+  },
+  {
+    "id": "bbdf3209638577cb",
+    "front": "manus",
+    "back": "cheir (chir) — рука"
+  },
+  {
+    "id": "0016867071071e73",
+    "front": "genu",
+    "back": "gony — колено"
+  },
+  {
+    "id": "d7e823fcf6d5830b",
+    "front": "sensus",
+    "back": "aesthesis — чувство"
+  }
+]

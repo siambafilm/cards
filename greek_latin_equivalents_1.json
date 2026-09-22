@@ -1,0 +1,207 @@
+[
+  {
+    "id": "02edf02f7eb1f5a1",
+    "front": "spondylo",
+    "back": "vertebra — позвонок"
+  },
+  {
+    "id": "86a2ee421e0e62ba",
+    "front": "splanchno",
+    "back": "viscera — внутренность"
+  },
+  {
+    "id": "d1b875db024f4574",
+    "front": "stomato",
+    "back": "os (oris) — рот"
+  },
+  {
+    "id": "852cef6fa8b9db00",
+    "front": "glosso",
+    "back": "lingua — язык"
+  },
+  {
+    "id": "b34d66417124c7f9",
+    "front": "odonto",
+    "back": "dens — зуб"
+  },
+  {
+    "id": "0bd52f2477d64e09",
+    "front": "urano",
+    "back": "palatum — небо"
+  },
+  {
+    "id": "03425f90627851a0",
+    "front": "cheilo",
+    "back": "labium — губа"
+  },
+  {
+    "id": "ea53ec85ac9fcf57",
+    "front": "gastro",
+    "back": "ventriculus — желудок"
+  },
+  {
+    "id": "d54f34990db3435e",
+    "front": "entero",
+    "back": "intestinum — кишка"
+  },
+  {
+    "id": "c13bfe662f286e56",
+    "front": "laparo",
+    "back": "abdomen — живот"
+  },
+  {
+    "id": "157301e8cd69d57e",
+    "front": "omphalo",
+    "back": "umbicus — пупок"
+  },
+  {
+    "id": "ab181fb91e9fb4a3",
+    "front": "typhlo",
+    "back": "cecum — слепая кишка"
+  },
+  {
+    "id": "b282bcd855d40a50",
+    "front": "procto",
+    "back": "anus, rectum — задний проход"
+  },
+  {
+    "id": "62cfb2c42ba1e80c",
+    "front": "pneumono",
+    "back": "pulmo — легкое"
+  },
+  {
+    "id": "e06747e20dd0dd46",
+    "front": "nephro",
+    "back": "ren — почка"
+  },
+  {
+    "id": "2d30106b5180474b",
+    "front": "spleno",
+    "back": "lien — селезенка"
+  },
+  {
+    "id": "5f4ee6bc1f0db6cd",
+    "front": "pyelo",
+    "back": "pelvis renalis — почечная лоханка"
+  },
+  {
+    "id": "9b550a0f7bac5f54",
+    "front": "cysto",
+    "back": "vesica — пузырь"
+  },
+  {
+    "id": "76d2b4591ebb28a2",
+    "front": "dacriocysto",
+    "back": "saccus lacrimalis — слезный мешок"
+  },
+  {
+    "id": "28163b9fef0ed8f7",
+    "front": "rhino",
+    "back": "nasus — нос"
+  },
+  {
+    "id": "d286df47ac6628c1",
+    "front": "metro",
+    "back": "uterus — матка"
+  },
+  {
+    "id": "103c76f9c232d225",
+    "front": "colpo",
+    "back": "vagina — влагалище"
+  },
+  {
+    "id": "b7877649bcd45388",
+    "front": "oophoro",
+    "back": "ovarium — яичник"
+  },
+  {
+    "id": "4ab837e143930969",
+    "front": "oo",
+    "back": "ovum — яйцо"
+  },
+  {
+    "id": "5122640fcbc25167",
+    "front": "salpingo",
+    "back": "tuba uterine — маточная труба"
+  },
+  {
+    "id": "2073d28d93c767ab",
+    "front": "trachelo",
+    "back": "cervix — шейка матки"
+  },
+  {
+    "id": "acb9b36bece8031d",
+    "front": "orchi",
+    "back": "testis — семенник"
+  },
+  {
+    "id": "5cc144ec0b2145c3",
+    "front": "haemo",
+    "back": "sanguis — кровь"
+  },
+  {
+    "id": "78864215c62d3e7b",
+    "front": "histo",
+    "back": "textus — ткань"
+  },
+  {
+    "id": "a82fb631aa6e176d",
+    "front": "desmo",
+    "back": "ligamentum — связка"
+  },
+  {
+    "id": "ad8be50c5ddc905a",
+    "front": "neuron",
+    "back": "nervus — нерв"
+  },
+  {
+    "id": "feb5fa6047a5c11f",
+    "front": "myo (mys)",
+    "back": "musculus — мышца"
+  },
+  {
+    "id": "b13968601e83226c",
+    "front": "cyto",
+    "back": "cellula — клетка"
+  },
+  {
+    "id": "0efbbe7f025e94d8",
+    "front": "sarco",
+    "back": "textus — мясо, мышца"
+  },
+  {
+    "id": "b83e707d18eb9729",
+    "front": "chondro",
+    "back": "cartilago — хрящ"
+  },
+  {
+    "id": "8840175fe841a1f5",
+    "front": "adeno",
+    "back": "glandula — железа"
+  },
+  {
+    "id": "f1627276998006c7",
+    "front": "angio",
+    "back": "vas — сосуд"
+  },
+  {
+    "id": "b4d91763da5c38c4",
+    "front": "blasto",
+    "back": "germen — зачаток"
+  },
+  {
+    "id": "3bad31c82aa384c1",
+    "front": "phlebo",
+    "back": "vena — вена"
+  },
+  {
+    "id": "6971ff7046bdacf9",
+    "front": "teno",
+    "back": "tendo — сухожилие"
+  },
+  {
+    "id": "b2cd4c877d7f5f04",
+    "front": "mero",
+    "back": "pars — часть"
+  }
+]

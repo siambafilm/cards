@@ -1,0 +1,342 @@
+[
+  {
+    "id": "fbdc9a78cd6f028e",
+    "front": "vertebra",
+    "back": "Позвонок"
+  },
+  {
+    "id": "f844d2e9216d5b9e",
+    "front": "foramen",
+    "back": "Отверстие"
+  },
+  {
+    "id": "1411d626724f4251",
+    "front": "canalis",
+    "back": "Канал"
+  },
+  {
+    "id": "814d24f0060af5fe",
+    "front": "corpus",
+    "back": "Тело"
+  },
+  {
+    "id": "e0544fbfe9000eee",
+    "front": "crista",
+    "back": "Гребень"
+  },
+  {
+    "id": "32ffab14b7b7fa25",
+    "front": "caput",
+    "back": "Головка"
+  },
+  {
+    "id": "aaa9cf999aad2b29",
+    "front": "fossa",
+    "back": "Ямка"
+  },
+  {
+    "id": "602d6ef938bc3459",
+    "front": "arcus",
+    "back": "Дуга"
+  },
+  {
+    "id": "ce1b2d70c9fb5707",
+    "front": "incisura",
+    "back": "Вырезка"
+  },
+  {
+    "id": "1de2863cae8e82b0",
+    "front": "processus",
+    "back": "Отросток, выступ"
+  },
+  {
+    "id": "4e2fdbe67c2a97ed",
+    "front": "spatium",
+    "back": "Пространство"
+  },
+  {
+    "id": "b428f643b3c29f73",
+    "front": "thorax",
+    "back": "Грудная клетка"
+  },
+  {
+    "id": "4c0f43289b121799",
+    "front": "costa",
+    "back": "Ребро"
+  },
+  {
+    "id": "0de1b17a5d9b9c95",
+    "front": "os",
+    "back": "Кость"
+  },
+  {
+    "id": "5ce45498f2d47ea6",
+    "front": "tuberculum",
+    "back": "Бугорок"
+  },
+  {
+    "id": "00f75b4d4375b2cc",
+    "front": "sulcus",
+    "back": "Желоб"
+  },
+  {
+    "id": "694c5f0ef676894c",
+    "front": "sternum",
+    "back": "Грудина"
+  },
+  {
+    "id": "0ff5af24bbe51ce8",
+    "front": "manubrium",
+    "back": "Рукоятка"
+  },
+  {
+    "id": "e56ff923f041421c",
+    "front": "cartilago",
+    "back": "Хрящ"
+  },
+  {
+    "id": "14d83be1edb204f4",
+    "front": "cervix",
+    "back": "Шея"
+  },
+  {
+    "id": "8d4dc549041d9677",
+    "front": "atlas",
+    "back": "Атлант"
+  },
+  {
+    "id": "57f102def883733d",
+    "front": "ala",
+    "back": "Крыло"
+  },
+  {
+    "id": "62e5a9d55f0e71ea",
+    "front": "massa",
+    "back": "Масса"
+  },
+  {
+    "id": "9ef0a6b642d27757",
+    "front": "axis",
+    "back": "Эпистрофей"
+  },
+  {
+    "id": "46072181a36c94ae",
+    "front": "dens",
+    "back": "Зуб"
+  },
+  {
+    "id": "a873eb891f4c90ee",
+    "front": "facies",
+    "back": "Поверхность"
+  },
+  {
+    "id": "cf5c411c93faf921",
+    "front": "lumbus",
+    "back": "Поясница"
+  },
+  {
+    "id": "731d00e4c4c92042",
+    "front": "sacrum",
+    "back": "Крестец"
+  },
+  {
+    "id": "40fd995ed6f484ac",
+    "front": "basis",
+    "back": "Основание"
+  },
+  {
+    "id": "efd6f5d693ff1903",
+    "front": "promantorium",
+    "back": "Мыс"
+  },
+  {
+    "id": "b88e761deb03fd79",
+    "front": "cauda",
+    "back": "Хвост"
+  },
+  {
+    "id": "87f1a6b3d29638ff",
+    "front": "cranium",
+    "back": "Череп"
+  },
+  {
+    "id": "3e77e969b2fbd647",
+    "front": "occiput",
+    "back": "Затылок"
+  },
+  {
+    "id": "0d1ca0f01cb8626f",
+    "front": "pars",
+    "back": "Часть"
+  },
+  {
+    "id": "e978c8b7a9f80eb0",
+    "front": "musculus",
+    "back": "Мышца"
+  },
+  {
+    "id": "e78855db13118451",
+    "front": "impressio",
+    "back": "Вдавление"
+  },
+  {
+    "id": "4fcb6520f527e290",
+    "front": "condylus",
+    "back": "Мыщелок"
+  },
+  {
+    "id": "35b13d49bb755fb2",
+    "front": "nervus",
+    "back": "Нерв"
+  },
+  {
+    "id": "0e22092f116053ce",
+    "front": "squama",
+    "back": "Чешуя"
+  },
+  {
+    "id": "f335e7fe9d8c6082",
+    "front": "spina",
+    "back": "Ость"
+  },
+  {
+    "id": "95b2e1dcb1658bd1",
+    "front": "sella",
+    "back": "Седло"
+  },
+  {
+    "id": "7fe32d9e2ed21451",
+    "front": "dorsum",
+    "back": "Спинка"
+  },
+  {
+    "id": "8b06e1c83ad6b335",
+    "front": "fissura",
+    "back": "Щель"
+  },
+  {
+    "id": "db3bd1dde73aee67",
+    "front": "rostrum",
+    "back": "Клюв, хоботок"
+  },
+  {
+    "id": "7314e8221ce857a4",
+    "front": "hamulus",
+    "back": "Крючок"
+  },
+  {
+    "id": "308a4a30389d55a1",
+    "front": "meatus",
+    "back": "Ход"
+  },
+  {
+    "id": "28eaff657dd68bd8",
+    "front": "bulla",
+    "back": "Пузырь"
+  },
+  {
+    "id": "5aeb626280e06790",
+    "front": "sinus",
+    "back": "Пазуха"
+  },
+  {
+    "id": "ad6b81142e814d3c",
+    "front": "lamina",
+    "back": "Пластинка"
+  },
+  {
+    "id": "bebd1a87b79d6912",
+    "front": "labyrinthus",
+    "back": "Лабиринт"
+  },
+  {
+    "id": "d8944329606bde7c",
+    "front": "nasus",
+    "back": "Нос"
+  },
+  {
+    "id": "57484d1b71f2c16e",
+    "front": "margo",
+    "back": "Край"
+  },
+  {
+    "id": "d2d384f87a7d06dc",
+    "front": "alveolum",
+    "back": "Альвеола"
+  },
+  {
+    "id": "f7339ca904cfe76f",
+    "front": "vomer",
+    "back": "Сошник"
+  },
+  {
+    "id": "d9d9c87d939e5677",
+    "front": "zygoma",
+    "back": "Скула"
+  },
+  {
+    "id": "326a72b4cad1bcbe",
+    "front": "choanae",
+    "back": "Хоаны"
+  },
+  {
+    "id": "34e8d2feecbf3eff",
+    "front": "ramus",
+    "back": "Ветвь"
+  },
+  {
+    "id": "fcd82a7ea2c346dd",
+    "front": "angulus",
+    "back": "Угол"
+  },
+  {
+    "id": "fb38f4da8e5c99a3",
+    "front": "cornu",
+    "back": "Рог"
+  },
+  {
+    "id": "dde8005ed5a4b55c",
+    "front": "maxilla",
+    "back": "Верхняя челюсть"
+  },
+  {
+    "id": "a317a2cfa693a2a4",
+    "front": "mandibula",
+    "back": "Нижняя челюсть"
+  },
+  {
+    "id": "07b88744ac3edd3a",
+    "front": "tempus",
+    "back": "Висок"
+  },
+  {
+    "id": "1523a2e83e591a3b",
+    "front": "frons",
+    "back": "Лоб"
+  },
+  {
+    "id": "20fd8a044e10f1a8",
+    "front": "trochlea",
+    "back": "Блок"
+  },
+  {
+    "id": "0df1b9eac5bf10d2",
+    "front": "tuberositas",
+    "back": "Шероховатость"
+  },
+  {
+    "id": "c8f26d009965f2ab",
+    "front": "humerus (brachii)",
+    "back": "Плечо"
+  },
+  {
+    "id": "5b16e0dd76be04b2",
+    "front": "antebrachii",
+    "back": "Предплечье"
+  },
+  {
+    "id": "451383bf2a52e57e",
+    "front": "manus",
+    "back": "Кисть"
+  }
+]

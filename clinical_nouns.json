@@ -1,0 +1,162 @@
+[
+  {
+    "id": "66583e7c2d2a7935",
+    "front": "abscessus, us, m",
+    "back": "абсцесс"
+  },
+  {
+    "id": "ce6a70f29edc62d2",
+    "front": "caries, ei, f",
+    "back": "кариес"
+  },
+  {
+    "id": "45b58ec94d811b51",
+    "front": "caecitas, atis, f",
+    "back": "слепота"
+  },
+  {
+    "id": "b7523977f37aa504",
+    "front": "cirrhosis, is, f",
+    "back": "цирроз"
+  },
+  {
+    "id": "4966bbde24eff948",
+    "front": "compressio, onis, f",
+    "back": "сдавление"
+  },
+  {
+    "id": "659b9f525dcd80cb",
+    "front": "contusio, onis, f",
+    "back": "ушиб"
+  },
+  {
+    "id": "6225bad37513e319",
+    "front": "dolor, oris, m",
+    "back": "боль"
+  },
+  {
+    "id": "85a614094bcc0cc6",
+    "front": "emesis, is, f",
+    "back": "рвота"
+  },
+  {
+    "id": "a52d78c039ed51d3",
+    "front": "febris, is, f",
+    "back": "лихорадка"
+  },
+  {
+    "id": "2a692c712187b139",
+    "front": "graviditas, atis, f",
+    "back": "беременность"
+  },
+  {
+    "id": "3cd388237d947c51",
+    "front": "diarrhoea, ae, f",
+    "back": "понос"
+  },
+  {
+    "id": "0797b237d13be26a",
+    "front": "dilatatio, onis, f",
+    "back": "расширение"
+  },
+  {
+    "id": "5b7cba6d4c695e9d",
+    "front": "fractura, ae, f",
+    "back": "перелом"
+  },
+  {
+    "id": "ea3405c5ceb3da18",
+    "front": "hernia, ae, f",
+    "back": "грыжа"
+  },
+  {
+    "id": "f59e4b59afa4bbb0",
+    "front": "hydrops, opis, m",
+    "back": "водянка"
+  },
+  {
+    "id": "bb676df8aa486eee",
+    "front": "icterus, i, m",
+    "back": "желтуха"
+  },
+  {
+    "id": "863643e815803189",
+    "front": "ileus, i, m",
+    "back": "непроходимость кишечника"
+  },
+  {
+    "id": "fd4010f32f374a33",
+    "front": "incarceratio, onis, f",
+    "back": "ущемление"
+  },
+  {
+    "id": "56d730211eeb5643",
+    "front": "inflammatio, onis, f",
+    "back": "воспаление"
+  },
+  {
+    "id": "c1e04c00ea6798c6",
+    "front": "insufficientia, ae, f",
+    "back": "недостаточность"
+  },
+  {
+    "id": "1eee65d85000910e",
+    "front": "infarctus, us, m",
+    "back": "инфаркт"
+  },
+  {
+    "id": "e67189436d4448ef",
+    "front": "oedema, atis, n",
+    "back": "отек"
+  },
+  {
+    "id": "a8dc1f0a6471bce4",
+    "front": "paralysis, is, f",
+    "back": "паралич"
+  },
+  {
+    "id": "ff603c74f0a7d7a0",
+    "front": "prolapsus, us, m",
+    "back": "выпадение"
+  },
+  {
+    "id": "6e49f084152178e0",
+    "front": "pruritus, us, m",
+    "back": "зуд"
+  },
+  {
+    "id": "5c33ce4ae22da9fc",
+    "front": "resectio, onis, f",
+    "back": "частичное удаление"
+  },
+  {
+    "id": "f08f758486fc1c9a",
+    "front": "ruptura, ae, f",
+    "back": "разрыв"
+  },
+  {
+    "id": "cf6a8d8af2067dbc",
+    "front": "torsio, onis, f",
+    "back": "скручивание, заворот"
+  },
+  {
+    "id": "8952433d7ef1e3be",
+    "front": "tumor, oris, m",
+    "back": "опухоль"
+  },
+  {
+    "id": "753c0ec4ed309e62",
+    "front": "tussis, is, f",
+    "back": "кашель"
+  },
+  {
+    "id": "7e9fc370a8d1829c",
+    "front": "vitium, i, n",
+    "back": "порок"
+  },
+  {
+    "id": "1c9c955df68243f2",
+    "front": "vulnus, eris, n",
+    "back": "рана"
+  }
+]

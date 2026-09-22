@@ -1,0 +1,74 @@
+[
+  {
+    "file": "anatomical_nouns.json",
+    "words": 68
+  },
+  {
+    "file": "anatomical_adjectives.json",
+    "words": 103
+  },
+  {
+    "file": "numbers.json",
+    "words": 20
+  },
+  {
+    "file": "latin_prefixes_prepositions.json",
+    "words": 22
+  },
+  {
+    "file": "greek_prefixes.json",
+    "words": 17
+  },
+  {
+    "file": "colors.json",
+    "words": 8
+  },
+  {
+    "file": "animals.json",
+    "words": 15
+  },
+  {
+    "file": "clinical_adjectives.json",
+    "words": 36
+  },
+  {
+    "file": "clinical_nouns.json",
+    "words": 32
+  },
+  {
+    "file": "disease_term_elements.json",
+    "words": 12
+  },
+  {
+    "file": "diagnosis_treatment_term_elements.json",
+    "words": 12
+  },
+  {
+    "file": "surgical_term_elements.json",
+    "words": 6
+  },
+  {
+    "file": "greek_latin_equivalents_1.json",
+    "words": 41
+  },
+  {
+    "file": "greek_latin_equivalents_2.json",
+    "words": 41
+  },
+  {
+    "file": "drug_forms_solid_dry.json",
+    "words": 11
+  },
+  {
+    "file": "drug_forms_soft_semiliquid.json",
+    "words": 5
+  },
+  {
+    "file": "drug_forms_liquid.json",
+    "words": 12
+  },
+  {
+    "file": "prescription_terms.json",
+    "words": 27
+  }
+]
