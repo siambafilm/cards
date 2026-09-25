@@ -26,6 +26,7 @@ if (!is_array($input)) {
 // Разрешённые языки → имена файлов. Не даём писать куда попало.
 $allowed = [
     'latin'                              => 'latin.json',
+    'sto_latin'                          => 'sto_latin.json',
     'english'                            => 'english.json',
     'anatomical_nouns'                   => 'anatomical_nouns.json',
     'anatomical_adjectives'              => 'anatomical_adjectives.json',

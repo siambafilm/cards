@@ -15,6 +15,21 @@
       "backPlaceholder": "например: вода"
     },
     {
+      "key": "sto_latin",
+      "title": "🏛️ Латинский (100 слов)",
+      "group": "Основные",
+      "file": "langs/sto_latin.json",
+      "storageKey": "flashcards_state_v2_sto_latin",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите слово на латыни...",
+      "frontLabel": "Слово (латынь)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: costa",
+      "backPlaceholder": "например: ребро",
+      "requiresUnlock": false
+    },
+    {
       "key": "anatomical_nouns",
       "title": "🫀 Анатомия — существительные",
       "group": "Основные",
