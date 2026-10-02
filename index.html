@@ -109,6 +109,7 @@
   /* ---- Карточка ---- */
   .card-scene {
     width: 100%; height: 380px; perspective: 1200px; cursor: pointer; margin-bottom: 24px;
+    position: relative;
   }
   .card {
     position: relative; width: 100%; height: 100%;
@@ -125,6 +126,24 @@
     padding: 40px 32px; text-align: center; overflow-y: auto;
   }
   .card-face.back { transform: rotateY(180deg); }
+
+  /* ---- Кнопки действий на карточке ---- */
+  .card-actions {
+    position: absolute; top: 14px; right: 14px; z-index: 10;
+    display: flex; gap: 6px;
+  }
+  .card-action-btn {
+    width: 38px; height: 38px; padding: 0;
+    border-radius: 10px; background: #fff; color: var(--muted);
+    border: 1.5px solid #e5e7eb; font-size: 1rem; line-height: 1;
+    cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    transition: background .15s, color .15s, border-color .15s, transform .1s;
+  }
+  .card-action-btn:hover { color: var(--text); border-color: #cbd5e1; transform: translateY(-1px); }
+  .card-action-btn:active { transform: scale(.95); }
+  .card-action-btn.danger:hover { color: var(--red); border-color: #fca5a5; background: #fef2f2; }
+
+  #swapBtn.active { background: #eef0ff; border-color: var(--accent); color: var(--accent); }
 
   .label {
     font-size: .75rem; text-transform: uppercase; letter-spacing: .12em;
@@ -196,6 +215,8 @@
     border: 1.5px solid #d1d5db; padding: 11px 22px;
   }
   .btn-ghost:hover:not(:disabled) { background: #f3f4f6; }
+  .btn-danger { color: var(--red); border-color: #fca5a5; }
+  .btn-danger:hover:not(:disabled) { background: #fef2f2; }
 
   .stats {
     font-size: .9rem; color: var(--muted);
@@ -328,6 +349,7 @@
 <header>
   <h1>📇 Мои карточки</h1>
   <div class="header-actions">
+    <button class="btn-ghost" id="swapBtn" title="Поменять вопрос и ответ местами">⇄ Поменять</button>
     <button class="btn-ghost" id="restartBtn" title="Сбросить прогресс текущего языка">↻ Заново</button>
     <button class="btn-ghost" id="addBtn">+ Добавить</button>
   </div>
@@ -365,15 +387,19 @@
 <!-- Карточки -->
 <div class="view" data-mode="flashcard">
   <div class="card-scene" id="cardScene">
+    <div class="card-actions">
+      <button class="card-action-btn" id="fcEdit" title="Изменить карточку" aria-label="Изменить">✎</button>
+      <button class="card-action-btn danger" id="fcDelete" title="Удалить карточку" aria-label="Удалить">🗑</button>
+    </div>
     <div class="card" id="card">
       <div class="card-face front">
-        <div class="label">Вопрос</div>
+        <div class="label" id="fcFrontLabel">Вопрос</div>
         <div class="content" id="fcFront">Загрузка...</div>
         <div class="hint">Нажмите, чтобы увидеть ответ</div>
         <div class="tags" id="fcFrontTags"></div>
       </div>
       <div class="card-face back">
-        <div class="label">Ответ</div>
+        <div class="label" id="fcBackLabel">Ответ</div>
         <div class="content" id="fcBack"></div>
         <div class="tags" id="fcBackTags"></div>
       </div>
@@ -464,6 +490,7 @@
     <input type="password" id="newPassword" placeholder="Введите пароль..." autocomplete="off">
     <div class="modal-actions">
       <button class="btn-ghost" id="cancelModal">Отмена</button>
+      <button class="btn-ghost btn-danger" id="deleteModalBtn" style="display:none">🗑 Удалить</button>
       <button class="btn-primary" id="saveModal">Сохранить</button>
     </div>
   </div>
@@ -520,6 +547,10 @@ let reviewKeys       = null;
 let reviewLearnedKeys = [];
 let reviewQueueKeys   = null;
 
+// Новые глобальные флаги
+let swapped         = false;   // ⇄ поменять front/back местами
+let editingCard     = null;    // карточка, которую редактируем (null = добавление)
+
 // ============================================================
 //  DOM
 // ============================================================
@@ -529,6 +560,8 @@ const fcFront      = $('fcFront');
 const fcBack       = $('fcBack');
 const fcFrontTags  = $('fcFrontTags');
 const fcBackTags   = $('fcBackTags');
+const fcFrontLabel = $('fcFrontLabel');
+const fcBackLabel  = $('fcBackLabel');
 const testFront    = $('testFront');
 const testInput    = $('testInput');
 const testFeedback = $('testFeedback');
@@ -543,6 +576,8 @@ const matchNextBtn   = $('matchNext');
 const matchKnowBtn   = $('matchKnowAnyway');
 const fcRepeatBtn  = $('fcRepeat');
 const fcKnowBtn    = $('fcKnow');
+const fcEditBtn    = $('fcEdit');
+const fcDeleteBtn  = $('fcDelete');
 const progressFill = $('progressFill');
 const remainingEl  = $('remaining');
 const learnedEl    = $('learned');
@@ -604,6 +639,13 @@ function escapeHtml(s) {
   return String(s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+// Возвращает значение поля карточки с учётом режима ⇄
+function getField(c, fieldName) {
+  if (!c) return '';
+  if (!swapped) return c[fieldName];
+  return fieldName === 'front' ? c.back : c.front;
 }
 
 function showBanner(text, kind = 'warn', ms = 0) {
@@ -674,6 +716,7 @@ function saveState() {
       v: 3,
       mode,
       batchSize,
+      swapped,
       setIndex: reviewMode ? -1 : setIndex,
       setsKeys: sets.map(s => s.map(cardKey)),
       setLearnedKeys,
@@ -945,6 +988,10 @@ function startFresh() {
 
 function restoreSession(saved) {
   batchSize = saved.batchSize || DEFAULT_BATCH_SIZE;
+  if (typeof saved.swapped === 'boolean') {
+    swapped = saved.swapped;
+    $('swapBtn').classList.toggle('active', swapped);
+  }
 
   const byKeyAll = new Map(allCards.map(c => [cardKey(c), c]));
 
@@ -1132,8 +1179,12 @@ function renderActiveView() {
 }
 
 function renderFlashcard(c) {
-  fcFront.textContent = c.front || '(пусто)';
-  fcBack.textContent  = c.back  || '(пусто)';
+  const conf = cfg();
+  fcFront.textContent = getField(c, 'front') || '(пусто)';
+  fcBack.textContent  = getField(c, 'back')  || '(пусто)';
+  // Меняем подписи местами, чтобы было понятно, что где
+  fcFrontLabel.textContent = swapped ? (conf.backLabel  || 'Ответ')  : (conf.frontLabel || 'Вопрос');
+  fcBackLabel.textContent  = swapped ? (conf.frontLabel || 'Вопрос') : (conf.backLabel  || 'Ответ');
   fcFrontTags.textContent = formatTags(c.tags);
   fcBackTags.textContent  = formatTags(c.tags);
   cardEl.classList.remove('flipped');
@@ -1142,7 +1193,7 @@ function renderFlashcard(c) {
 
 function renderTest(c) {
   const conf = cfg();
-  const q = c[conf.questionField] || '(пусто)';
+  const q = getField(c, conf.questionField) || '(пусто)';
 
   testFront.textContent = q;
   testInput.value = '';
@@ -1161,14 +1212,14 @@ function renderTest(c) {
 
 function renderMatch(c) {
   const conf = cfg();
-  matchFront.textContent = c[conf.questionField] || '(пусто)';
+  matchFront.textContent = getField(c, conf.questionField) || '(пусто)';
   matchRepeatBtn.style.display = 'none';
   matchNextBtn.style.display = 'none';
   matchKnowBtn.style.display = 'none';
 
-  const correct = c[conf.answerField] || '(пусто)';
+  const correct = getField(c, conf.answerField) || '(пусто)';
   const pool = Array.from(new Set(
-    allCards.map(x => x[conf.answerField]).filter(b => b && b !== correct)
+    allCards.map(x => getField(x, conf.answerField)).filter(b => b && b !== correct)
   ));
   shuffle(pool);
   const nOptions = Math.min(4, pool.length + 1);
@@ -1248,7 +1299,7 @@ function checkTest() {
   if (testState.checked) return;
 
   const conf = cfg();
-  const expected = normalize(c[conf.answerField]);
+  const expected = normalize(getField(c, conf.answerField));
   const user = normalize(testInput.value);
   const correct = user !== '' && user === expected;
 
@@ -1266,7 +1317,7 @@ function checkTest() {
     testFeedback.className = 'feedback wrong show';
     testFeedback.innerHTML =
       '<strong>✗ Неверно.</strong><br>' +
-      'Правильный ответ: <strong>' + escapeHtml(c[conf.answerField] || '(пусто)') + '</strong>';
+      'Правильный ответ: <strong>' + escapeHtml(getField(c, conf.answerField) || '(пусто)') + '</strong>';
     testRepeatBtn.style.display = '';
     testKnowBtn.style.display = '';
   }
@@ -1308,16 +1359,41 @@ function updateModalForLang() {
 }
 
 function openModal() {
+  editingCard = null;
   updateModalForLang();
   newFront.value = '';
   newBack.value = '';
   newPassword.value = '';
   modalError.classList.remove('show');
   modalError.textContent = '';
+  $('deleteModalBtn').style.display = 'none';
   modalOverlay.classList.add('open');
   newFront.focus();
 }
-function closeModal() { modalOverlay.classList.remove('open'); }
+
+function openEditModal(c) {
+  if (!c) return;
+  editingCard = c;
+  const conf = cfg();
+  $('modalTitle').textContent = 'Редактировать — ' + conf.title;
+  $('labelFront').textContent = conf.frontLabel;
+  $('labelBack').textContent  = conf.backLabel;
+  newFront.placeholder = conf.frontPlaceholder;
+  newBack.placeholder  = conf.backPlaceholder;
+  newFront.value = c.front || '';
+  newBack.value  = c.back  || '';
+  newPassword.value = '';
+  modalError.classList.remove('show');
+  modalError.textContent = '';
+  $('deleteModalBtn').style.display = '';
+  modalOverlay.classList.add('open');
+  newFront.focus();
+}
+
+function closeModal() {
+  modalOverlay.classList.remove('open');
+  editingCard = null;
+}
 
 async function saveNewCard() {
   const front = newFront.value.trim();
@@ -1335,12 +1411,16 @@ async function saveNewCard() {
     return;
   }
 
-  const frontNorm = normalize(front);
-  const duplicate = allCards.find(c => normalize(c.front) === frontNorm);
-  if (duplicate) {
-    modalError.textContent = 'Такое слово уже есть в списке: «' + duplicate.front + '».';
-    modalError.classList.add('show');
-    return;
+  const isEdit = !!editingCard;
+
+  if (!isEdit) {
+    const frontNorm = normalize(front);
+    const duplicate = allCards.find(c => normalize(c.front) === frontNorm);
+    if (duplicate) {
+      modalError.textContent = 'Такое слово уже есть в списке: «' + duplicate.front + '».';
+      modalError.classList.add('show');
+      return;
+    }
   }
 
   const btn = $('saveModal');
@@ -1349,10 +1429,16 @@ async function saveNewCard() {
   modalError.classList.remove('show');
 
   try {
+    const payload = { lang: currentLang, front, back, password };
+    if (isEdit) {
+      payload.action = 'edit';
+      if (editingCard.id) payload.id = editingCard.id;
+    }
+
     const res = await fetch(ADD_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ lang: currentLang, front, back, password }),
+      body: JSON.stringify(payload),
     });
 
     const data = await res.json().catch(() => ({}));
@@ -1362,25 +1448,103 @@ async function saveNewCard() {
       throw new Error(data.error || ('Ошибка сервера: HTTP ' + res.status));
     }
 
-    const newCard = { id: data.id || ('local-' + Date.now()), front, back };
-    allCards.push(newCard);
-    if (!reviewMode) {
-      if (!sets[setIndex]) sets[setIndex] = [];
-      sets[setIndex].push(newCard);
-    } else if (reviewKeys) {
-      reviewKeys.push(cardKey(newCard));
-    }
-    queue.push(newCard);
+    if (isEdit) {
+      // Обновляем карточку «на месте» — ссылки в queue/learned/sets сохраняются
+      editingCard.front = front;
+      editingCard.back  = back;
+      if (data.id && !editingCard.id) editingCard.id = data.id;
 
-    closeModal();
-    showBanner('✓ Карточка добавлена в ' + cfg().title, 'ok', 2500);
-    render();
+      closeModal();
+      showBanner('✓ Карточка обновлена', 'ok', 2500);
+      render();
+    } else {
+      const newCard = { id: data.id || ('local-' + Date.now()), front, back };
+      allCards.push(newCard);
+      if (!reviewMode) {
+        if (!sets[setIndex]) sets[setIndex] = [];
+        sets[setIndex].push(newCard);
+      } else if (reviewKeys) {
+        reviewKeys.push(cardKey(newCard));
+      }
+      queue.push(newCard);
+
+      closeModal();
+      showBanner('✓ Карточка добавлена в ' + cfg().title, 'ok', 2500);
+      render();
+    }
   } catch (e) {
     modalError.textContent = e.message || 'Не удалось сохранить карточку.';
     modalError.classList.add('show');
   } finally {
     btn.disabled = false;
     btn.textContent = 'Сохранить';
+  }
+}
+
+function removeCardFromState(c) {
+  const key = cardKey(c);
+  allCards = allCards.filter(x => x !== c);
+  sets     = sets.map(s => s.filter(x => x !== c));
+  queue    = queue.filter(x => x !== c);
+  learned  = learned.filter(x => x !== c);
+  repeatKeys.delete(key);
+  // Удаляем из сохранённых наборов (по ключам)
+  Object.keys(setLearnedKeys).forEach(i => {
+    setLearnedKeys[i] = (setLearnedKeys[i] || []).filter(k => k !== key);
+  });
+  Object.keys(setQueueKeys).forEach(i => {
+    setQueueKeys[i] = (setQueueKeys[i] || []).filter(k => k !== key);
+  });
+  if (reviewKeys) reviewKeys = reviewKeys.filter(k => k !== key);
+  reviewLearnedKeys = (reviewLearnedKeys || []).filter(k => k !== key);
+  if (reviewQueueKeys) reviewQueueKeys = reviewQueueKeys.filter(k => k !== key);
+}
+
+async function deleteEditingCard() {
+  if (!editingCard) return;
+  const c = editingCard;
+  if (!confirm('Удалить карточку «' + (c.front || '') + '»?')) return;
+
+  const password = newPassword.value;
+  if (!password) {
+    modalError.textContent = 'Введите пароль для удаления.';
+    modalError.classList.add('show');
+    return;
+  }
+
+  const btn = $('deleteModalBtn');
+  btn.disabled = true;
+  const oldText = btn.textContent;
+  btn.textContent = 'Удаление...';
+  modalError.classList.remove('show');
+
+  try {
+    const payload = { lang: currentLang, password, action: 'delete' };
+    if (c.id) payload.id = c.id;
+    else { payload.front = c.front; payload.back = c.back; }
+
+    const res = await fetch(ADD_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok || !data.ok) {
+      if (res.status === 403) throw new Error(data.error || 'Неверный пароль.');
+      throw new Error(data.error || ('Ошибка сервера: HTTP ' + res.status));
+    }
+
+    removeCardFromState(c);
+    closeModal();
+    showBanner('✓ Карточка удалена', 'ok', 2500);
+    render();
+  } catch (e) {
+    modalError.textContent = e.message || 'Не удалось удалить карточку.';
+    modalError.classList.add('show');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = oldText;
   }
 }
 
@@ -1441,6 +1605,19 @@ $('cardScene').addEventListener('click', () => {
 });
 fcKnowBtn.addEventListener('click', (e) => { e.stopPropagation(); markKnown(); });
 fcRepeatBtn.addEventListener('click', (e) => { e.stopPropagation(); markRepeat(); });
+fcEditBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const c = currentCard();
+  if (c) openEditModal(c);
+});
+fcDeleteBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const c = currentCard();
+  if (!c) return;
+  // Открываем модалку в режиме редактирования этой карточки; пользователь
+  // введёт пароль и нажмёт «🗑 Удалить».
+  openEditModal(c);
+});
 
 testCheckBtn.addEventListener('click', checkTest);
 testNextBtn.addEventListener('click', markKnown);
@@ -1470,8 +1647,17 @@ $('restartBtn').addEventListener('click', () => {
 $('addBtn').addEventListener('click', openModal);
 $('cancelModal').addEventListener('click', closeModal);
 $('saveModal').addEventListener('click', saveNewCard);
+$('deleteModalBtn').addEventListener('click', deleteEditingCard);
 modalOverlay.addEventListener('click', (e) => {
   if (e.target === modalOverlay) closeModal();
+});
+
+// Кнопка ⇄ Поменять
+$('swapBtn').addEventListener('click', () => {
+  swapped = !swapped;
+  $('swapBtn').classList.toggle('active', swapped);
+  flipped = false; testState = null; matchState = null;
+  render();
 });
 
 // Сайдбар
@@ -1503,6 +1689,8 @@ document.addEventListener('keydown', (e) => {
     document.querySelector('.tab[data-mode="dictionary"]').click();
   } else if (e.key.toLowerCase() === 'r') {
     $('restartBtn').click();
+  } else if (e.key.toLowerCase() === 's') {
+    $('swapBtn').click();
   }
 });
 
