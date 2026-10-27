@@ -1,287 +1,317 @@
 [
   {
-    "id": "139e6a0d33e9d8e7",
-    "front": "teeth",
-    "back": "зуб"
+    "id": "a1b2c3d4e5f6g7h8",
+    "front": "challenge",
+    "back": "(сложная) проблема, испытание, вызов, трудная задача"
   },
   {
-    "id": "3dc5c0e2b3e404bf",
-    "front": "wings",
-    "back": "крылья"
+    "id": "b2c3d4e5f6g7h8i9",
+    "front": "bandwidth",
+    "back": "пропускная способность"
   },
   {
-    "id": "b6c0846df7c31e67",
-    "front": "neck",
-    "back": "шея"
+    "id": "c3d4e5f6g7h8i9j0",
+    "front": "provide",
+    "back": "предоставлять, обеспечивать, предусматривать"
   },
   {
-    "id": "19273617be3a7b63",
-    "front": "mane",
-    "back": "грива"
+    "id": "d4e5f6g7h8i9j0k1",
+    "front": "sustain",
+    "back": "поддерживать"
   },
   {
-    "id": "e17fa6b1e604f328",
-    "front": "legs",
-    "back": "ноги"
+    "id": "e5f6g7h8i9j0k1l2",
+    "front": "sophisticated",
+    "back": "сложный, сложно устроенный"
   },
   {
-    "id": "28bb0f15d2a6a125",
-    "front": "hair",
-    "back": "волосы"
+    "id": "f6g7h8i9j0k1l2m3",
+    "front": "satisfactorily",
+    "back": "удовлетворительно"
   },
   {
-    "id": "623d3864d420f18d",
-    "front": "fur",
-    "back": "мех"
+    "id": "g7h8i9j0k1l2m3n4",
+    "front": "issue",
+    "back": "проблема; дело; вопрос; тема"
   },
   {
-    "id": "d726b27e828d5705",
-    "front": "feathers",
-    "back": "перья"
+    "id": "h8i9j0k1l2m3n4o5",
+    "front": "content",
+    "back": "содержание"
   },
   {
-    "id": "7fc2bf510b6d2673",
-    "front": "heads",
-    "back": "головы"
+    "id": "i9j0k1l2m3n4o5p6",
+    "front": "infringement",
+    "back": "посягательство, покушение"
   },
   {
-    "id": "3b34208a0d7f261d",
-    "front": "leaves",
-    "back": "листья"
+    "id": "j0k1l2m3n4o5p6q7",
+    "front": "indecent",
+    "back": "неподобающий, неприличный; вульгарный, непристойный"
   },
   {
-    "id": "f3d240e3bb970f03",
-    "front": "hoof",
-    "back": "копыто"
+    "id": "k1l2m3n4o5p6q7r8",
+    "front": "outcry",
+    "back": "(общественный) протест, возмущение"
   },
   {
-    "id": "3d758064dcb7c631",
-    "front": "horns",
-    "back": "рога"
+    "id": "l2m3n4o5p6q7r8s9",
+    "front": "cautious",
+    "back": "осторожный, предусмотрительный"
   },
   {
-    "id": "ca55c0e1dbd4a031",
-    "front": "feet",
-    "back": "стопа"
+    "id": "m3n4o5p6q7r8s9t0",
+    "front": "exactly on time",
+    "back": "по расписанию"
   },
   {
-    "id": "6210f135b80a5bf2",
-    "front": "eyes",
-    "back": "глаза"
+    "id": "n4o5p6q7r8s9t0u1",
+    "front": "right after",
+    "back": "сразу после"
   },
   {
-    "id": "4a21183c52e1f43a",
-    "front": "nose",
-    "back": "нос"
+    "id": "o5p6q7r8s9t0u1v2",
+    "front": "book",
+    "back": "бронировать"
   },
   {
-    "id": "660a1bbd7a0491fb",
-    "front": "tail",
-    "back": "хвост"
+    "id": "p6q7r8s9t0u1v2w3",
+    "front": "acquaintance",
+    "back": "знакомый"
   },
   {
-    "id": "be8f2552df03d52d",
-    "front": "ears",
-    "back": "уши"
+    "id": "q7r8s9t0u1v2w3x4",
+    "front": "doing the grocery",
+    "back": "выбирать продукты"
   },
   {
-    "id": "9d92cd1d6d6c6e7a",
-    "front": "toes",
-    "back": "пальцы ног"
+    "id": "r8s9t0u1v2w3x4y5",
+    "front": "approach",
+    "back": "подход"
   },
   {
-    "id": "5b7fc6da2ee8e121",
-    "front": "nails",
-    "back": "ногти"
+    "id": "s9t0u1v2w3x4y5z6",
+    "front": "opportunity",
+    "back": "возможность"
   },
   {
-    "id": "e160e14a1e948c3b",
-    "front": "claws",
-    "back": "когти"
+    "id": "t0u1v2w3x4y5z6a7",
+    "front": "appear",
+    "back": "выглядеть, казаться"
   },
   {
-    "id": "e1fe3c64c7e4ff61",
-    "front": "thumb",
-    "back": "большой палец"
+    "id": "u1v2w3x4y5z6a7b8",
+    "front": "circumstances",
+    "back": "обстоятельства"
   },
   {
-    "id": "076e036e7465ea87",
-    "front": "low",
-    "back": "низко"
+    "id": "v2w3x4y5z6a7b8c9",
+    "front": "work for",
+    "back": "работать в"
   },
   {
-    "id": "8d591b61ca01e74a",
-    "front": "bark",
-    "back": "лаять"
+    "id": "w3x4y5z6a7b8c9d0",
+    "front": "face",
+    "back": "сталкиваться"
   },
   {
-    "id": "2a74c0e62a11b64a",
-    "front": "trumpet",
-    "back": "труба"
+    "id": "x4y5z6a7b8c9d0e1",
+    "front": "It`s said that",
+    "back": "говорят, что"
   },
   {
-    "id": "da681ef40d4f3b23",
-    "front": "croak",
-    "back": "кваканье"
+    "id": "y5z6a7b8c9d0e1f2",
+    "front": "Consider",
+    "back": "считать"
   },
   {
-    "id": "bd7630fa23eef250",
-    "front": "neigh",
-    "back": "ржать"
+    "id": "z6a7b8c9d0e1f2g3",
+    "front": "Is considered that",
+    "back": "Считается, что"
   },
   {
-    "id": "2ea7bf0aef484d31",
-    "front": "bleat",
-    "back": "блеять"
+    "id": "a7b8c9d0e1f2g3h4",
+    "front": "Attend",
+    "back": "посещать"
   },
   {
-    "id": "a823ed609f3e4a28",
-    "front": "roar",
-    "back": "рычание"
+    "id": "b8c9d0e1f2g3h4i5",
+    "front": "Soak",
+    "back": "промокнуть"
   },
   {
-    "id": "3bf782e4e10df3a6",
-    "front": "squeak",
-    "back": "скрип"
+    "id": "c9d0e1f2g3h4i5j6",
+    "front": "Ditch",
+    "back": "отбросить"
   },
   {
-    "id": "b7ed34d28efc0f41",
-    "front": "grunt",
-    "back": "ворчание"
+    "id": "d0e1f2g3h4i5j6k7",
+    "front": "Unforseen",
+    "back": "непредвиденный"
   },
   {
-    "id": "fa23dcb360fa7ef2",
-    "front": "crow",
-    "back": "ворон"
+    "id": "e1f2g3h4i5j6k7l8",
+    "front": "Demand",
+    "back": "спрос"
   },
   {
-    "id": "4b3df829faee3bf5",
-    "front": "sheep",
-    "back": "овца"
+    "id": "f2g3h4i5j6k7l8m9",
+    "front": "Outlook",
+    "back": "прогноз/перспективы"
   },
   {
-    "id": "83cfebd12a4b3d70",
-    "front": "chikens",
-    "back": "курицы"
+    "id": "g3h4i5j6k7l8m9n0",
+    "front": "Cutting-edge",
+    "back": "передовые"
   },
   {
-    "id": "a7b3ef1d6ea5ef0d",
-    "front": "turkeys",
-    "back": "индейки"
+    "id": "h4i5j6k7l8m9n0o1",
+    "front": "Implement",
+    "back": "внедрять"
   },
   {
-    "id": "93bfe92aefd78fa1",
-    "front": "goats",
-    "back": "козы"
+    "id": "i5j6k7l8m9n0o1p2",
+    "front": "Related",
+    "back": "связанный"
   },
   {
-    "id": "4bf830aefbc0d49f",
-    "front": "ducks",
-    "back": "утки"
+    "id": "j6k7l8m9n0o1p2q3",
+    "front": "Maintaining",
+    "back": "поддержание"
   },
   {
-    "id": "3fe8dbca7fe83b0a",
-    "front": "geese",
-    "back": "гуси"
+    "id": "k7l8m9n0o1p2q3r4",
+    "front": "Fraud",
+    "back": "мошенничество"
   },
   {
-    "id": "8bda2e3faef30cde",
-    "front": "pigs",
-    "back": "свиньи"
+    "id": "l8m9n0o1p2q3r4s5",
+    "front": "Vulnerability",
+    "back": "уязвимость"
   },
   {
-    "id": "3efd8ab34dfaef89",
-    "front": "horses",
-    "back": "лошади"
+    "id": "m9n0o1p2q3r4s5t6",
+    "front": "Homeland",
+    "back": "родина"
   },
   {
-    "id": "9bfad3eefc83abde",
-    "front": "ostriches",
-    "back": "страусы"
+    "id": "n0o1p2q3r4s5t6u7",
+    "front": "Threats",
+    "back": "угроза"
   },
   {
-    "id": "a3bfed29fa7e3bc0",
-    "front": "cub",
-    "back": "детёныш"
+    "id": "o1p2q3r4s5t6u7v8",
+    "front": "Scrambling",
+    "back": "карабкаться"
   },
   {
-    "id": "4fed3ab2ea7cf3d1",
-    "front": "calf",
-    "back": "телёнок"
+    "id": "p2q3r4s5t6u7v8w9",
+    "front": "Aspiration",
+    "back": "стремление"
   },
   {
-    "id": "8fbed39acde3bc7a",
-    "front": "kid",
-    "back": "ребёнок"
+    "id": "q3r4s5t6u7v8w9x0",
+    "front": "Influence",
+    "back": "влияние"
   },
   {
-    "id": "7bf3ea2debc48fd3",
-    "front": "gosling",
-    "back": "гусёнок"
+    "id": "r4s5t6u7v8w9x0y1",
+    "front": "Inspiration",
+    "back": "вдохновение"
   },
   {
-    "id": "3be4fdba23e7cf8d",
-    "front": "duckling",
-    "back": "утёнок"
+    "id": "s5t6u7v8w9x0y1z2",
+    "front": "Quit job",
+    "back": "уволиться"
   },
   {
-    "id": "4b7edc3afe24d3ba",
-    "front": "chicken",
-    "back": "курица"
+    "id": "t6u7v8w9x0y1z2a3",
+    "front": "Teleworker",
+    "back": "удалёнщик"
   },
   {
-    "id": "9be43fd72aefbc04",
-    "front": "piglet",
-    "back": "поросёнок"
+    "id": "u7v8w9x0y1z2a3b4",
+    "front": "Competitive",
+    "back": "конкурентоспособный"
   },
   {
-    "id": "a3be4fde2aef3bd7",
-    "front": "lamb",
-    "back": "ягнёнок"
+    "id": "v8w9x0y1z2a3b4c5",
+    "front": "Magnificent",
+    "back": "великолепный"
   },
   {
-    "id": "2bfed34ab7ec3fd4",
-    "front": "puppy",
-    "back": "щенок"
+    "id": "w9x0y1z2a3b4c5d6",
+    "front": "Primeval",
+    "back": "первобытный"
   },
   {
-    "id": "f3ebd24ade3bcf41",
-    "front": "birds",
-    "back": "птицы"
+    "id": "x0y1z2a3b4c5d6e7",
+    "front": "Swallow",
+    "back": "глотать"
   },
   {
-    "id": "a7efb34d2ebd4fc3",
-    "front": "pig",
-    "back": "свинья"
+    "id": "y1z2a3b4c5d6e7f8",
+    "front": "Boa",
+    "back": "удав"
   },
   {
-    "id": "3be4df872aefbc0d",
-    "front": "hen",
-    "back": "курица"
+    "id": "z2a3b4c5d6e7f8g9",
+    "front": "Prey",
+    "back": "добыча"
   },
   {
-    "id": "d3be4f8a2efc3bd4",
-    "front": "crocodile",
-    "back": "крокодил"
+    "id": "a3b4c5d6e7f8g9h0",
+    "front": "Digestion",
+    "back": "усвоение пищи"
   },
   {
-    "id": "4be3dfd82aefbc0d",
-    "front": "bull",
-    "back": "бык"
+    "id": "b4c5d6e7f8g9h0i1",
+    "front": "Disheartened",
+    "back": "удрученный"
   },
   {
-    "id": "a7be3fd42efbc0d3",
-    "front": "lion",
-    "back": "лев"
+    "id": "c5d6e7f8g9h0i1j2",
+    "front": "Tiresome",
+    "back": "надоедливый"
   },
   {
-    "id": "3be4fd82aefbc3d4",
-    "front": "fish",
-    "back": "рыба"
+    "id": "d6e7f8g9h0i1j2k3",
+    "front": "Distinguish",
+    "back": "различать"
   },
   {
-    "id": "9be4fd832aefbc7d",
-    "front": "stag",
-    "back": "олень, самец"
+    "id": "e7f8g9h0i1j2k3l4",
+    "front": "Captivate",
+    "back": "очаровывать"
+  },
+  {
+    "id": "f8g9h0i1j2k3l4m5",
+    "front": "Doubts",
+    "back": "сомнения"
+  },
+  {
+    "id": "g9h0i1j2k3l4m5n6",
+    "front": "Pace",
+    "back": "шаг"
+  },
+  {
+    "id": "h0i1j2k3l4m5n6o7",
+    "front": "Intentions",
+    "back": "намерения"
+  },
+  {
+    "id": "i1j2k3l4m5n6o7p8",
+    "front": "Bow",
+    "back": "носовая часть корабля"
+  },
+  {
+    "id": "j2k3l4m5n6o7p8q9",
+    "front": "Cherish",
+    "back": "ценить"
+  },
+  {
+    "id": "k3l4m5n6o7p8q9r0",
+    "front": "Prosperous",
+    "back": "процветающий"
   }
 ]
