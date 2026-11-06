@@ -310,6 +310,21 @@
       "frontPlaceholder": "например: water",
       "backPlaceholder": "например: вода",
       "requiresUnlock": true
+    },
+    {
+      "key": "english_vet_6",
+      "title": "🇬🇧 Английский (Vet)(Ex 6)",
+      "group": "Другие языки",
+      "file": "langs/eng_vet_6.json",
+      "storageKey": "flashcards_state_v2_english_vet_6",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите слово на английском...",
+      "frontLabel": "Слово (английский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "например: water",
+      "backPlaceholder": "например: вода",
+      "requiresUnlock": true
     }
   ]
 }
