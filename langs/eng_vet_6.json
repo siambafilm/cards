@@ -1,167 +1,152 @@
 [
   {
-    "id": "8f71a56dfc37e56a",
-    "front": "disorder [дисОрдэр]",
-    "back": "расстройство"
+    "id": "c9d0e1f2a3b4c5d1",
+    "front": "agrarian [эгрЭриэн]",
+    "back": "аграрный, сельскохозяйственный"
   },
   {
-    "id": "bc0bed82bcb79152",
-    "front": "injury [Инджэри]",
-    "back": "травма, повреждение"
+    "id": "d0e1f2a3b4c5d6e2",
+    "front": "both ... and [бОус ... энд]",
+    "back": "как и ... так и"
   },
   {
-    "id": "b6795db73323bde4",
-    "front": "scope [скОуп]",
-    "back": "сфера, границы, возможности"
+    "id": "e1f2a3b4c5d6e7f3",
+    "front": "cattle [кЭтл]",
+    "back": "скот"
   },
   {
-    "id": "d575646bf5b32973",
-    "front": "species [спИшиз]",
-    "back": "вид"
+    "id": "f2a3b4c5d6e7f8a4",
+    "front": "coincidence [коуИнсидэнс]",
+    "back": "совпадение"
   },
   {
-    "id": "fdfa2e974498e4b1",
-    "front": "incantation [инкэнтЭйшн]",
-    "back": "заклинание"
+    "id": "a3b4c5d6e7f8a9b5",
+    "front": "contaminate [кэнтЭминэйт]",
+    "back": "заражать"
   },
   {
-    "id": "c8c2924748ab16de",
-    "front": "cure [кьюэ]",
+    "id": "b4c5d6e7f8a9b0c6",
+    "front": "department [дипАтмэнт]",
+    "back": "кафедра"
+  },
+  {
+    "id": "c5d6e7f8a9b0c1d7",
+    "front": "disease [дизИз]",
+    "back": "болезнь"
+  },
+  {
+    "id": "d6e7f8a9b0c1d2e8",
+    "front": "disposal [диспОузл]",
+    "back": "использование"
+  },
+  {
+    "id": "e7f8a9b0c1d2e3f9",
+    "front": "educational [эджукЭйшэнл]",
+    "back": "образовательный"
+  },
+  {
+    "id": "f8a9b0c1d2e3f4a0",
+    "front": "engage [ингЭйдж]",
+    "back": "вовлекать"
+  },
+  {
+    "id": "a9b0c1d2e3f4a5b1",
+    "front": "entering [Энтэринг]",
+    "back": "поступление в ВУЗ"
+  },
+  {
+    "id": "b0c1d2e3f4a5b6c2",
+    "front": "equipment [иквИпмэнт]",
+    "back": "оборудование"
+  },
+  {
+    "id": "c1d2e3f4a5b6c7d3",
+    "front": "graduate [грЭджуэт]",
+    "back": "выпускник"
+  },
+  {
+    "id": "d2e3f4a5b6c7d8e4",
+    "front": "implement [Имплимэнт]",
+    "back": "внедрять, реализовывать"
+  },
+  {
+    "id": "e3f4a5b6c7d8e9f5",
+    "front": "introduce [интрэдЬЮс]",
+    "back": "вводить, внедрять"
+  },
+  {
+    "id": "f4a5b6c7d8e9f0a6",
+    "front": "knowledge [нОлидж]",
+    "back": "знания"
+  },
+  {
+    "id": "a5b6c7d8e9f0a1b7",
+    "front": "necessary [нЭсэсэри]",
+    "back": "необходимо"
+  },
+  {
+    "id": "b6c7d8e9f0a1b2c8",
+    "front": "obstetrics [обстЭтрикс]",
+    "back": "акушерство"
+  },
+  {
+    "id": "c7d8e9f0a1b2c3d9",
+    "front": "opportunities [опэтЬЮнитиз]",
+    "back": "возможности"
+  },
+  {
+    "id": "d8e9f0a1b2c3d4e0",
+    "front": "preventing [привЭнтинг]",
+    "back": "предотвращающий"
+  },
+  {
+    "id": "e9f0a1b2c3d4e5f1",
+    "front": "primary [прАймэри]",
+    "back": "первичный, основной"
+  },
+  {
+    "id": "f0a1b2c3d4e5f6a2",
+    "front": "provide [прэвАйд]",
+    "back": "обеспечивать"
+  },
+  {
+    "id": "a1b2c3d4e5f6a7b3",
+    "front": "research [рисЁч]",
+    "back": "исследование"
+  },
+  {
+    "id": "b2c3d4e5f6a7b8c4",
+    "front": "scientific [саэнтИфик]",
+    "back": "научный"
+  },
+  {
+    "id": "c3d4e5f6a7b8c9d5",
+    "front": "skills [скилз]",
+    "back": "умения, навыки"
+  },
+  {
+    "id": "d4e5f6a7b8c9d0e6",
+    "front": "surgery [сЁджэри]",
+    "back": "хирургия"
+  },
+  {
+    "id": "e5f6a7b8c9d0e1f7",
+    "front": "towards [тэвОдз]",
+    "back": "по направлению к"
+  },
+  {
+    "id": "f6a7b8c9d0e1f2a8",
+    "front": "treating [трИтинг]",
     "back": "лечение"
   },
   {
-    "id": "1b33b8f73771c4a9",
-    "front": "physician [физИшн]",
-    "back": "врач, терапевт"
+    "id": "a7b8c9d0e1f2a3b9",
+    "front": "undergraduate [андэгрЭджуэт]",
+    "back": "старшекурсник"
   },
   {
-    "id": "951c1be9191b3483",
-    "front": "surgeon [сЁджэн]",
-    "back": "хирург"
-  },
-  {
-    "id": "a1b2c3d4e5f6a7b8",
-    "front": "nurse [нЁс]",
-    "back": "медсестра, санитарка"
-  },
-  {
-    "id": "b2c3d4e5f6a7b8c9",
-    "front": "dentistry [дЭнтистри]",
-    "back": "стоматология"
-  },
-  {
-    "id": "c3d4e5f6a7b8c9d0",
-    "front": "farrier [фЭриэ]",
-    "back": "кузнец"
-  },
-  {
-    "id": "d4e5f6a7b8c9d0e1",
-    "front": "livestock [лАйвсток]",
-    "back": "домашний скот"
-  },
-  {
-    "id": "e5f6a7b8c9d0e1f2",
-    "front": "behavior [бихЭйвйэ]",
-    "back": "поведение"
-  },
-  {
-    "id": "f6a7b8c9d0e1f2a3",
-    "front": "to include [ту инклУд]",
-    "back": "включать"
-  },
-  {
-    "id": "a7b8c9d0e1f2a3b4",
-    "front": "to perform [ту пэфОм]",
-    "back": "выполнять"
-  },
-  {
-    "id": "b8c9d0e1f2a3b4c5",
-    "front": "to obtain [ту эбтЭйн]",
-    "back": "получать"
-  },
-  {
-    "id": "c9d0e1f2a3b4c5d6",
-    "front": "to inspire [ту инспАйэ]",
-    "back": "вдохновлять"
-  },
-  {
-    "id": "d0e1f2a3b4c5d6e7",
-    "front": "reviewing [ривьЮинг]",
-    "back": "обзор"
-  },
-  {
-    "id": "e1f2a3b4c5d6e7f8",
-    "front": "to reveal [ту ривИл]",
-    "back": "показывать, раскрывать"
-  },
-  {
-    "id": "f2a3b4c5d6e7f8a9",
-    "front": "to accompany [ту экАмпэни]",
-    "back": "сопровождать, сопутствовать"
-  },
-  {
-    "id": "a3b4c5d6e7f8a9b0",
-    "front": "to commit [ту кэмИт]",
-    "back": "совершать"
-  },
-  {
-    "id": "b4c5d6e7f8a9b0c1",
-    "front": "astonishing [эстОнишинг]",
-    "back": "удивительный"
-  },
-  {
-    "id": "c5d6e7f8a9b0c1d2",
-    "front": "to retain [ту ритЭйн]",
-    "back": "удерживать, помнить"
-  },
-  {
-    "id": "d6e7f8a9b0c1d2e3",
-    "front": "dairy cattle [дЭри кЭтл]",
-    "back": "молочный скот"
-  },
-  {
-    "id": "e7f8a9b0c1d2e3f4",
-    "front": "swine [свайн]",
-    "back": "свинья"
-  },
-  {
-    "id": "f8a9b0c1d2e3f4a5",
-    "front": "poultry [пОултри]",
-    "back": "домашняя птица"
-  },
-  {
-    "id": "a9b0c1d2e3f4a5b6",
-    "front": "exam room [игзЭм рум]",
-    "back": "смотровая"
-  },
-  {
-    "id": "b0c1d2e3f4a5b6c7",
-    "front": "to spook [ту спУк]",
-    "back": "пугать"
-  },
-  {
-    "id": "c1d2e3f4a5b6c7d8",
-    "front": "anxious [Энкшэс]",
-    "back": "встревоженный, обеспокоенный"
-  },
-  {
-    "id": "d2e3f4a5b6c7d8e9",
-    "front": "to span [ту спЭн]",
-    "back": "охватывать"
-  },
-  {
-    "id": "e3f4a5b6c7d8e9f0",
-    "front": "inevitable [инЭвитэбл]",
-    "back": "неизбежный, неминуемый"
-  },
-  {
-    "id": "f4a5b6c7d8e9f0a1",
-    "front": "cohort [кОухот]",
-    "back": "когорта, сторонник"
-  },
-  {
-    "id": "a5b6c7d8e9f0a1b2",
-    "front": "holistic [хоулИстик]",
-    "back": "целостный"
+    "id": "b8c9d0e1f2a3b4c0",
+    "front": "warehouses [уЭэхаузиз]",
+    "back": "склады"
   }
 ]
