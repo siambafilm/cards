@@ -282,6 +282,20 @@
       "backPlaceholder": "например: смешай, чтобы получилось"
     },
     {
+      "key": "prilagat_sto",
+      "title": "🔤 100 слов - прилагательные",
+      "group": "Основные",
+      "file": "langs/prilagat_sto.json",
+      "storageKey": "flashcards_state_v2_prilagat_sto",
+      "questionField": "back",
+      "answerField": "front",
+      "placeholder": "Введите латинский термин или выражение...",
+      "frontLabel": "Термин / выражение (латинский)",
+      "backLabel": "Перевод (русский)",
+      "frontPlaceholder": "anterior",
+      "backPlaceholder": "передний"
+    },
+    {
       "key": "english",
       "title": "🇬🇧 Английский",
       "group": "Другие языки",
